@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05.块级元素和行内元素相互转换</title>
+	<style type="text/css" media="screen">
+		p{display:inline;width:200px;height:200px;background:#ccc;}
+		b{display:block;}
+		/*div{display:inline-block;height:30px;width:400px;background:pink;}*/
+		.box{width:100px;height:40px;background:#ccc;line-height:40px;text-align:center;}
+		.main{width:100px;height:100px;background:pink;line-height:100px;text-align:center;display:none;}
+		.box:hover .main{display:block;}
+	</style>
+</head>
+<body>
+	<p>块级元素和行内元素相互转换</p>
+	<span>123</span>
+	<b>行内元素装换为块级元素</b>
+	<div>
+		块级元素装换为行内块元素
+	</div>
+	<span>123</span>
+	<div class="box">导航
+		<div class="main">
+			小菜单
+		</div>
+	</div>
+</body>
+</html>

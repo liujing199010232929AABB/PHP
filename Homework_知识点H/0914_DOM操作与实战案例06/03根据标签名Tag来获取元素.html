@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>根据标签名Tag来获取元素</title>
+</head>
+<body>
+<!--ul>li{列表项$$}*5-->
+<ul>
+    <li>列表项01</li>
+    <li>列表项02</li>
+    <li>列表项03</li>
+    <li>列表项04</li>
+    <li>列表项05</li>
+</ul>
+
+<script>
+   //getElementsByTagName(),根据标签名称获取元素,返回一个元素集合,有length属性,可以当数组来访问
+    let ul = document.getElementsByTagName('ul')[0];
+    ul.style.backgroundColor = 'lightgreen';
+
+    //元素集合也是一个对象,上面定义了一个方法:item()也可以获取指定元素
+    let ul1 = document.getElementsByTagName('ul').item(0);
+    ul1.style.backgroundColor = 'lightblue';
+
+    //获取所有的li元素
+    let lists = document.getElementsByTagName('li');
+    console.log(lists);  //返回一个html元素集合: HTMLCollection
+    for (let i = 0; i < lists.length; i++) {
+        lists[i].style.backgroundColor = 'lightpink';
+    }
+
+    //getElementsByTagName()不仅在document对象上有定义,在Element元素对象上也有定义
+    let ul2 = document.getElementsByTagName('ul').item(0);  // 获取ul
+    let item2 = ul2.getElementsByTagName('li').item(1); // 在父元素上调用该方法,获取ul中的第二个列表项
+    item2.style.backgroundColor = 'green';
+</script>
+</body>
+</html>

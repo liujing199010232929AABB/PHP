@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax中的$.get()</title>
+</head>
+<body>
+<h3>江湖门派查询系统$.get()</h3>
+<label for="school">请选择:</label>
+<select name="school" id="school"></select>
+<p id="detail"></p>
+
+<script src="../lib/jquery.js"></script>
+<script>
+    $.get('inc/school.php',function(data,status){
+        if (status === 'success') {
+            // $(data).appendTo('#school');
+            $('#school').html(data);    // 另一种写法
+        }
+    });
+
+    $('#school').change(function (event) {
+        // console.log($(this).serialize());
+        $.get(
+            'inc/detail.php',   // 请求的url地址
+
+            {key: $(event.target).val()},   // 请求参数,以对象字面量形式
+
+            function (data,status){     // 请求成功的回调方法
+                // console.log(status);    // success
+                if (status === 'success') {
+                    $('#detail').html(data);
+                    $('[value=""]').remove();
+                } else {    //出错,未拿到响应数据
+                    $('#detail').html('<span style="color:red">请求错误</span>');
+                }
+            },
+            'html'  // 响应数据的格式,html/json/xml可省,会自动判断
+        );
+    });
+</script>
+</body>
+</html>

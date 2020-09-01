@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02.后台管理系统的登录页面（layui表单模块）</title>
+	<link rel="stylesheet" type="text/css" href="Admin/static/layui/css/layui.css">
+	<script type="text/javascirpt" src="Admin/static/layui/layui.js"></script>
+</head>
+<body style="background:#008AFF;">
+	<div style="width:500px;margin:270px auto 0px;"> 
+		<div style="background:#fff;border-radius:4px;box-shadow:5px 5px 20px #444;padding:20px;">
+			<form class='layui-form'>
+				<div class="layui-form-item" style="color:#ccc;">
+					<h2>后台管理系统</h2>
+				</div>
+				<hr>
+				<div class="layui-form-item">
+				  <label class="layui-form-label">用户名</label>
+				  <div class="layui-input-block">
+				      <input type="text" placeholder="请输入用户名" class="layui-input">
+				  </div>
+				</div>
+				<div class="layui-form-item">
+				  <label class="layui-form-label">密码</label>
+				  <div class="layui-input-block">
+				      <input type="password"placeholder="请输入密码"class="layui-input">
+				  </div>
+				</div>
+				<div class="layui-form-item">
+				  <label class="layui-form-label">验证码</label>
+				  <div class="layui-input-inline">
+				      <input type="password"class="layui-input">
+				  </div>
+				  <img src="Admin/static/images/verify.png" style="width:130px;height:40px;margin-top:0px;">
+				</div>
+				<div class="layui-form-item">
+				    <div class="layui-input-block">
+				      <button class="layui-btn" lay-submit lay-filter="formDemo">登录</button>
+				    </div>
+			    </div>
+			</form>
+		</div>
+	</div>
+
+
+</body>
+</html>

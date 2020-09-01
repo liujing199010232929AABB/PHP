@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="../lib/jquery.js"></script>
+<script>
+    // 在页面中使用js运用的创建一个按钮
+    $.getScript('inc/demo.js',function () {
+        // 将按钮设置为淡出
+        // $('button').fadeOut(3000);
+        $('button').fadeTo(3000,0.3);
+    });
+</script>
+</body>
+</html>

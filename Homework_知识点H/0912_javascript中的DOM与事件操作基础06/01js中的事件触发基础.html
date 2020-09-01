@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+</head>
+<body>
+<!--<a href="images/zly.jpg" onclick="window.open(this.href,'','width=300,height=300,top=100,left:200');return false;">查看我的相片</a>-->
+<!--<a href="images/zly.jpg" onclick="show(this);return false;">查看我的相片</a>-->
+<a href="images/zly.jpg">查看我的相片</a>
+<script>
+    function show(pic) {
+        window.open(pic.href,'','width=300,height=300,top=100,left:200');
+    }
+</script>
+
+<script>
+    let obj = document.getElementsByTagName('a')[0];
+    obj.onclick = function (event) {
+        // alert(event.type);
+        window.open(this.href,'','width=300,height=300,top=100,left:200');
+        return false;
+    }
+
+    DOM: Document Object Model; 文档对象模型
+</script>
+</body>
+</html>

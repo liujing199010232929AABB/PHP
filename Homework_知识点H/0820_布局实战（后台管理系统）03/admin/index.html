@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./static/css/style.css">
+    <title>网站后台模板</title>
+</head>
+<body>
+<!--顶部信息区-->
+<header role="header">
+    <div>
+        <h1>后台管理系统</h1>
+        <nav role="user">
+            <ul>
+                <li>欢迎管理员:<strong>admin</strong></li>
+                <li><a href="modify_pass.html" target="main">修改密码</a></li>
+                <li><a href="javascript:void(0);" onclick="logout()">退出登录</a></li>
+            </ul>
+
+        </nav>
+    </div>
+
+</header>
+
+<!--圣杯二列布局-->
+<main role="main">
+    <!--主体内联框架区-->
+    <article role="content">
+        <iframe src="welcome.html"  name="main"></iframe>
+        <footer role="copyright">
+            <p><a href="http://php.cn">php.cn</a> &copy;版权所有</p>
+        </footer>
+    </article>
+
+    <!--左侧导航区-->
+    <aside>
+        <nav role="option">
+            <ul>
+                <li><a href="setting.html" target="main">系统设置</a></li>
+                <li><a href="user.html" target="main">用户管理</a></li>
+                <li><a href="article.html" target="main">文档管理</a></li>
+                <li><a href="category.html" target="main">分类管理</a></li>
+                <li><a href="product.html" target="main">产品管理</a></li>
+            </ul>
+        </nav>
+    </aside>
+</main>
+</body>
+</html>
+
+<script>
+    function logout() {
+        if (window.confirm('是否退出?')) {
+            window.location.href = 'login.html';
+        } else {
+            return false;
+        }
+    }
+</script>

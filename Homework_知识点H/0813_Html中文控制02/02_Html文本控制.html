@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>文本控制</title>
+	<style type="text/css">
+		p{font-weight:bold;/*定义粗体*/
+			 font-size:30px; /* 定义字体大小*/
+			 font-family:楷体; /*定义字体*/
+			
+		    }
+	    h1{ text-align:center;/*left right*/
+	    	height: 100px;
+	    	background: #ccc;
+	    	line-height:100px;/*定义行高*/
+	    	 }
+	    span{font-size: 40px;font-weight: bold;font-family: georgia;}
+	    img{width: 300px;height: 400px;}
+	    b{  display: block;
+	    	width: 300px;
+	    	height: 40px;
+	    	background: pink;
+	    	overflow: hidden;/*溢出隐藏*/
+	         margin-bottom: 100px;
+	    }
+	    b:hover{overflow: visible;}/*默认值，内容不会被修剪，元素会被呈现在元素框之外；*/
+	</style>
+</head>
+<body>
+<h1>php中文网</h1>
+<p>php中文网</p>
+<br>
+<!-- 谷歌logo -->
+<span style="color:#0388F1">G</span>
+<span style="color: rgb(245,28,39);">o</span>
+<span style="color: #FFE80E">o</span>
+<span style="color:#0388F1">g</span>
+<span style="color:#39FF1B">l</span>
+<span style="color: #FFE80E">e</span>
+<!-- 图文混排 -->
+<br>
+<p style="display: inline-block;width: 300px;height: 400px;">据Engadget消息，谷歌可能让多款Chromebook支持Windows 10系统。谷歌正在研发一种新功能Campfire，它可让Pixelbook同时支持Chrome OS和Windows 10。前提是笔记本硬件必须达到运行Windows 10的最基本标准。此外安装Windows10至少需要40GB存储空，。
+</p>
+<img src="images/1.jpg">
+<br><br>
+<img src="images/1.jpg">
+<b>据Engadget消息，谷歌可能让多款Chromebook支持Windows 10系统。谷歌正在研发一种新功能Campfire，它可让Pixelbook同时支持Chrome OS和Windows 10。前提是笔记本硬件必须达到运行Windows 10的最基本标准。此外安装Windows10至少需要40GB存储空，。
+</b>
+</body>
+</html>

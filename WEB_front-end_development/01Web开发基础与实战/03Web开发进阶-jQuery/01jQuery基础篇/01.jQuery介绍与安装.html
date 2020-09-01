@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01.jQuery介绍与安装</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// $str="我是一个声明变量";
+			// alert($str);
+			$("div").hide();
+			$("button").click(function(){
+				$("div").show();
+			})
+
+		})
+	</script>
+	<div style="width:100px;height:100px;background:pink;"></div>
+	<button>点击</button>	
+</body>
+</html>

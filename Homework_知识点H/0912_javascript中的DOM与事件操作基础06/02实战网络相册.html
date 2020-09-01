@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实战: 明星网络相册</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 700px;
+            background-color: #efefef;
+            border: 1px solid lightgrey;
+            margin: 20px auto;
+            text-align: center;
+            color: #636363;
+            box-shadow: 2px 2px 2px #999;
+        }
+
+        .box ul {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .box ul li {
+            list-style-type: none;
+            float: left;
+            background-color: skyblue;
+            margin-left: 20px;
+        }
+
+        .box ul li a {
+            display: block;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            color: white;
+            text-decoration-line: none;
+        }
+        .box ul li:hover {
+            font-size: 1.2rem;
+            background-color: coral;
+        }
+
+        .box .pic {
+            width: 450px;
+            height: 450px;
+            border: 1px solid lightgrey;
+            margin: 50px auto 0;
+        }
+
+        .box .pic img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>明星相册</h2>
+    <ul>
+        <li><a href="images/zly.jpg" title="《楚乔传》,《花千骨》,《陆贞传奇》..." onclick="changePic(this);return false;">赵丽颖</a></li>
+        <li><a href="images/gyy.jpg" title="《咱们结婚吧》,《倚天屠龙记》,《爱无悔》..." onclick="changePic(this);return false;">高圆圆</a></li>
+        <li><a href="images/sl.jpg" title="《那年花开月正圆》,《甄嬛传》,《玉观音》..." onclick="changePic(this);return false;">孙俪</a></li>
+        <li><a href="images/fbb.jpg" title="《还珠格格》,《武媚娘传奇》,《我不是潘金莲》..." onclick="changePic(this);return false;">范冰冰</a></li>
+    </ul>
+    <!--图片显示区-->
+    <div class="pic">
+        <img src="images/zwt.png" alt="" id="img">
+    </div>
+    <!--图片说明区-->
+    <p id="info"></p>
+</div>
+</body>
+</html>
+
+<script>
+    function changePic(pic) {
+        //1.获取到图片信息
+        let picUrl = pic.href; // 图片地址
+        let picInfo = pic.title; // 图片信息
+        let picName = pic.innerHTML; //元素内容
+
+        // 2.获取页面中需要被替换的内容
+        let img = document.getElementById('img');
+        let p = document.getElementById('info');
+
+        //3. 将对应的图片和信息占位符进行替换
+        img.src = picUrl;
+        p.innerHTML = '<span style="color:coral">'+picName + ': ' + picInfo+'</span>';
+
+    }
+</script>

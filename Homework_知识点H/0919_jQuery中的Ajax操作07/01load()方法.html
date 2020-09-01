@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>load()方法</title>
+</head>
+<body>
+    <h3>江湖门派查询系统load()</h3>
+    <label for="school">请选择:</label>
+    <select name="school" id="school"></select>
+    <p id="detail"></p>
+    <script src="../lib/jquery.js"></script>
+    <script>
+        $('#school')    // 获取下拉列表
+            .load('inc/school.php') //从服务器获取数据
+            .change(function (event) {
+                $('#detail').load(
+                    //事件处理的脚本
+                    'inc/detail.php',
+                    // 发送到服务器上的数据
+                    {key: $(event.target).val()},
+                    // 成功后的回调处理方法
+                    function () {
+                        // console.log($(event.target).val())
+                        $('[value=""]').remove();
+                    }
+                );
+            })
+
+    </script>
+</body>
+</html>

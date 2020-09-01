@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>挂载点与变量显示</title>
+</head>
+<body>
+    <!--创建一个挂载点-->
+    <div id="box">
+        <!--以插值的方式显示内容-->
+        {{message1}}
+
+        <!--使用模板指令v-text显示一个变量-->
+        <p v-text="message1"></p>
+
+        <!--如果变量中有html标签-->
+        <!--v-text指定是将变量内容原样输出,不会解析文本中的html标签-->
+        <p v-text="message2"></p>
+
+        <!--如果想显示一个带有html标签的字符串,需要用v-html指令:类似js中的innerHTML-->
+        <p v-html="message2"></p>
+    </div>
+
+<script src="js/vue.js"></script>
+<script>
+    // 创建Vue实例:用一个对象字面量做为参数
+    new Vue({
+        //绑定挂载点
+        el: '#box',
+        //data属性: 创建数据模型:对应MVVM设计模式中的Model层
+        data: {
+            //显示一个变量
+            message1: 'Vue.js开发基础',
+            //如果变量的内容是一个有html标签的文本
+            message2: '<h3 style="color:red">php中文网</h3>'
+        }
+    });
+</script>
+
+</body>
+</html>

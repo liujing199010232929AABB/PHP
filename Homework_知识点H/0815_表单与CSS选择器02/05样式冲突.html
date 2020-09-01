@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式冲突</title>
+    <!--引入外部样式表文件:style-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--1.与样式声明的位置相关-->
+<!--内部样式声明,仅适用当前文档-->
+<style>
+    h2 {
+        /*color: cyan;*/
+        /*3重要性级别最高 !important,内联样式都会被覆盖,江湖大哥*/
+        color: cyan!important;
+        /*2.与样式声明的顺序相关,相同样式规则之间互相层叠覆盖*/
+        color: gold;  /*金色覆盖青色*/
+    }
+</style>
+<!--内联样式声明,仅适用于当前元素-->
+<!--优先级: 内联 > 内部 > 外部 (特殊性越小,优先级别越低)-->
+<!--<h2>《CSS权威指南》</h2>-->
+<!--<h2 style="color: coral">《CSS权威指南》</h2>-->
+
+</body>
+</html>

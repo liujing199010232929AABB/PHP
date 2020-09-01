@@ -1,0 +1,104 @@
+<h2>购物清单</h2>
+<p>牛奶</p>
+<p>苹果</p>
+<p>电风扇</p>
+<hr> <!-- 我是一条苦逼的分隔线 -->
+<!-- 如果多个段落中的内容具有关联性,应该使用列表来包装数据更合适 -->
+<ul>
+	<li>牛奶</li>
+	<li>苹果</li>
+	<li>电风扇</li>
+</ul>
+
+<!-- 如果我没有时间去超市买,可以委托同事,例如西门老师去帮我买,那这个清单就是有问题的,因为西门老师不知道我具体要买什么样的 -->
+
+<!-- 如果要对一组相关事物具体描述,可以使用表格标签来实现 -->
+
+<hr> <!-- 我是一条苦逼的分隔线 -->
+
+<style type="text/css">
+	table {		
+		border-collapse: collapse; /*折叠表格线*/
+		width: 700px;
+		text-align: center;
+		margin: 20px auto;
+	}
+	table caption {
+		font-size: 2rem;
+		font-weight: bolder;
+		color: #666;
+		margin-bottom: 20px;
+	}
+	table, th, td {
+		border: 1px solid #666;
+		
+	}
+	
+
+	table tr:first-child {
+		background-color: lightgreen;
+	}
+
+	table tr:hover {
+		background-color: #efefef;
+		color: coral;
+	}
+
+	table tr td img {
+		padding: 5px;
+		border-radius: 10px;
+	}
+
+	table tr td a {
+		text-decoration: none;
+		width:140px;
+		height:40px;
+		padding:5px;
+		border:1px solid black;
+		background: white;
+		color:black;
+		border-radius: 8px;
+	}
+
+	table tr td a:hover {
+		background: black;
+		color:white;
+	}
+
+</style>
+
+<table>
+	<caption>购物清单</caption>
+	<tr>
+		<th>编号</th>
+		<th>名称</th>
+		<th>品牌</th>
+		<th>数量</th>
+		<th>约略图</th>
+		<th>购买</th>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>牛奶</td>
+		<td>伊利</td>
+		<td>1箱</td>
+		<td><img src="images/milk.jpg" width="100"></td>
+		<td><a href="http://jd.com">点击购买</a></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>苹果</td>
+		<td>红富士</td>
+		<td>5斤</td>
+		<td><img src="images/apple.jpg" width="100"></td>
+		<td><a href="http://jd.com">点击购买</a></td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>电风扇</td>
+		<td>美的</td>
+		<td>1台</td>
+		<td><img src="images/fan.jpg" width="100"></td>
+		<td><a href="http://jd.com">点击购买</a></td>
+	</tr>
+</table>

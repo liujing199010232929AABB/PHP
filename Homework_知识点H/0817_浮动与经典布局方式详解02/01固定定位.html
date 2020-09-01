@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>固定定位</title>
+</head>
+<body>
+    <!--
+    1. 固定定位与绝对定位是双胞胎,唯一的区别是定位父级不同.
+    2. 绝对定位是相对于它最近的有定位属性的父级区块进行定位;
+    3. 固定定位永远相对于当前的窗口进行定位(body)
+    -->
+
+    <style>
+        .box1 {
+            position: fixed;
+            bottom: 0; /*底部*/
+            right: 0; /*右边*/
+        }
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+        }
+    </style>
+
+    <div class="box1">
+        <a href="http://php.cn/k.html"><img src="images/ads.jpg" alt="广告"></a>
+        <span class="close">X</span>
+
+        <!--等学到js,再教大家如何关闭掉这个广告-->
+        <!--<span class="close" onclick="this.parentNode.style.display='none' ">X</span>-->
+
+    </div>
+</body>
+</html>

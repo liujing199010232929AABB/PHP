@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02.如何根据name属性获取元素？</title>
+</head>
+<body>
+	<form action="" name="login">
+		<input type="text" name="username">
+		<input type="password" name="password">
+		<button type="" name="button">提交</button>
+	</form>
+	<script>
+		let login = document.getElementsByName('login')[0];
+		console.log(login);
+		login.style.backgroundColor = 'yellow';
+		let login1 = document.login;
+		console.log(login1);
+		login1.style.backgroundColor = 'green';
+	</script>
+	
+</body>
+</html>

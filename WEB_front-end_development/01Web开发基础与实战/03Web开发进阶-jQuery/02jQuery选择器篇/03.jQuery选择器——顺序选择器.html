@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03.jQuery选择器——顺序选择器</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// $('p:first').css('color','red');
+			// $('p:last').css('color','blue');
+			$('p:gt(1)').css('font-size','20px');
+			$('p:odd').css('background','#ccc');
+			$('p:not(#box)').css('background','red');
+		})
+	</script>
+	
+
+</body>
+<p id="box">1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>6</p>
+</html>

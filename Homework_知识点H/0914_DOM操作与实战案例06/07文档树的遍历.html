@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文档树的遍历</title>
+</head>
+<body>
+<ul>
+    <li>我是列表项01</li>
+    <li>我是列表项02</li>
+    <li>我是列表项03</li>
+    <li>我是列表项04</li>
+    <li>我是列表项05</li>
+</ul>
+
+<script>
+    //文档中所有内容都有节点
+    //每个节点有三个属性:
+    // 1.nodeType节点类型,常用的有: 1->元素, 3->文本, 9->文档
+    // 2.nodeName节点名称(标签名),仅元素节点有意义,其它节点返回null
+    // 3.nodeValue节点值(仅文本或注释节点有意义)
+
+    //文档节点对象document是最顶层的
+    console.log(document.nodeName);
+    console.log(document.nodeType);
+    console.log(document.nodeValue);
+
+    //获取某父节点下的所有子节点: childNodes()
+    console.log(document.childNodes);  // 文档类型与<html>节点
+    //如果想获取到<body>节点,应该如何操作呢?
+    console.log(document.childNodes[1]);  //html
+    console.log(document.childNodes[1].childNodes[1]);  //理论上应该拿到body,但是并不成功
+    // 原因是节点方法不会忽略页面的空白字符,例如回车换行等,都会加入到子节点中
+    // 可以查看一下当前获取的节点类型
+    console.log(document.childNodes[1].childNodes[1].nodeType);  // 3 文本节点
+    // 所以再往下走一步,就可以拿到<body>啦
+    console.log(document.childNodes[1].childNodes[2]);  // <body>
+    //每次都要进行节点类型的判断很麻烦,而我们主要关心只是元素节点,有没有更好的办法呢?
+    // 当然有,js提供了一套API,将文档树看成仅仅由元素组成的,忽略掉内部的文本和注释等节点
+    // 下面我们再完成以上的工作: 获取<body>元素
+    console.log(document.children[0]);  // 自动过滤掉了非元素节点,只返回了<html>
+    console.log(document.children[0].children[1]);  // 自动过滤掉了文本节点,正确返回了<body>
+
+    //回到页面中的ul中,完成列表的遍历
+    //获取ul
+    let ul = document.children[0].children.item(1).children[0];
+    console.log(ul);    // 查看是否获取到了ul 列表
+    ul.firstElementChild.style.backgroundColor = 'lightblue';   //第一个子元素
+    ul.lastElementChild.style.backgroundColor = 'lightgreen';   //最后一个子元素
+    console.log(ul.childElementCount);      // 子元素的数量
+    // 子元素数量也可以这样计算
+    console.log(ul.children.length);
+
+    // 获取ul中的第三个子元素
+    let li1 = ul.children.item(2);
+    console.log(li1);       // <li>我是列表项03</li>
+
+    li1.nextElementSibling.style.backgroundColor = 'yellow';        // 下一下兄弟元素
+    li1.previousElementSibling.style.backgroundColor = 'cyan';    // 上一个兄弟元素
+
+    //获取当前元素的父元素
+    li1.parentElement.style.backgroundColor = 'wheat';
+
+    //获取父节点时候,使用原始的节点方法也是可以的,因为父节点不可能是文本或注释节点
+    li1.parentNode.style.backgroundColor = 'red';
+
+
+
+
+
+</script>
+</body>
+</html>

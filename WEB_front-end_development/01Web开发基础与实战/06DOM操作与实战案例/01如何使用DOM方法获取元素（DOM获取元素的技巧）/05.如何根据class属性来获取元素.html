@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05.如何根据class属性来获取元素？</title>
+</head>
+<body>
+	<ul class="ul">
+		<li class="red">列表项01</li>
+		<li>列表项02</li>
+		<li class="green">列表项03</li>
+		<li>列表项04</li>
+		<li class="coral large">列表项05</li>
+	</ul>
+	
+	<script>
+		let red = document.getElementsByClassName('red');
+		console.log(red);
+		red[0].style.backgroundColor ='red';
+
+		document.getElementsByClassName('ul').item(0)
+		        .getElementsByClassName('green').item(0)
+		        .style.backgroundColor = 'green';
+
+		let large =document.getElementsByClassName('coral large')[0];
+		large.style.backgroundColor = 'coral';
+		large.style.fontSize = '1.5rem';
+
+	</script>
+</body>
+</html>

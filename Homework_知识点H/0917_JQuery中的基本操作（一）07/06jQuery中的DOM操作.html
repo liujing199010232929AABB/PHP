@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery中的DOM操作</title>
+</head>
+<body>
+<ul>
+    <li>列表项01</li>
+    <li>列表项02</li>
+    <li>列表项03</li>
+    <li>列表项04</li>
+    <li>列表项05</li>
+</ul>
+
+<script src="../lib/jquery.js"></script>
+<script>
+    // (1).插入与替换:
+    //      [1]append()和appendTo(): 将当前元素添加到父元素内部的尾部
+    //          1.$(父元素).append(当前元素);
+    //          2.$(当前元素).appendTo(父元素);
+    //      [2].prepend()和prependTo(): 将节点添加到父元素内部的头部
+    //          1.$(父元素).prepend(当前元素);
+    //          2.$(当前元素).prependTo(父元素);
+    //      [3].after()和insertAfter():将元素插入到当前节点的后面
+    //          1.$(前).after(后);
+    //          2.$(后).insertAfter(前)
+    //      [4].before()和insertBefore():将元素插入到当前节点的前面
+    //          1.$(后).before(前);
+    //          2.$(前).insertBefore(后)
+    //      [5].replaceWith()和replaceAll():替换掉匹配的html内容
+    //          1. $(原).replaceWith(新);
+    //          2. $(新).replaceAll(原);
+    // (2).empty():删除匹配到的元素集合中所有的子节点
+    // (3).remove(可用selector):删除匹配的元素
+
+    //元素内部添加
+    $('ul').append('<li>新元素1</li>');        // 添加到尾部
+    $('<li>新元素2</li>').appendTo('ul');      // 添加到尾部
+    $('ul').prepend('<li>新元素3</li>');       // 添加到头部
+    $('<li>新元素4</li>').prependTo('ul');     // 添加到头部
+
+    //元素前后添加
+    $('li:eq(2)').after('<li>新元素5</li>');   // 元素后添加
+    $('<li>新元素6</li>').insertAfter('li:eq(4)');
+
+    //替换:将li文本包含有: "新元素"内部的元素全部替换成指定元素
+    $('li:contains("新元素")').replaceWith('<li style="color:red">新元素</li>');
+    $('<li style="color:lightgreen">新元素</li>').replaceAll('li:contains("新元素")');
+
+    //删除
+    // $('li').remove();    // 不传参数是全部删除
+    // $('li').remove(':odd'); // 删除奇数(从0开始)
+    $('ul').empty();    // 等价于 $('li').remove();
+
+
+
+</script>
+</body>
+</html>

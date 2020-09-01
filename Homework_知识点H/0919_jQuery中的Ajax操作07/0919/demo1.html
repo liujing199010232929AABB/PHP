@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax中的load()方法</title>
+</head>
+<body>
+<h3>江湖门派查询系统load()</h3>
+<label for="school">请选择:</label>
+<select name="school" id="school"></select>
+<p id="detail"></p>
+
+<script src="../lib/jquery.js"></script>
+<script>
+    $('#school')
+        .load('inc/school.php')
+        .change(function (event) {
+        // event.target: 返回触发事件的节点
+        $('#detail').load(
+            //事件处理脚本
+            'inc/detail.php',
+            // 'inc/detail.php img',    // url后可传入选择器名称,仅选择部分内容,例如只看图片img
+            //发送到服务器上的数据,实际上就是查询参数
+            {key: $(event.target).val()},
+            //
+            function (){
+                //使用属性选择器[value=""]删除<select>中的提示信息,event.target是上下文[可省]
+                // $('[value=""], event.target').remove();
+                $('[value=""]').remove();
+            }
+        );
+    });
+</script>
+</body>
+</html>

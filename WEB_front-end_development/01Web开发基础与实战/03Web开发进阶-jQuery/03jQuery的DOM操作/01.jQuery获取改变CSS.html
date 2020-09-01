@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01.jQuery获取/改变CSS</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			// $('body').css('backgroundColor','#ccc');
+			$('p').css({'color':'red','font-size':'40px','font-weight':'bold'})
+			alert($('div').css('height'));
+
+		})
+	</script>
+	<p>PHP中文网</p>
+	<div style="width:100px;height:100px;background:blue;">
+		
+	</div>
+</body>
+</html>

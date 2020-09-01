@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQueyr对象的核心访求与属性</title>
+</head>
+<body>
+
+<script src="../lib/jquery.js"></script>
+<script>
+    // (1).jQuery(selector[,context]):  jQuery('选择器', '上下文')
+    //     [1]:选择器: 兼容css2.0,3.0;
+    //     [2]:上下文: 就是选择元素的范围,默认是当前文档document对象,可选的
+    // (2).jQuery(html[,ownerDocument): jQuery('html标记字符','当前所在文档')
+    //     [1]:html可以一串字符串: $('<div>xxx</div>');
+    //     [2]:html标签属性可以写到标签里,也可以放一第二个js对象参数中
+    // $('<div>',{"class":"red",text:"Hello",click:function(){}};
+    // (3).$(funciton()): 是 $(document).ready()的缩写
+    //     [1].DOM树渲染完成,不必等待图片等资源加载完成就可以执行回调函数中的语句;
+    //     [2].$(function(){})内部仍然可以使用$(),并且不受外部$符冲突而重定义的影响;
+    //     [3].$(function(){}可调用多次,且不受调用位置的影响;
+    // (4).each(function(i,this){}):对每一个匹配的DOM元素执行回调函数
+    //     [1].回调内部this默认指向的是DOM元素,而非jQuery对象,除用$(this)转化;
+    //     [2].return fase:终止并退出,return true: 终止当前循环并进入下一次循环;
+    // (5).length属性:返回jQuery对象中的DOM元素数量
+    // (6).get(n)和[n]: 按索引返回jQuery对象集合中匹配到的DOM元素;
+    //     [1].因为jQuery对象集合由DOM元素组成,所以可以用这个方法将jQuery对象转为DOM对象;
+    //     [2].不传参数,就是获取到所有的DOM元素.
+    // (7).index(selector / element): index(选择器 / 元素)
+    //     [1].返回根据选择器或DOM元素在jQuery对象集合中的索引位置;
+    //     [2].不传参数则返回当前元素在jQuery元素集合中的位置;
+
+    //1.$(selector/html/obj/function())
+    $('<ul class="list"></ul>').appendTo('body');
+    $('.list').append($('<li>iPhone Xr上市了,你的肾还够用吗?</li>'));
+
+    //创建元素时添加元素
+    $('.list').append($('<li id="ten">我有10个,不怕</li>'));
+
+    //将创建元素的属性或方法,如果较多,推荐使用对象字面量的方式进行添加
+    $('.list').append($('<li>',{class:'iphone6sp',text:'我的6sp还能再战三年',click:function(){alert("iphone6sp")}}));
+
+    //$(function()):直接执行一个回调,这是执行jQuery代码最简单最常用的方式
+    $(function(){
+        $('.iphone6sp').css('color','red');
+    })
+
+    //each(function):对jquery对象中的每个元素进行回调处理,css()一会再详细介绍
+    $('li').each(function(){
+        //回调中this默认指向的DOM元素
+        // this.style.backgroundColor = 'lightgreen';
+        //如果想使用jquery中的方法,需要将DOM元素转为jquery对象
+        $(this).css('background-color','cyan');
+    });
+
+    //查看jQuery对象集合中的DOM数量
+    console.log($('li').length);
+
+    //get()和[],获取jquery对象中的dom,将jquery转为dom
+    $('li').get(0).style.backgroundColor = 'lightgreen'
+    $('li')[1].setAttribute('style','color: red');
+    console.log($('li').get().length);  //不传参数返回全部元素
+
+    // index(selector/element)
+    console.log($('li#ten').index());  // 返回为第二个dom的数字索引: 1
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>经典的三列圣杯布局</title>
+    <style type="text/css">
+        .header, .footer {
+            width: 100%;
+            height: 60px;
+            background-color: lightgray;
+        }
+
+        .footer {
+            clear: both;
+        }
+
+        .content {
+            width: 1000px;
+            height: 100%;
+            background-color: gray;
+            margin: auto;
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .container {
+            width: 600px;
+            background-color: yellow;
+
+            /*父容器自身以及内部所有区块main,left,right水平居中*/
+            margin:auto;
+
+            /*使它能包住浮动区块*/
+            overflow: hidden;
+
+            /*因为左右区块现在覆盖在main之上,挡住了main的内容,现在添加padding来实现自身内容显示*/
+            padding:0 200px;
+
+
+        }
+
+        .container .main {
+            /*因为暂无内容,先给main,left,right设置一个最小行高*/
+            min-height: 650px;
+
+            /*宽必必须为100%,即与父元素container一致,这样才能使left,right挤下来*/
+            width: 100%;
+            float:left;
+
+            /*设置参考背景色:小麦色*/
+            background-color: wheat;
+        }
+
+        .container .left {
+            /*除main外,left和right必须设置宽度*/
+            width: 200px;
+            /*最小高度*/
+            min-height: 650px;
+
+            /*左浮动后,因为前面main占据100%宽度,所以自动挤到下一行首*/
+            float:left;
+
+            /*设置左外边距margin为-100%,使它回到main区块的起始点处*/
+            margin-left: -100%;
+
+            /*关键步骤:相对定位,向左为负200,相当于向右移动200px;*/
+            position: relative;
+            left: -200px;
+
+            /*设置参考背景色:天蓝色*/
+            background-color: lightskyblue;
+
+        }
+
+        .container .right {
+            width: 200px;
+            min-height: 650px;
+
+            /*左浮动后,因为前面main占据100%宽度,所以自动挤到下一行,
+            并且还遇到前面已经浮动过来的left左侧的区块,所以排到left右边*/
+            float:left;
+
+            /*设置左外边距为当前宽度的负值,使之定位到main区块的右边*/
+            margin-left:-200px;
+
+            /*关键步骤:设置为相对定位,right:-200px意思是向左边移动200px;*/
+            position: relative;
+            right:-200px;
+
+            /*设置参考背景色:清绿色*/
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+<!-- DOM结构 -->
+<!-- 头部 -->
+<div class="header">
+    <div class="content">网站头部</div>
+</div>
+
+<!-- 内容区 -->
+<div class="container">
+    <div class="main">主体</div>
+    <div class="left">左侧</div>
+    <div class="right">右侧</div>
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+    <div class="content">网站底部</div>
+</div>
+<pre>
+圣杯布局的基本思路与实现步骤:
+-------------------------
+
+1.DOM结构的特点:
+	1.1: 必须一个父级容器container
+	1.2内部的三列,主体main必须在最前面,确保优先渲染,其次是left和right
+---------------------------------------------------------------------
+
+2.区块宽度和高度的特点:
+	2.1: main+left+right = 总宽度
+	2.2: 父区块container宽度 = main宽度
+	2.3: 宜先设置container宽度,如600px,main的width:100%即可;
+	2.4: 因为暂时无内容填充,需要设置一个最小高度min-height才可以看到效果,例如650px;
+---------------------------------------------------------------------
+
+3.三个区块必须全部左浮动:
+	3.1: 因为main区块占据了100%宽度,后面的left和right必须要被换行显示
+	3.2: left,right都是浮动元素,所以按浮动的顺序显示,left在前right在后
+--------------------------------------------------------------------
+
+4.将浮动区块left和right上移到main区块的指定位置
+	4.1: 通过给left和right设置负的左外边距margin-left来实现浮动区块的反向移动;
+	4.2: left必须跨越整个main区块才可以到达定位的起点: margin-left:-100%;
+	4.3: right区块是在右边显示,所以只要跨过自己的宽度就可以: margin-left:200px;
+---------------------------------------------------------------------------
+
+5. 给container添加内边距,进行挤压完成布局,这也是圣杯布局的精妙之处
+	5.1: 添加左右内边距padding,宽度等于left和right
+	5.2: 添加的左右边距其实就是后面的left和right的实际位置
+---------------------------------------------------------------------------------
+
+5. 将main区块的内容完整的显示出来
+	5.1: left和right占据了main区块的位置,覆盖掉了main区块的部分内容
+	5.2: 可以对left和right进行相对定位,让他们把占据的main空间的位置腾出来
+	5.3: 那么问题来了? left和right都是浮动元素,都是脱离了当前文档流的,可以使用相对定位吗?
+	5.4: 答案是肯定的,为什么呢? 相对定位的原则是:相对该元素原来的位置进行重新定位,元素处于文档流中只是一种
+	特殊情况,浮动元素可以看作处在一个特殊的由浮动元素组成的一个文档流中,是另一个世界.
+	5.5. 那么相对移动多少呢? 只要移动它们自身的宽度就可以了:
+	left: relative; left: -200px;(距离左边-200px)反向移动
+	right: relative; right: -200px;(距离右边-200px)反向移动
+------------------------------------------------------------------------------------
+
+
+
+到此,三列经典的圣杯布局完成~~
+
+
+</pre>
+
+
+
+
+
+</body>
+</html>

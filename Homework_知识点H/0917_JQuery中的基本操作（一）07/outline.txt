@@ -1,0 +1,128 @@
+1.jQuery是什么?我们为什么要学习它?
+    (1).jQuery是一个JavaScript的函数库,内部封装了许多实用的功能函数;
+    (2).全球大约80%到90%的网站直接或间接的使用了jQuery,所以每一个前端开发者都应该了解它,学习它;
+    (3).jQuery主要是解决三大问题:1.消除了浏览之间的兼容性;2.DOM操作更加的简单;3.动画实现更加轻松;
+    (4).jQuery的基本思想是: Write Less,Do More (写得少做得多)
+
+--------------------------------------------------------------------------------------
+
+2. jQuery的下载导入与jQuery对象
+    (1).官网下载:jquery.com, 线上生产环境推荐下载压缩版,学习推荐下载未压缩版,便于查看与分析源码;
+    (2).使用script标签将jquery.js导入到当前html文档中,推荐放到<body>尾部之前;
+    (3).jQuery对象其实就是一个DOM元素的集合;
+    (4).JQuery对象与DOM对象之间可以通过数组访问方式进行转换,或者使用jquery的get()方法;
+    (5).可以将一个匿名函数当做参数传递给$()函数来使用jQuery,并且允许多次调用,这是最简单的方式.
+    (6).链式操作是什么?
+
+--------------------------------------------------------------------------------------
+
+3. jQuery常用的核心方法与属性
+    (1).jQuery(selector[,context]):  jQuery('选择器', '上下文')
+        [1]:选择器: 兼容css2.0,3.0;
+        [2]:上下文: 就是选择元素的范围,默认是当前文档document对象,可选的
+    (2).jQuery(html[,ownerDocument): jQuery('html标记字符','当前所在文档')
+        [1]:html可以一串字符串: $('<div>xxx</div>');
+        [2]:html标签属性可以写到标签里,也可以放一第二个js对象参数中
+            $('<div>',{"class":"red",text:"Hello",click:function(){}};
+    (3).$(funciton()): 是 $(document).ready()的缩写
+        [1].DOM树渲染完成,不必等待图片等资源加载完成就可以执行回调函数中的语句;
+        [2].$(function(){})内部仍然可以使用$(),并且不受外部$符冲突而重定义的影响;
+        [3].$(function(){}可调用多次,且不受调用位置的影响;
+    (4).each(function(i,this){}):对每一个匹配的DOM元素执行回调函数
+        [1].回调内部this默认指向的是DOM元素,而非jQuery对象,除用$(this)转化;
+        [2].return fase:终止并退出,return true: 终止当前循环并进入下一次循环;
+    (5).length属性:返回jQuery对象中的DOM元素数量
+    (6).get(n)和[n]: 按索引返回jQuery对象集合中匹配到的DOM元素;
+        [1].因为jQuery对象集合由DOM元素组成,所以可以用这个方法将jQuery对象转为DOM对象;
+        [2].不传参数,就是获取到所有的DOM元素.
+    (7).index(selector / element): index(选择器 / 元素)
+        [1].返回根据选择器或DOM元素在jQuery对象集合中的索引位置;
+        [2].不传参数则返回当前元素在jQuery元素集合中的位置;
+
+--------------------------------------------------------------------------------------
+
+4. jQuery的属性操作
+    (1).attr()和removeAttr(): 查询,设置和移除元素属性;
+        [1].attr('attr'): 获取属性;
+        [2].attr('attr','value'): 设置单个属性
+        [3].attr({attr,value,...}): 设置多个属性(对象字面量),属性值支持回调
+    (2).class类属性操作:addClass(),removeClass(),toggleClass(),设置,移除和切换元素的类名
+        [1].addClass('className'): 添加一个class属性;
+        [2].addClass('className'): 移除一个class属性;
+        [3].toggleClass('className'[,function(){}]):添加和删除class属性
+    (3).html(),text()和val(),获取元素的内容,均可接受回调返回的数据
+        [1].html(): 获取或设置元素中的html内容,function(i,old){...}
+        [2].text(): 获取或设置元素中的文本内容,function(i,old){...}
+        [3].val(): 获取表单元素中value属性的值,function(i,old){...}
+
+--------------------------------------------------------------------------------------
+
+5. jQuery中的css操作
+    (1).css():获取与设置元素的style属性,支持字符串和对象字面量与回调
+    (2).快捷方法:width(),height(),innerWidth()/inerHeight()/outerHeight()/outWidth()
+
+--------------------------------------------------------------------------------------
+
+6. jQuery中常用的选择器:
+    (1).通用选择器: *, 标签, 类选择器.,  id选择器 #
+    (2).层级选择器: 空格, >直接子元素, +相邻兄弟, ~ 所有兄弟
+    (3).属性选择器: [name]属性名, [name=value]名值, 支持简单的正则
+    (4).表单过滤器: 建议使用过滤方法替代
+        [1].位置: :first,:last,even偶数,odd奇数,eq(n),:gt(n),:lt(n)从0索引
+        [2].css3中的过滤器: :last-child,:first-child,nth-child()...从1索引
+        [3].表单过滤器:
+            第一组: 选择表单元素
+            1.:input: 选择<input><select><textarea><button>
+            2.:checkbox: 选择复选框 input[type="checkbox"]
+            3.:radio: 选择单选按钮 input[type="radio"]
+            4.:submit: 选择提交按钮 input[type="submit'] 或 button[type="submit"]
+            5.:reset: 选择重置按钮 input[type="reset'] 或 button[type="reset"]
+            6.:text: 只选择type="text"的表单元素
+            7.:password: 只选择type="password"密码框
+            8.:file: 只选择 input[type="file"]
+            9.:image: 只选择 input[type="image"]
+
+            第二组: 选择控件状态
+            1.:checked: 处于被选中状态,适用<checkbox>,<radio>
+            2.:disabled: 只选禁用元素
+            3.:enabled: 只选择启用元素
+            4.:focus: 只选择处于焦点的元素
+            5.:selectd: 选择处于选中状态的元素,适用于<select>
+
+    (5).内容过滤器:
+        [1].:contains('text'): 包含特定文本
+        [2].:empty(): 内容为空的元素
+        [3].:has(selector):包含匹配选择器的元素
+        [4].:parent: 至少包含一个子节点的元素
+        [5].:not(selector):获取排除掉匹配结果的元素
+
+--------------------------------------------------------------------------------------
+
+7. jQuery中常用的DOM操作
+    (1).插入与替换:
+        [1]append()和appendTo(): 将当前元素添加到父元素内部的尾部
+            1.$(父元素).append(当前元素);
+            2.$(当前元素).appendTo(父元素);
+        [2].prepend()和prependTo(): 将节点添加到父元素内部的头部
+            1.$(父元素).prepend(当前元素);
+            2.$(当前元素).prependTo(父元素);
+        [3].after()和insertAfter():将元素插入到当前节点的后面
+            1.$(前).after(后);
+            2.$(后).insertAfter(前)
+        [4].before()和insertBefore():将元素插入到当前节点的前面
+            1.$(后).before(前);
+            2.$(前).insertBefore(后)
+        [5].replaceWith()和replaceAll():替换掉匹配的html内容
+            1. $(原).replaceWith(新);
+            2. $(新).replaceAll(原);
+    (2).empty():删除匹配到的元素集合中所有的子节点
+    (3).remove(可用selector):删除匹配的元素
+
+--------------------------------------------------------------------------------------
+
+
+
+
+
+
+

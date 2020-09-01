@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>标题及文本标签</title>
+	<style type="text/css">
+
+		span{
+			font-weight: bold;/*定义文本粗体*/
+			font-size:60px; /*控制文本大小*/
+			font-family:georgia;/*定义文本字体*/
+			/*text-indent: 2em;首行缩进*/
+			/*color: red;定义文本颜色*/
+			/*text-align: center;文本水平方向的位置 left center right*/
+
+             }
+			/*
+			overflow :
+			hidden:内容会被修剪，并且其余内容是不可见的。
+			visible:默认值。内容不会被修剪，会呈现在元素框之外
+			line-height: 定义行高
+			*/
+	</style>
+</head>
+<body>
+<!-- 标题标签：（块级元素） -->
+<h1 style="text-align: center;">我是标题标签h1</h1>
+<h2>我是标题标签h2</h2>
+<h3>我是标题标签h3</h3>
+<h4>我是标题标签h4</h4>
+<h5>我是标题标签h5</h5>
+<h6>我是标题标签h6</h6>
+
+<!-- 段落标签：（块级元素） -->
+<p>我是段落标签</p>
+
+<!-- 文本粗体：（行内元素） -->
+<b>我是文本粗体b标签</b>
+
+换行标签：<br>
+
+<strong>我是文本加重语气标签 与b标签相似</strong><br>
+<i>文本斜体标签</i><br>
+<em>定义着重文字</em><br>
+<del>定义删除字</del>
+<b>399元</b><del>499元</del>
+<pre>预格式文本</pre><!-- 可以输出文本中的换行符 及空格符 -->
+
+<!-- 谷歌logo -->
+<br>
+<span style="color: #4F88BF">G</span><span style="color: #F8352F">o</span><span style="color: rgb(248,209,8);">o</span><span style="color: #4F88BF">g</span><span style="color:#149757; ">l</span><span style="color: #F8352F">e</span>
+<br>
+<!-- 
+块级元素：独占一行，对宽高属性设置生效 自带换行符（块级元素如果没有设置宽度，默认为100%宽）(div p h1~h2)
+行内元素：行内元素都存在于一行，对宽高属性值设置不生效(span b a )
+行内块元素：结合行内与块级元素的特点，可多个标签存在于一行，并且对宽高设置生效（例如：img input）
+
+行块级元素的相互转换：
+块级元素转换为行内元素:display:inline;
+行内元素转换为块级元素:display:block;
+转换为行内块元素:display：inline-block; -->
+
+
+
+</body>
+</html>

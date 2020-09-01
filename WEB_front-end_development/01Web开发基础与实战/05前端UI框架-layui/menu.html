@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>菜单页面</title>
+	<link rel="stylesheet" type="text/css" href="Admin/static/layui/css/layui.css">
+	<script type="text/javascript" src="Admin/static/layui/layui.js"></script>
+	<script type="text/javascript" src="Admin/static/jQuery/jquery-3.4.1.min.js"></script>
+	<style type="text/css" media="screen">
+		.header span{background:#009688;color:#fff;padding:10px;margin-left:30px;line-height:32px;}
+		.header{border-bottom:2px solid #009688;}
+		
+	</style>
+</head>
+<body style="padding:10px;">
+	<div class="header">
+		<span>菜单管理</span>
+	</div>
+	<form class="layui-form">
+		<table class="layui-table">
+			  <thead>
+			    <tr>
+			      <th>ID</th>
+			      <th>排序</th>
+			      <th>菜单名称</th>
+			      <th>controller</th>
+			      <th>method</th>
+			      <th>是否隐藏</th>
+			      <th>是否禁用</th>
+			      <th>子菜单</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			      <tr>
+			      	<td>1</td>
+			      	<td><input type="text" name="" class="layui-input"></td>
+			      	<td><input type="text" name="" class="layui-input"></td>
+			        <td><input type="text" name="" class="layui-input"></td>
+			        <td><input type="text" name="" class="layui-input"></td>
+			        <td>
+			        	<input type="checkbox" name="" title="隐藏" lay-skin="primary"> 
+			        </td>
+			        <td>
+			        	<input type="checkbox" name="" title="禁用" lay-skin="primary"> 
+			        </td>
+			        <td>
+			        	<button type="button" class="layui-btn  layui-btn-xs" onclick="child(1);return false;">子菜单</button>
+			        </td>
+			      </tr>
+			      <tr>
+			      	<td>2</td>
+			      	<td><input type="text" name="" class="layui-input"></td>
+			      	<td><input type="text" name="" class="layui-input"></td>
+			        <td><input type="text" name="" class="layui-input"></td>
+			        <td><input type="text" name="" class="layui-input"></td>
+			        <td>
+			        	<input type="checkbox" name="" title="隐藏" lay-skin="primary"> 
+			        </td>
+			        <td>
+			        	<input type="checkbox" name="" title="禁用" lay-skin="primary"> 
+			        </td>
+			        <td>
+			        	<button type="button" class="layui-btn  layui-btn-xs">子菜单</button>
+			        </td>
+			      </tr>
+			      <tr>
+			      	<td>3</td>
+			      	<td><input type="text" name="" class="layui-input"></td>
+			      	<td><input type="text" name="" class="layui-input"></td>
+			        <td><input type="text" name="" class="layui-input"></td>
+			        <td><input type="text" name="" class="layui-input"></td>
+			        <td>
+			        	<input type="checkbox" name="" title="隐藏" lay-skin="primary"> 
+			        </td>
+			        <td>
+			        	<input type="checkbox" name="" title="禁用" lay-skin="primary"> 
+			        </td>
+			        <td>
+			        	<button type="button" class="layui-btn  layui-btn-xs">子菜单</button>
+			        </td>
+			      </tr>
+			      <tr>
+			      	<td>4</td>
+			      	<td><input type="text" name="" class="layui-input"></td>
+			      	<td><input type="text" name="" class="layui-input"></td>
+			        <td><input type="text" name="" class="layui-input"></td>
+			        <td><input type="text" name="" class="layui-input"></td>
+			        <td>
+			        	<input type="checkbox" name="" title="隐藏" lay-skin="primary"> 
+			        </td>
+			        <td>
+			        	<input type="checkbox" name="" title="禁用" lay-skin="primary"> 
+			        </td>
+			        <td>
+			        	<button type="button" class="layui-btn  layui-btn-xs">子菜单</button>
+			        </td>
+			      </tr>
+			      <tr>
+			      	<td>5</td>
+			      	<td><input type="text" name="" class="layui-input"></td>
+			      	<td><input type="text" name="" class="layui-input"></td>
+			        <td><input type="text" name="" class="layui-input"></td>
+			        <td><input type="text" name="" class="layui-input"></td>
+			        <td>
+			        	<input type="checkbox" name="" title="隐藏" lay-skin="primary"> 
+			        </td>
+			        <td>
+			        	<input type="checkbox" name="" title="禁用" lay-skin="primary"> 
+			        </td>
+			        <td>
+			        	<button type="button" class="layui-btn  layui-btn-xs">子菜单</button>
+			        </td>
+			      </tr>
+			      <tr>
+			      	<td colspan="8" rowspan="" style="padding:0px;margin:0px;border:none;">
+			      		<div id="page" style="padding:0px;margin:0px;"></div>
+			      	</td>
+			      </tr>
+		    </tbody>
+		    
+	    </table>
+	    <button type="button" class="layui-btn">保存</button>
+	</form>
+	<script>
+		//添加删除的弹出层
+        layui.use(['layer','form'], function(){
+		  var layer = layui.layer;
+		  var form = layui.form;
+		   $ = layui.jquery;
+		  
+		});
+		//子菜单跳转
+		function child(pid){
+			window.location.href="Menu/index.html?pid="+pid;
+		}
+		
+
+		
+	</script>
+
+	
+
+    
+</body>
+</html>

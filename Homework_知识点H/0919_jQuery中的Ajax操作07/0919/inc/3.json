@@ -1,0 +1,42 @@
+[
+  {
+    "areaId": 1,
+    "areaName": "包河区",
+    "cityId": 1
+  },
+  {
+    "areaId": 2,
+    "areaName": "蜀山区",
+    "cityId": 1
+  },
+  {
+    "areaId": 3,
+    "areaName": "镜湖区",
+    "cityId": 2
+  },
+  {
+    "areaId": 4,
+    "areaName": "弋江区",
+    "cityId": 2
+  },
+  {
+    "areaId": 5,
+    "areaName": "玄武区",
+    "cityId": 3
+  },
+  {
+    "areaId": 6,
+    "areaName": "六合区",
+    "cityId": 3
+  },
+  {
+    "areaId": 7,
+    "areaName": "吴江区",
+    "cityId": 4
+  },
+  {
+    "areaId": 8,
+    "areaName": "昆山市",
+    "cityId": 4
+  }
+]

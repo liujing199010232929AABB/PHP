@@ -1,0 +1,85 @@
+1.什么是 JSON ？
+    (1).JSON 是英文(JavaScript Object Notation)即,JS对象表示法;
+    (2).JSON 是独立于编程语言的,通用的,轻量级的文本存储与交换的数据格式;
+    (3).JSON 使用JavaScript中的对象语法编写,可与js相互转换;
+    (4).JSON 本质上仍是字符串,仅仅是内部的书写格式受到js对象语法的限制;
+
+----------------------------------------------------------------
+
+2. JSON的二种数据结构:
+    (1). 对象(Object): 键值对集合,类似关联数组,参考了js对象语法,但做了一些规范;
+    (2). 数组(Array): 与js完全一致,是键值的有序的;
+
+----------------------------------------------------------------
+
+3. json 中支持的数据类型:
+    (1). 对象: 字面量表示 {...};
+    (2). 数组: 字面量表示 [...];
+    (3). 字符中: 双引号表示,支持转义 "name";
+    (4). 数值: 仅允许十进制 123;
+    (5). 布尔: true / false;
+    (6). null: 表示空/无.
+
+----------------------------------------------------------------
+
+4. json 字符串的校验: 在线工具:  json.cn
+
+----------------------------------------------------------------
+
+5. 解析:
+    1. 解析分为二种情况:
+        (1)将json格式的字符串,解析为js对象: 适合于从服务器端接收数据
+        (2)将js对象解析来json格式的字符串: 适用于将向服务器端发送数据
+
+    第一情况: json字符串 To js对象: eval() 和  JSON.parse()
+    (1). eval()解析: 加上圆括号,将json字符串转为表达式
+    let json = '{"name":"朱老师","age":30,"course":["js","php","java"],"isMarried":true,"rich":null}';
+    let obj = eval('('+json+')');
+    typeof obj;     // "object"
+    obj.name;       // "朱老师"
+    obj.course[1];  // "php"
+    obj["age"];     // 可以用方括号访问: 30
+    eval()函数调用的是js的编译器,有一个问题,如果字符串有代码,会被执行,有可能会带来安全问题,所以js定义一些全局方法来专门处理json字符串
+    let str = "alert('我是一段恶意跳转代码');location.href='http://baidu.com'";
+    eval(str);
+
+    (2). JSON.parse(json): 只会识别json内容,非json内容不解析,比eval()函数更加安全
+    // 该方法非常适合于服务器端进行交互,因为从服务器接收的通常都是"字符串"
+    let json1 = '{"name":"朱老师","age":30,"course":["js","php","java"],"isMarried":true,"rich":null}';
+    let obj1 = JSON.parse(json1);
+    typeof obj1;
+    obj1.isMarried;     // true
+    // 可以用 for in 遍历 json 中的内容
+    for (key in json1) {console.log(json1[key])}    // 必须使用[]来访问属性名
+    // 可以更新
+    obj1.age = 50;
+    obj1.age;       // 50
+    // 可以删除
+    delete obj1.age;
+    obj1.age;       // undefined
+
+    (3). PHP中使用json_decode()进行转换, 一会我们会用ajax进行演示
+    <?php
+    $json_str='{"id":1,"name":"peter","hobby":["reading","cooking"]} ';
+    $obj=json_decode($json_str);
+    echo $obj->name; // "peter"
+    echo $obj->hobby[1]; // "cooking"
+
+
+    第二种情况: js对象 To json字符串:JSON.stringify()
+    let obj = {name:'peter',age:40,isMarried:true, salary:undefined};
+    let json = JSON.stringify(obj);
+    转换结果: "{"name":"peter","age":40,"isMarried":true}",值为undefined的数据不会出现在结果中
+    服务器端拿到这个json格式的字符串之后,例如php,会调用json_decode()将其解析来php对象进行访问
+
+    如果是数组格式的json字符串:
+    let json_arr = [10,20,30];
+    let str_arr = JSON.stringify(json_arr);     // "[10,20,30]"
+    //服务器端,例如php,会直接解析来php数组类型来访问:
+    <?php
+    $str = "[10,20,30]";
+    $arr = json_decode($str);
+    print_r($arr);
+
+
+

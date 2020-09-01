@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式继承</title>
+    <style>
+        body {
+            font-size:22px; /*可继承*/
+        }
+        ul {
+            font-weight: bolder; /*可继承*/
+            border: 1px solid red; /*边框不可继承*/
+            padding: 1rem;
+        }
+
+        ul li {
+            border: inherit; /*指定inherit才可强制继承*/
+            padding: inherit; /*指定inherit才可强制继承*/
+
+            /*在浏览器检查器的style中可以看到li标签的所有样式规则与继承关系*/
+        }
+    </style>
+</head>
+<body>
+    <!--nav>ul>li.item$*4>a{导航$$}-->
+    <nav>
+        <ul>
+            <li class="item1"><a href="">导航01</a></li>
+            <li class="item2"><a href="">导航02</a></li>
+            <li class="item3"><a href="">导航03</a></li>
+            <li class="item4"><a href="">导航04</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

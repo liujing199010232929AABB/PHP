@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3-2实战1:用表格布局来实现用户注册表单</title>
+</head>
+<body>
+<!-- 这个案例中,我们还要学员几个新标签,<label><fieldset><legend> -->
+
+<form action="" method="post">
+    <table border="0" cellspacing="0" cellpadding="8" align="center" width="400" bgcolor="powderblue">
+        <caption><h2>用户注册</h2></caption>
+        <tr><td colspan="2"><hr></td></tr>  <!-- 此行代码就是画一条分隔线没有其它用处 -->
+        <tr align="center">
+            <td align="right" width="60"><label for="name">邮箱:</label></td>
+            <td align="left" width="300"><input type="text" id="name" name="name" value="" placeholder="example@mail.com" size="30" width="200"></td>
+        </tr>
+
+        <tr align="center">
+            <td align="right"><label for="password">密码:</label></td>
+            <td align="left"><input type="text" id="password" name="name" value="" placeholder="字母+数字不少于10位" size="30"></td>
+        </tr>
+
+        <tr align="center">  <!-- 如何设置label标签,点击时会导致第一个控件被选中 -->
+            <td align="right">性别:</td> <!-- 不需要进入焦点 -->
+            <td align="left">
+                <input type="radio"  name="sex" value="male">男
+                <input type="radio"  name="sex" value="female">女
+                <input type="radio"  name="sex" value="secret" checked="">保密
+            </td>
+        </tr>
+
+        <tr align="center">
+            <td align="right">兴趣:</td>   <!-- 不需要进入焦点 -->
+            <td align="left">
+                <input type="checkbox" name="happy[]" value="html">HTML
+                <input type="checkbox" name="happy[]" value="css">CSS
+                <input type="checkbox" name="happy[]" value="javascript">JavaScript
+                <input type="checkbox" name="happy[]" value="php" checked="">PHP
+            </td>
+        </tr>
+
+        <!-- tr[align="center"]>(td>label[for="level"]{级别:}+td>select[id="level" name="level"]>option[value=""]*3) -->
+        <tr align="center">
+            <td align="right"><label for="level">级别:</label></td>
+            <td align="left">
+                <select name="level" id="level">
+                    <option value="">我是零基础的小白啦</option>
+                    <option value="" selected="">已经入门啦</option>
+                    <option value="">做过一些项目</option>
+                    <option value="">已经是大神级别</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr align="center">
+            <td align="right"><label for="photo">头像:</label></td>
+            <td align="left">
+                <img src="../images/13.png" height="30">
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </td>
+        </tr>
+
+        <tr align="center">
+            <td valign="middle" align="right"><label>简介:</label></td>
+            <td align="left"><textarea name="comment" id="comment" rows="5" cols="40" placeholder="文明上网,理性发言"></textarea></td>
+        </tr>
+
+        <tr>
+            <td colspan="2" align="center">
+                <hr>
+                <input type="submit" name="submit" value="提交">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="reset" name="reset" value="重填">
+            </td>
+        </tr>
+
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板中的自定义变量,函数和流程控制</title>
+</head>
+<body>
+{assign var="siteName" value="php中文网"}
+<h4>{$siteName}</h4>
+{$brand = "Apple"}
+<h4>{$brand}</h4>
+
+{* 分支处理: 判断奇偶数 *}
+{$data = 58}
+{if $data is odd}
+<h4>{$data} 是奇数</h4>
+{else}
+<h4>{$data} 是偶数</h4>
+{/if}
+
+{* 分支处理: 判断成绩 *}
+{$grade = 88}
+{if $grade > 80}
+<h4>优秀</h4>
+{elseif $grade >= 60}
+<h4>及格了</h4>
+{else}
+<h4 style="color:red">准备补考吧</h4>
+{/if}
+
+{* for *}
+{for $i=0 to 10 step 2}
+{$i},
+{forelse}
+<span style="color:red">循环条件错误</span>
+{/for}
+
+<hr>
+{$i =0}
+{while ($i<20)}
+{$i++}
+{/while}
+<hr>
+
+{$staff = ['name'=>'peter_zhu','sex'=>'male','salary'=>9999]}
+{foreach $staff as $key=>$value}
+{$key}=>{$value} <br>
+{/foreach}
+<br>
+{function name="welcome" site="php中文网"}
+<p>欢迎来到 {$site} 学习</p>
+{/function}
+{call name="welcome" site="www.php.cn"}
+
+<hr>
+
+{function hello}
+<p>欢迎来到 {$site} 学习</p>
+{/function}
+
+{welcome site="php中文网"}
+
+
+
+</body>
+</html>

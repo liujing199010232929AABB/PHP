@@ -1,0 +1,41 @@
+<!-- 在编写代码之前记得把自己的输入法切换成英文奥 -->
+<!DOCTYPE html> <!-- xml xhtml 声明 --><!--注释的快捷键： ctrl+/ -->
+<html>
+<head><!-- 定义网页头部 -->
+	<title>php中文网——视频教程</title>
+	<meta charset="utf-8"><!-- 字符集编码 -->
+	<!-- link：定义文档与外部资源的关系 链接外部文件 -->
+	<link rel="stylesheet" type="text/css" href="static/style.css">
+	<!-- 链接外部css样式表  外部样式：为了共享 -->	
+	<link rel="shortcut icon" type="image/x-icon" href="images/footlogo.png">
+	<!-- 在title内部放入图片 -->
+	<style type="text/css">/*内部样式：只针对当前页面*/
+		/*tag标签名、id名(名字前面加 #) class名  属性选择器*/
+		body{}/*标记选择器*/
+		#box{width:100px;height: 100px;background: pink; }/*id选择器*/
+		.main{width:100px;height: 100px;background: green; }/*class选择器  类*/
+		
+		a{color: red;}
+		/*属性选择器*/
+		a[href="http://www.php.cn/"]{color:blue;}
+        a[href="demo2.html"]{color:pink; }
+        /*派生选择器 根据文档上下文关系来定义样式*/
+        div a{color: #000;}
+        #box a{}
+
+	</style>
+</head>
+<body ><!-- 内联样式 style="background: blue;"-->
+<img src="">
+<a href="https://www.baidu.com">百度</a><!-- 链接到百度 -->
+<a href="http://www.php.cn/">php中文网</a>
+<a href="demo2.html">demo2</a><a href="#">#</a><!-- 链接到外部文件 -->
+
+<div id="box">
+	<a href="">php</a>
+</div>
+<div class="main"></div>
+<div></div>
+<div></div>
+</body>
+</html>

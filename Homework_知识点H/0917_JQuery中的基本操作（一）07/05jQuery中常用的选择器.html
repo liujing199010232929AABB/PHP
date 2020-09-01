@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery中常用的选择器</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+        #title {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <h3 id="title">前端课程</h3>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>
+                <h3>JavaScrip</h3>
+                <ul>
+                    <li>jQuery</li>
+                    <li>Bootstrap</li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+邮箱:<input type="text"> <br>
+密码:<input type="password"> <br>
+<!--input:radio-->
+<input type="radio" name="gender" value="male" checked>男
+<input type="radio" name="gender" value="female">女
+<br>
+<!--input:checkbox-->
+<input type="checkbox" name="hobby[]" value="dance"checked>跳舞
+<input type="checkbox" name="hobby[]" value="sing">唱歌
+<br>
+你的学历:
+<select name="" id="">
+    <option value="">幼儿园</option>
+    <option value="小学" selected>小学</option>
+    <option value="">初中</option>
+    <option value="">其它</option>
+</select>
+<br>
+<button type="submit">提交</button>
+<button type="reset" disabled>重置</button>
+
+
+
+<script src="../lib/jquery.js"></script>
+<script>
+    // (1).通用选择器: *, 标签, 类选择器.,  id选择器 #
+    // (2).层级选择器: 空格, >直接子元素, +相邻兄弟, ~ 所有兄弟
+    // (3).属性选择器: [name]属性名, [name=value]名值, 支持简单的正则
+    // (4).表单过滤器: 建议使用过滤方法替代
+    //     [1].位置: :first,:last,even偶数,odd奇数,eq(n),:gt(n),:lt(n)从0索引
+    //     [2].css3中的过滤器: :last-child,:first-child,nth-child()...从1索引
+    //     [3].表单过滤器:
+    // 第一组: 选择表单元素
+    // 1.:input: 选择<input><select><textarea><button>
+    // 2.:checkbox: 选择复选框 input[type="checkbox"]
+    // 3.:radio: 选择单选按钮 input[type="radio"]
+    // 4.:submit: 选择提交按钮 input[type="submit'] 或 button[type="submit"]
+    // 5.:reset: 选择重置按钮 input[type="reset'] 或 button[type="reset"]
+    // 6.:text: 只选择type="text"的表单元素
+    // 7.:password: 只选择type="password"密码框
+    // 8.:file: 只选择 input[type="file"]
+    // 9.:image: 只选择 input[type="image"]
+    //
+    // 第二组: 选择控件状态
+    // 1.:checked: 处于被选中状态,适用<checkbox>,<radio>
+    // 2.:disabled: 只选禁用元素
+    // 3.:enabled: 只选择启用元素
+    // 4.:focus: 只选择处于焦点的元素
+    // 5.:selectd: 选择处于选中状态的元素,适用于<select>
+    //
+    // (5).内容过滤器:
+    // [1].:contains('text'): 包含特定文本
+    //     [2].:empty(): 内容为空的元素
+    //     [3].:has(selector):包含匹配选择器的元素
+    //     [4].:parent: 至少包含一个子节点的元素
+    //     [5].:not(selector):获取排除掉匹配结果的元素
+
+    //通用选择器
+    $('*').addClass('highlight');   //选择了页面中所有元素
+    $('li').addClass('highlight');  // 选择所有的 <li>标签
+    $('.highlight').css('color','red'); // 选择有class="highlight"的元素
+    $('#title').addClass('highlight');  // id选择器
+
+    //层级选择器
+    $('li:first  h3').addClass('highlight');   // 选择第一个<li>下全部<h3>
+    $('li:first > h3').addClass('highlight');   // 仅选择子级元素,更深的级别忽略
+
+    //li:contains('HTML'):last  定位到第一个内容是html列表项上
+   $("li:contains('HTML'):last").addClass('highlight');     //验证定位效果
+    $("li:contains('HTML'):last + li").addClass('highlight'); //相依兄弟
+    $("li:contains('HTML'):last ~ li").addClass('highlight');   // 相邻所有兄弟
+
+    //属性选择器放在表单过滤器中一起讲
+    // 选择文本框
+    $('input[type="text"]').addClass('highlight');  // 属性选择器
+    $(':input').not(':submit').not(':disabled').addClass('highlight');
+
+    console.log($(':checkbox:checked').val());  // 当前选中的值
+    console.log($(':checkbox').not(':checked').val());  //未被选中的值
+    console.log($(':checkbox').val());  //默认返回被选中的值
+
+    console.log($(':input :selected').val());   // 注意过滤器之间必须要加空格,类:input并不针对select
+
+    //更多表单过滤器,请同学们上机练习
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

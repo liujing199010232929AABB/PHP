@@ -1,0 +1,20 @@
+<!-- 什么都不写,会自动生成html文档结构:<html><head></head><body></body></html> -->
+
+<!-- 双标签不封闭,浏览器是自动添加关闭标签 -->
+<h2>看到大家按时上课,老纳很兴奋~~ </h2>
+	
+<!-- html页面中的css样式与js脚本的自动添加位置,是根据body中是否有内容来决定 -->
+<!-- 如果body中有内容,就自动添加到body中 -->
+
+	<style type="text/css">
+		h2 {color:red;}  /*写到h2标签的后面仍是有效的*/
+	</style>
+
+	
+	<script type="text/javascript">
+		// document.querySelector('h2')
+		document.getElementsByTagName('h2')[0].onclick = function () {
+			this.style.color = 'green'
+		}
+	</script>
+	

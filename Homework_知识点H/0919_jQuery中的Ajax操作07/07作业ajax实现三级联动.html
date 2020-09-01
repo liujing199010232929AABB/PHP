@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业:ajax实现三级联动</title>
+</head>
+<body>
+省: <select name="" id="pro"></select>
+市: <select name="" id="city"></select>
+区县: <select name="" id="area"></select>
+
+<script src="../lib/jquery.js"></script>
+<script>
+    $(function () {
+        $.getJSON('inc/1.json',function (data) {
+            // console.log(data);
+            let option = '<option value="">选择(省)</option>';
+            $.each(data, function (i) {
+                option += '<option value="'+data[i].proId+'">'+data[i].proName+'</option>';
+            });
+            console.log(option);
+            $('#pro').html(option);
+        });
+
+        $('#pro').change(function () {
+            $.getJSON('inc/2.json')
+        })
+    })
+</script>
+</body>
+</html>

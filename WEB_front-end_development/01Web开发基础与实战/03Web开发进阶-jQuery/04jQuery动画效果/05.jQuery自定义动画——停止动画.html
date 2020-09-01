@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>05.jQuery自定义动画——停止动画</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+	<style type="text/css" media="screen">
+		div{width:100px;height:100px;background:pink;position:absolute;}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#right').click(function(){
+				$('.box1').animate({left:'+500px'},1000)
+				$('.box1').animate({fontSize:'30px'},2000)
+			})
+			$('#stop').click(function(){
+				$('.box1').stop(true,true);
+			})
+		})
+	</script>
+	<button id="right">右移</button>
+	<button id="stop">停止</button>
+	<div class="box1">php中文网</div>
+</body>
+</html>

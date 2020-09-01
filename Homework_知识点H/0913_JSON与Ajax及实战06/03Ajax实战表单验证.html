@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax实战:表单验证</title>
+</head>
+<body>
+<h3>用户登录</h3>
+<form>
+    <p>邮箱: <input type="email" name="email"></p>
+    <p>密码: <input type="password" name="password"></p>
+    <p><button type="button">提交</button></p>
+</form>
+<script>
+    let btn = document.getElementsByTagName('button')[0];
+    btn.onclick = function () {
+        //1.创建xhr对象
+        let xhr = new XMLHttpRequest();
+
+        //2.监听响应状态
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState === 4) { // 准备就绪
+                // 判断响应结果:
+                if (xhr.status === 200) {
+                    // 响应成功,通过xhr对象的responseText属性可以获取响应的文本,此时是html文档内容
+                    let p = document.createElement('p');  //创建新元素放返回的内容
+                    p.style.color = 'red';
+
+                    let json = JSON.parse(xhr.responseText);
+                    if (json.status === 1) {
+                        p.innerHTML = json.msg;
+
+                    } else if (json.status == 0) {
+                        p.innerHTML = json.msg;
+                    }
+                     // 将响应文本添加到新元素上
+                    document.forms[0].appendChild(p); // 将新元素插入到当前页面中
+                    btn.disabled = true;
+                    setTimeout(function(){
+                        document.forms[0].removeChild(p);
+                        btn.disabled = false;
+                        if (json.status == 1) {
+                            location.href = 'admin.php';
+                        }
+                        },2000);
+                } else {
+                    // 响应失败,并根据响应码判断失败原因
+                    alert('响应失败'+xhr.status);
+                }
+            } else {
+                // http请求仍在继续,这里可以显示一个一直转来转去的图片
+            }
+
+        }
+
+        //3.设置请求参数
+        xhr.open('post','inc/check.php',true);
+
+        //4. 设置头信息,将内容类型设置为表单提交方式
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+        //4.发送请求
+        let data = {
+          email:  document.getElementsByName('email')[0].value,
+          password:  document.getElementsByName('password')[0].value
+        };
+        // data = 'email='+data.email+'&password='+data.password;
+        let data_json=JSON.stringify(data);
+        xhr.send('data='+data_json);
+    }
+</script>
+</body>
+</html>

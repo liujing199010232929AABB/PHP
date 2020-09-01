@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3-1表单的基本元素</title>
+</head>
+<body>
+<!-- 1.我们先看一下表单是什么?几乎每个网站都会有
+2.表单给人最直接的印象就是有一些输入框,还有一些按钮
+3.这些输入框,可以接受用户输入的数据,按钮可以将用户的数据进行提交
+4.表单元素是由一组标签组成的 -->
+
+<!-- 提交方式有很多,最主要的有二种:
+1.get方式:这也是默认的方式,用户提交的表单数据全部在url地址上
+优点是便于收藏和重复调用,缺点是不安全并且数据数量受限制
+2.post方式:数据通过请求头来提交,url地址栏看不到,非常安全,且长度不受限制
+
+get方式非常适合传递不敏感且长度很短的数据
+post方式非常适合传递重要数据且长度不确定的数据 -->
+
+<form action="demo.php" method="get">
+    <!-- <form action="demo.php" method="post"> -->
+    <!-- 最重要的输入控件标签是<input>,它有很多类型,是由type属性来指定的 -->
+    <!-- 1.文本框: 最常见,可以输入文本,常用来输入用户名帐号等 -->
+    <!-- 因为input是一个内联元素,多个input会在一行显示,所以后面加一个换行标签 -->
+    <!-- name是输入控件的名称,一定要设置,因为PHP要用它当变量名来获取表单的数据
+    value保存的是用户输入的数据,通常保持为空即可 -->
+    姓名:<input type="text" name="name" value=""> <br>
+    <!-- 2.密码框: type="password",和文本是一样的,只是用户输入的内容以星号代替 -->
+    密码:<input type="password" name="password" value=""> <br>
+    <!-- 3.单选框:顾名思义就是每次只能选择一项,例如性别,付款方式等只能选择一个且选项较少的情况 -->
+    <!-- 单选按钮的name值必须全部一样,才能确保仅返回一个选择 -->
+    <!-- 可以设置默认选择荐:checked:它是布尔属性,不需要赋值,如果要给值就是它自己 -->
+    性别:<input type="radio" name="sex" value="male">男
+    <input type="radio" name="sex" value="woman">女
+    <input type="radio" name="sex" value="secret" checked>保密
+    <br>
+    <!-- 4.复选框:就是一次可以选择多个数据提交,返回值是一个数组,name属性要加[],确保返回数组 -->
+    爱好:<input type="checkbox" name="hobby[]" value="movie">看电影
+    <input type="checkbox" name="hobby[]" value="game" checked>打游戏
+    <input type="checkbox" name="hobby[]" value="cook">做饭
+    <input type="checkbox" name="hobby[]" value="wash">洗衣服
+    <br>
+    <!-- 5:下拉列表框:点击后会出一个下拉列表,用户可以选择一个或多个选项 -->
+    <!-- 下拉列表使用的是select标签,名值对name和value分在二个标签中 -->
+    <!-- name写在父标签select中,value写在option子标签中,可以用selected属性设置默认值 -->
+    级别: <select name="level">
+    <option value="0">纯洁的小白</option>
+    <option value="1">有点污啦</option>
+    <option value="2" selected>目空一切</option>
+    <option value="3">宇宙无敌小霸王</option>
+</select>
+    <br>
+    <!-- 6.文件上传域:accept属性设置允许上传的文件类型,不过这个很少用,应该在服务器进行判断 -->
+    头像:<input type="file" name="photo" accept="image/*"> <br>
+
+    <!-- 特殊的隐藏域:type="hidden",为什么要用隐藏域呢?
+    1.有一些数据是自动生成的,不需要用户输入:例如注册时间
+    2.有一些数据用户是不知道的,例如,用户id
+    3.后端通过表单向一些页面传数据时使用的主键或关键字 -->
+    <!-- 在页面看不到隐藏域的东西,但是提交后可以在后台看到通过隐藏域传递过来的数据 -->
+    <input type="hidden" name="user_id" value="10">
+
+    文本域:<textarea name="comment" rows="5" cols="30"></textarea><br>
+
+    <!-- 7.提交按钮:type="submit",type="button"是普通按钮,失去提交功能 -->
+    <input type="submit" name="submit" value="提交">
+    <input type="button" name="button" value="提交">
+    <!-- type="reset"可以重置用户数据,恢复到最初状态 -->
+    <input type="reset" name="reset" value="重置">
+    <!-- 8.提交图像按钮: type="image",默认就是提交功能,与submit功能是一样的 -->
+    <input type="image" name="submit" src="../images/submit.jpg" width="30">
+
+</form>
+</body>
+</html>

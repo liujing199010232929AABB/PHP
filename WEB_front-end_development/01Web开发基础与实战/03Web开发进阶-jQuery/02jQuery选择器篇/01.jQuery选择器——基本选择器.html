@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01.jQuery选择器——基本选择器</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+	<style type="text/css" media="screen">
+		div{width:100px;height:100px;background:#ccc;margin-top:20px;}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#box').css('background','red');
+			$('.box').css('background','blue');
+			$('span').css('font-size','30px');
+			$('*').css('font-family','宋体');
+			$('#box,.box,span').css('color','pink');
+
+		})
+	</script>
+	<div id="box">大家</div>
+	<div class="box">您好</div>
+	<span>PHP中文网</span>
+	
+</body>
+</html>

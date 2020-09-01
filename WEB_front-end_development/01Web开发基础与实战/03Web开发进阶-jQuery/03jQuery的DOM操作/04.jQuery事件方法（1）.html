@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>04.jQuery事件方法（1）</title>
+		<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				// $('input').blur(function(){
+				// 	$('input').css('background','red');
+
+				// })
+				// $('input').focus(function(){
+				// 	$('input').css('background','pink');
+				// })
+				$('input').change(function(){
+					$('input').css('background','blue');
+				})
+				$('button').click(function(){
+					$('div').css('background','red');
+				})
+				$('div').dblclick(function(){
+					$(this).css('background','pink');
+				})
+
+				$(document).mousemove(function(aa){
+
+					$('span').text('x: '+aa.pageX+'y: '+aa.pageY);
+				})
+
+				// $(window).resize(function(){
+				// 	alert('窗口被调整大小');
+				// })
+				a=1;
+				$(window).resize(function(){
+					$('b').text(a++);
+				})
+
+
+			})
+		</script>
+		<input type="text" name="" value="我是当前值">
+		<div style="width:100px;height:100px;background:#ccc;margin-top:20px">
+			
+		</div>
+		<button type="">点击</button><br>
+		<hr>
+
+		<div>
+			当前鼠标的位置：<span></span>
+		</div>
+		
+		<div>
+			窗口被调整的次数：<b></b>
+		</div>
+
+	</body>
+</html>

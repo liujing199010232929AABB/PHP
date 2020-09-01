@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06.如何根据css选择器来获取元素？</title>
+</head>
+<body>
+	<ul id="ul">
+		<li class="red">列表项01</li>
+		<li>列表项02</li>
+		<li class="green">列表项03</li>
+		<li class="green">列表项04</li>
+		<li class="coral large">列表项05</li>
+	</ul>
+	<script>
+		let lists =document.querySelectorAll('li');
+		console.log(lists);
+		lists[0].style.backgroundColor = 'coral';
+		lists.item(1).style.backgroundColor = 'blue';
+
+		let ul = document.querySelector('#ul');
+		console.log(ul);
+		let li = ul.querySelectorAll('.green');
+		console.log(li);
+		for(let i=0;i<li.length;i++){
+			li[i].style.backgroundColor ='green';
+		}
+
+
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素对齐方式</title>
+</head>
+<body>
+<h3>元素对齐方式</h3>
+<!--1. 子元素是单行行内元素: 如a, span <br>-->
+<!--a:水平居中: 在父元素应用: text-align: center;-->
+<!--b:垂直居中: 在行内子元素上设置行高与父元素等高: line-height:200px;-->
+
+<!--<style>-->
+    <!--.box1 {-->
+        <!--width: 200px;-->
+        <!--height: 200px;-->
+        <!--background-color: #ffff0a;-->
+        <!--text-align: center;-->
+    <!--}-->
+    <!--.box1 a {-->
+        <!--line-height: 200px;-->
+    <!--}-->
+<!--</style>-->
+<!--<div class="box1">-->
+    <!--<a href="">php中文网</a>-->
+<!--</div>-->
+<!--<hr>-->
+
+<!--2. 子元素是多行的内联文本 <br>-->
+<!--a:水平居中: 在父元素应用: text-align: center;<br>-->
+<!--b:垂直居中: 在父元素: display:table-cell;-->
+
+
+<!--<style>-->
+    <!--.box2 {-->
+        <!--width: 200px;-->
+        <!--height: 200px;-->
+        <!--background-color: lightgreen;-->
+        <!--text-align: center;  /*水平居中*/-->
+        <!--display: table-cell;-->
+        <!--vertical-align: middle; /*垂直居中*/-->
+    <!--}-->
+<!--</style>-->
+<!--<div class="box2">-->
+    <!--<span>php中文网</span> <br>-->
+    <!--<span>www.php.cn</span>-->
+<!--</div>-->
+<!--<hr>-->
+3.子元素是块元素 <br>
+a: 水平居中: 子元素设置左右外边距自动适应容器margin: auto;
+b:垂直居中: 在父元素: display:table-cell;
+<style>
+    .box3 {
+        width: 200px;
+        height: 200px;
+        background-color: lightgreen;
+        display: table-cell;
+        vertical-align: middle; /*垂直居中*/
+    }
+    .box3 .child {
+        width: 100px;
+        height: 100px;
+        background-color: lightcoral;
+        /*margin-left: auto;*/
+        /*margin-right: auto;*/
+        margin: auto;  /*水平居中*/
+    }
+</style>
+<div class="box3">
+    <div class="child"></div>
+</div>
+<hr>
+4. 子元素是不定宽的块元素
+a: 水平居中: 子元素转为行内元素,父级加: text-align:center
+b: 垂直居中: 在父元素: display:table-cell;
+<style>
+    .box4 {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        text-align: center; /*水平居中*/
+        display: table-cell;
+        vertical-align: bottom; /*位于底部*/
+
+    }
+    ul {
+        margin: 0;
+        padding-left: 0;
+    }
+    .box4 li {
+        display: inline;  /*将块元素转为行内元素*/
+    }
+</style>
+
+<div class="box4">
+    <ul>
+        <li><a href="">1</a></li>
+        <li><a href="">2</a></li>
+        <li><a href="">3</a></li>
+        <li><a href="">4</a></li>
+        <li><a href="">5</a></li>
+    </ul>
+</div>
+
+</body>
+</html>

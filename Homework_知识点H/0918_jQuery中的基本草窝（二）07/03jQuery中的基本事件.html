@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery中的基本事件</title>
+</head>
+<body>
+<button class="btn1">按钮1</button>
+<button class="btn2">按钮2</button>
+<input type="text">
+<script src="../lib/jquery.js"></script>
+<script>
+    // 1.鼠标事件: click点击, mouseenter移入,mouseleave移出;
+    // 2.表单事件: submit提交, change内容改变,focus获取焦点, blur失去焦点
+    //添加事件最简单的方法
+    $('.btn1').click(function(){
+       alert(this.innerHTML);
+    });
+    //使用on()
+    // $('.btn2').on('click',function () {
+    //     alert(this.className);
+    // });
+    //
+    // $('.btn2').on({
+    //    click: function () {
+    //        alert(this.className);
+    //    },
+    //    mouseover: function () {
+    //        $(this).css('color','red');
+    //    },
+    //     mouseout: function () {
+    //         $(this).css('color','black');
+    //     }
+    // });
+
+    // on()的链式调用
+    $('.btn2').on('click',function () {
+        alert(this.className);
+    }).on('mouseover',function () {
+        $(this).css('color','red');
+    }).on('mouseout',function () {
+        $(this).css('color','black');
+    });
+
+    // focus()获取焦点
+    $(':text').focus(function () {
+        $(this).css('background-color','yellow');
+    });
+    //blur()失去焦点事件
+    // $(':text').blur(function(){
+    //     if ($(this).val().length === 0) {
+    //         alert('不能为空');
+    //     }
+    // });
+    //change(): 当文本框 和 下拉表内容发生变量的执行
+    $(':text').change(function(){
+        $(this).css('background-color','lightgreen');
+    });
+</script>
+</body>
+</html>

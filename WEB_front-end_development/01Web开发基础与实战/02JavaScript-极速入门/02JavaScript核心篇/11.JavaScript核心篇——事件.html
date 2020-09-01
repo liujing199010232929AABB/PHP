@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11.JavaScript核心篇——事件</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function myfocus(x){
+			x.style.background="blue";
+		}
+		function myclic(y){
+			y.style.borderRadius="50px";
+		}
+	</script>
+
+姓名：<input type="text" onmouseover="myfocus(this)">
+<br><br><br><br>
+<div style="width:100px;height:100px;border:1px solid #ccc;background:pink;" onclick="myclic(this)">
+		
+</div>	
+</body>
+</html>

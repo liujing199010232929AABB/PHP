@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>侦听器</title>
+</head>
+<body>
+<div id="box">
+    用户名:<input type="text" v-model="username"> <br>
+    <h3>{{length}}</h3>
+    <h3 v-show="isShow" :style="warning">{{message}}</h3>
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el: '#box',
+        data: {
+            username: '',
+            length: 0,
+            message: '用户名太短',
+            isShow: false,
+            warning: 'color:red'
+        },
+        // 侦听器:实时监测页面中数据的变化,实时更新数据模型中的属性,并完成指定的动作
+        watch: {
+            // Vue是面向数据编程,侦听器当然也是面数据,所以watch中侦听的属性必须是页面中的变量
+            username: function () {
+                this.length++;
+                if (this.length < 6) {
+                    this.isShow = true;
+                } else {
+                    this.isShow = false;
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01.JavaScript提升篇——HTMLDOM</title>
+</head>
+<body>
+	
+	<div id="box" style="background:#ccc;width:100px;height:100px;" onclick="box_1(this)">
+		
+	</div>
+	<img src="../static/images/life4.png" id="pic" onclick="box_2(this)">
+	<script type="text/javascript">
+		function box_1(x){
+			y=document.getElementById("box")
+			y.innerHTML="我是添加的内容";
+			// y.background="red";
+		}
+		function box_2(x){
+			document.getElementById("pic").src="../static/images/hot.png"
+		}
+		
+		
+
+	</script>
+</body>
+</html>

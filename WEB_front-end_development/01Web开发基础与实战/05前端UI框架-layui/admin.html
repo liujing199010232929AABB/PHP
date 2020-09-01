@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>管理员列表页面</title>
+	<link rel="stylesheet" type="text/css" href="Admin/static/layui/css/layui.css">
+	<script type="text/javascript" src="Admin/static/layui/layui.js"></script>
+	<script type="text/javascript" src="Admin/static/jQuery/jquery-3.4.1.min.js"></script>
+	<style type="text/css" media="screen">
+		.header span{background:#009688;color:#fff;padding:10px;margin-left:30px;line-height:32px;}
+		.header button{float:right;}
+		.header{border-bottom:2px solid #009688;}
+		.layui-form-checkbox[lay-skin=primary] i{
+		    border-color:#597FC0 !important;
+		    background-color:#FFF !important;
+		    color:#597FC0 !important;
+		    font-weight: bold;
+		}
+		/*.layui-form-checkbox[lay-skin=primary]{
+		    border-color:#597FC0 !important;
+		    color:#597FC0 !important;
+		    font-weight:200 !important;
+		    border:1px solid red !important;
+		    background:rgba(0,0,0,0) !important;
+		}*/
+	</style>
+</head>
+<body style="padding:10px;">
+	<div class="header">
+		<span>管理员列表</span>
+		<button type="button" class="layui-btn layui-btn-sm" onclick="add()">添加</button>
+	</div>
+	<div class="layui-form">
+		<table class="layui-table">
+		  <thead>
+		    <tr>
+		      <th>
+		      	<!-- <div class="layui-form-checkbox" lay-skin="primary" lay-filter="allChoose">
+		      		<i class="layui-icon layui-icon-ok" ></i>
+		      	</div> -->
+		      	<input type="checkbox"  lay-skin="primary"  lay-filter="allChoose" class="layui-form-checkbox">		
+		      </th>
+		      <th>ID</th>
+		      <th>用户名</th>
+		      <th>真实姓名</th>
+		      <th>角色</th>
+		      <th>状态</th>
+		      <th>添加时间</th>
+		      <th>操作</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		      <tr>
+		      	<td>
+		      		<input type="checkbox"  lay-skin="primary" >
+		      	</td>
+		      	<td>1</td>
+		      	<td>200903064001</td>
+		        <td>贤心</td>
+		        <td>管理员</td>
+		        <td>在职</td>
+		        <td>2020-01-10</td>
+		        <td>
+		        	<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+		        </td>
+		      </tr>
+		      <tr>
+		      	<td>
+		      		<!-- <div class="layui-form-checkbox" lay-skin="primary" lay-filter="allChoose">
+		      			<i class="" ></i>
+		      		</div> -->
+		      		<input type="checkbox"  lay-skin="primary"  class="layui-form-checkbox">
+		      	</td>
+		      	<td>2</td>
+		      	<td>200903064002</td>
+		        <td>张爱玲</td>
+		        <td>职员</td>
+		        <td>在职</td>
+		        <td>2020-01-10</td>
+		        <td>
+		        	<a class="layui-btn layui-btn-xs" lay-event="edit"  onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+		        </td>
+		      </tr>
+		      <tr>
+		      	<td>
+		      		<!-- <div class="layui-form-checkbox" lay-skin="primary" lay-filter="allChoose">
+		      			<i class="" ></i>
+		      		</div> -->
+		      		<input type="checkbox"  lay-skin="primary"  class="layui-form-checkbox">
+		      	</td>
+		      	<td>3</td>
+		      	<td>200903064003</td>
+		        <td>Helen Keller</td>
+		        <td>职员</td>
+		        <td>在职</td>
+		        <td>2020-01-10</td>
+		        <td>
+		        	<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+		        </td>
+		      </tr>
+		      <tr>
+		      	<td>
+		      		<!-- <div class="layui-form-checkbox" lay-skin="primary" lay-filter="allChoose">
+		      			<i class="" ></i>
+		      		</div> -->
+		      		<input type="checkbox"  lay-skin="primary"  class="layui-form-checkbox">
+		      	</td>
+		      	<td>4</td>
+		      	<td>200903064004</td>
+		        <td>岳飞</td>
+		        <td>职员</td>
+		        <td>离职</td>
+		        <td>2020-01-01</td>
+		        <td>
+		        	<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+		        </td>
+		      </tr>
+		      <tr>
+		      	<td>
+		      		<div class="layui-form-checkbox" lay-skin="primary"  class="layui-form-checkbox">
+		      			<i class="layui-icon layui-icon-ok" ></i>
+		      		</div>
+		      	</td>
+		      	<td>5</td>
+		      	<td>200903064005</td>
+		        <td>孟子</td>
+		        <td>职员</td>
+		        <td>离职</td>
+		        <td>2020-01-01</td>
+		        <td>
+		        	<a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+		        </td>
+		      </tr>
+		      <tr>
+		      	<td colspan="8" rowspan="" style="padding:0px;margin:0px;border:none;">
+		      		<div id="laypage" style="padding:0px;margin:0px;"></div>
+		      	</td>
+		      </tr>
+	    </tbody>
+	    
+    </table>
+	</div>
+
+	<script type="text/javascript" src="Admin/static/layui/layui.all.js"></script>
+	<script>
+		//调用分页
+		layui.use(['laypage', 'layer'], function(){
+		   var laypage = layui.laypage;
+  		   var layer = layui.layer;
+  			//自定义首页、尾页、上一页、下一页文本
+		  	 laypage.render({
+			    elem: 'laypage'
+			    ,count: 50
+			    ,first: '首页'
+			    ,last: '尾页'
+			    ,prev: '<em>←</em>'
+			    ,next: '<em>→</em>'
+		  	}); 
+		});
+
+		//添加删除的弹出层
+        layui.use(['layer','form'], function(){
+		  var element = layui.element;
+		  var layer = layui.layer;
+		  var layer = layui.form;
+		  form.render();
+		  
+		});
+		function del(){
+			layer.confirm('确定要删除吗？', {
+			  icon:2,
+			  btn: ['确定', '取消'] //可以无限个按钮
+			}, function(index, layero){
+			  //按钮【按钮一】的回调
+			}, function(index){
+			  //按钮【按钮二】的回调
+			});
+		}
+
+		//添加、编辑按钮
+		function add(){
+			layer.open({
+			  type: 2,//针对iframe
+			  title:'添加管理员',
+			  area: ['480px', '420px'],
+			  content: 'Admin/add.html' //这里content是一个普通的String
+			});
+		}
+
+		var $ = layui.jquery;
+		var form = layui.form();
+		 //全选
+        // form.on('checkbox(allChoose)', function(data){
+        //  var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+        //  child.each(function(index, item){
+        //   item.checked = data.elem.checked;
+        //  });
+        //  form.render('checkbox');
+        // });
+
+	</script>
+
+	<!-- 全选功能，没有调试成功
+	<script type="text/javascript" src="Admin/static/layui/layui.all.js"></script>
+    <script type="text/javascript">
+    	
+        var $ = layui.jquery,
+        var form = layui.form();
+        form.on('checkbox(allChoose)', function(data){
+         var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+         child.each(function(index, item){
+          item.checked = data.elem.checked;
+         });
+         form.render('checkbox');
+        });
+    </script> -->
+
+    
+</body>
+</html>

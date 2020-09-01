@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$.getJSON()函数</title>
+</head>
+<body>
+<h3>江湖门派查询系统$.getJSON()</h3>
+<label for="school">请选择:</label>
+<select name="school" id="school"></select>
+<p id="detail"></p>
+<script src="../lib/jquery.js"></script>
+<script>
+    // 1. $.getJSON()专用于解析从服务器上返回的json格式的内容;
+    // 2. 其实它就是$.get()函数中,将返回数据类型dataType设置为'json'格式时的简写函数;
+    // 3. $.getJSON()需要读取json格式的数据,为简化起见,我直接创建了一个json文件,实际开发中应该从接口获取;
+
+    $.getJSON('inc/schools.json',function (data, status) {
+        if (status === 'success') {
+            //默认的显示内容
+            let option = '<option value="">请选择</option>';
+            // console.log(data);
+            $.each(data, function(i){// $.each()专用来遍历对象或数组的全局函数
+                console.log(data[i]);
+                option += '<option value="'+i+'">'+data[i]+'</option>';
+            });
+            console.log(option);
+            // 将拼装好的html代码添加到<select>中
+            $('#school').html(option);
+
+        }
+
+    });
+
+    $('#school').change(function (event) {
+        // console.log($(this).serialize());
+        $.get(
+            //请求的Url地址
+            'inc/detail.php',
+            //请求数据
+            {key: $(event.target).val()},
+            //请求成功的回调
+            function (data, status) {
+                if (status === 'success') {
+                    $('#detail').html(data);
+                    $('[value=""]').remove();
+                } else {
+                    $('#detail').html('<span style="color:red">请求失败</span>');
+                }
+            }
+        );
+    })
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax中的$.getJSON()</title>
+</head>
+<body>
+<h3>江湖门派查询系统$.getJSON()</h3>
+<label for="school">请选择:</label>
+<select name="school" id="school"></select>
+<p id="detail"></p>
+
+<script src="../lib/jquery.js"></script>
+<script>
+    $.getJSON('inc/school.json',function(data,status){
+        if (status === 'success') {
+            //默认显示的提示内容
+            let option = '<option value="">请选择</option>';
+            // $.each()是jQuery内置的工具函数与.each()方法不同,专门用于遍历数组或对象
+            $.each(data,function(i){
+                // console.log(data[i]);
+                //拼装要显示的下拉列表内容
+                option += '<option value="'+ i + '">'+data[i]+'</option>';
+            });
+            //将拼装好的列表内容添加到<select>元素中
+            $('#school').html(option);
+        }
+    });
+
+    $('#school').change(function (event) {
+        $.get(
+            'inc/detail.php',   // 请求的url地址
+
+            {key: $(event.target).val()},   // 请求参数,以对象字面量形式
+
+            function (data,status){     // 请求成功的回调方法
+                // console.log(status);    // success
+                if (status === 'success') {
+                    $('#detail').html(data);
+                    $('[value=""]').remove();
+                } else {    //出错,未拿到响应数据
+                    $('#detail').html('<span style="color:red">请求错误</span>');
+                }
+            },
+            'html'  // 响应数据的格式,html/json/xml可省,会自动判断
+        );
+    });
+</script>
+</body>
+</html>

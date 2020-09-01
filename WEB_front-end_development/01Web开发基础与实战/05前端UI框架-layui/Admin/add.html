@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>admin管理员系统——添加按钮下内容</title>
+	<link rel="stylesheet" type="text/css" href="static/layui/css/layui.css">
+	<script type="text/javascript" src="static/layui/layui.js"></script>
+	
+</head>
+<body>
+	<form class="layui-form" action="" style="margin:20px auto !important;padding:0px 50px !important;">
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">用户名</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="title" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">真实姓名</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="title" class="layui-input">
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">角色</label>
+	    <div class="layui-input-inline">
+	      <select name="city" lay-verify="required">
+	        <option value=""></option>
+	        <option value="0">管理员</option>
+	        <option value="1">教员</option>
+	        <option value="2">学生1</option>
+	        <option value="3">学生2</option>
+	        <option value="4">学生3</option>
+	      </select>
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">状态</label>
+	    <div class="layui-input-inline">
+	      <input type="checkbox" name="" title="禁用" lay-skin="primary"> 
+	    </div>
+	  </div>
+	  <div class="layui-form-item">
+	    <label class="layui-form-label">添加时间</label>
+	    <div class="layui-input-inline">
+	      <input type="text" name="title" class="layui-input">
+	    </div>
+	  </div>
+	  <button type="button" class="layui-btn" style="margin-left:110px;">保存</button>
+	</form>
+	<script>
+	//Demo
+	layui.use('form', function(){
+	  var form = layui.form;
+	});
+	</script>
+</body>
+</html>

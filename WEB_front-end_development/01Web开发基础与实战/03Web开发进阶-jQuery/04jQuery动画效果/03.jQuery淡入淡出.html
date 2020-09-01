@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>03.jQuery淡入淡出</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+	<style type="text/css" media="screen">
+		.main{height:240px;width:240px;margin-right:20px;float:left;}
+		.box1{height:200px;width:200px;background:red;}
+		button{height:40px;width:200px;border:none;}
+		.box2{height:200px;width:200px;background:pink;}
+		.box3{height:200px;width:200px;background:blue;}
+		.box4{height:200px;width:200px;background:#ccc;}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.box1').hide();
+			$('.bt1').click(function(){
+				$('.box1').fadeIn(2000);
+			})
+			$('.bt2').click(function(){
+				$('.box2').fadeOut(2000);
+			})
+			$('.bt3').click(function(){
+				$('.box3').fadeToggle(1000);
+			})
+			$('.bt4').click(function(){
+				$('.box4').fadeTo(1000,0.5);
+			})
+		})
+	</script>
+	<div class="main">
+		<button class="bt1">淡入</button><br>
+		<div class="box1"></div>
+	</div>
+	<div class="main">
+		<button class="bt2">淡出</button><br>
+		<div class="box2"></div>
+	</div>
+	<div class="main">
+		<button class="bt3">切换</button><br>
+		<div class="box3"></div>
+	</div>
+	<div class="main">
+		<button class="bt4">透明度</button><br>
+		<div class="box4"></div>
+	</div>
+	
+	
+</body>
+</html>

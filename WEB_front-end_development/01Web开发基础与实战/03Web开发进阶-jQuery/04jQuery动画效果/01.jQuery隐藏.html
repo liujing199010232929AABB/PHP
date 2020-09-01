@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>01.jQuery隐藏/显示</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+	<style type="text/css" media="screen">
+		div{width:100px;height:100px;background:pink;margin:20px 20px;}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#bt1').click(function(){
+				$('p').hide(1500);
+			})
+			$('#bt2').click(function(){
+				$('p').show(1500);
+			})
+		})
+	</script>
+	<button id="bt1">点击隐藏</button>
+	<button id='bt2'>点击显示</button>
+	<!-- <div></div> -->
+	<p>大家好！！！</p>
+	<p>hello world!!</p>
+</body>
+</html>

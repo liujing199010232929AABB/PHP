@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板,属性与事件</title>
+</head>
+<body>
+<div>
+    <!--创建一个挂载点-->
+    <div id="box">
+        <!--1.模板绑定-->
+        <!--<h3>《JavaScript权威指南》</h3>-->
+        <!--<h3>{{message}}</h3>-->
+        <!--模板除了可以写在挂载点内,还可以写到Vue实例的属性中-->
+        <!--下面我们将h3中的内容写到Vue实例中-->
+
+        <!--2.属性绑定-->
+        <!--可以给模板标签绑定属性: v-bind -->
+        <!--之前是直接用标签写列的-->
+        <h3 style="color:red;">{{message}}</h3>
+        <!--vue实例也可以接管模板的属性,并实现绑定,使用v-bind指令-->
+        <!--<h3 v-bind:style="style">{{message}}</h3>-->
+        <!--属性绑定是常用操作,Vue提供了简写指定: 冒号-->
+        <!--<h3 :style="style">{{message}}</h3>-->
+        <!--此时,:style的值"style"已经不是一个普通字符串了,而是一个表达式,可以进行运算,例如字符串拼装-->
+        <h3 :style="style + 'font-size:2rem;'">{{message}}</h3>
+
+        <!--3.事件绑定-->
+        <!--还可以给模板绑定事件: v-on:事件名称="事件方法"-->
+        <!--事件对应的方法必须写到Vue实例中的methods属性中,该属性也是一个对象-->
+        <!--<h3 v-on:click="showDesc">{{message}}</h3>-->
+        <!--由于给模板添加事件是常用操作,所以Vue提供了一个简写语法:@-->
+        <!--<h3 @click="changeText">{{message}}</h3>-->
+    </div>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        // 绑定挂载点
+        el: '#box',
+        // 通过template属性给挂载点添加模板,它的优先级高于挂载点中的模板
+        // template: '<h3 style="color:red">《JavaScript权威指南》</h3>'
+        data: {
+            message: '《JavaScript权威指南》',
+            // 属性绑定也是写到data数据模型中
+            style: 'color: blue;'
+        },
+        methods: {
+            changeText: function () {
+                this.message = "《Vue.js权威指南》";
+            }
+        }
+    });
+</script>
+</body>
+</html>

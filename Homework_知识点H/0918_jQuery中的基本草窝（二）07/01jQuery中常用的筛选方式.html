@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery中常用的筛选方式</title>
+</head>
+<body>
+<ul class="list">
+    <li class="item">列表项01</li>
+    <li class="item" id="two">列表项02</li>
+    <li class="item">列表项03</li>
+    <li class="item">列表项04</li>
+    <li class="item">列表项05
+        <!--<ul>-->
+            <!--<li>子列表01</li>-->
+            <!--<li>子列表02</li>-->
+            <!--<li>子列表03</li>-->
+        <!--</ul>-->
+
+
+    </li>
+    <li class="item">列表项06</li>
+    <li class="item">列表项07</li>
+    <li class="item">列表项08</li>
+    <li class="item" id="nine">列表项09</li>
+    <li class="item">列表项10</li>
+</ul>
+<script src="../lib/jquery.js"></script>
+<script>
+    // $('li').get(1).style.backgroundColor = 'red';
+    // $($('li').get(1)).css('background-color','yellow');
+    // $('li').eq(1).css('background-color','lightgreen');
+    // $('li').first().css('background-color','lightgreen');
+    // $('li').last().css('background-color','lightgreen');
+
+    // console.log($('li').index($('li:contains("列表项04")')));
+
+    // console.log($('.list').children('li').length);
+    // console.log($('.list').find('li').length);
+    // console.log($('.list').contents().length); // 所有节点,包含文本节点
+
+    // $('li').eq(4).next().css('color','red');    //next(): 相邻兄弟节点
+    // $('li').eq(4).nextAll().css('color','red');
+    // $('li').eq(4).nextUntil('#nine').css('color','red');
+    // $('li').eq(4).prev().css('color','red');
+    // $('li').eq(4).prevAll().css('color','red');
+    // $('li').eq(4).prevUntil('#two').css('color','red');
+    // $('li').parent().css('border','1px solid red');
+    // $('li').eq(5).siblings().css('color','red');
+    // $('li').eq(5).css('color','red');
+    // $('li').eq(5).add('li:eq(8)').css('color','red');
+
+    // $('li').not('li:lt(3)').css('color','red');
+    // $('li').filter('li:lt(3)').css('color','red');
+
+    // not + filter = all
+
+    console.log($('li'));
+    console.log($('li').slice(0,2));
+    console.log($('li').toArray());
+
+
+
+</script>
+</body>
+</html>

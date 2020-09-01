@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02.如何操作HTML元素的属性？</title>
+</head>
+<body>
+	<img src="../static/images/1.jpg" alt="" width="320px">
+	<h3 id="header" class="hello" style="color:red" title="PHP中文网" index="php.cn">PHP中文网欢迎你来到，来到</h3>
+	<script>
+		let img = document.getElementsByTagName('img').item(0);
+		console.log(img.src);
+		img.src ='../static/images/2.jpg';
+		img.width=500;
+
+		let h3 = document.getElementById('header');
+		console.log(h3.className);
+		h3.style.color = 'green';
+
+		if(h3.hasAttribute('index')){
+			console.log(h3.hasAttribute('index'));
+			h3.setAttribute('index','PHP中文网');
+			h3.removeAttribute('index');
+		}
+		h3.setAttribute('style','color:blue;font-size:1.5rem;')
+
+		console.log(h3.attributes);
+		console.log(h3.attributes[0]);
+		console.log(h3.attributes['id']);
+		console.log(h3.attributes['style']);
+		console.log(h3.attributes.item(1));
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文档管理</title>
+</head>
+<body>
+<table>
+    <caption>文档管理</caption>
+    <tr>
+        <td>ID</td>
+        <td>标题图片</td>
+        <td>文档标题</td>
+        <td>所属分类</td>
+        <td>操作</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td><img src="./static/images/1.jpg" alt="" width="50"></td>
+        <td><a href="">Apple公司最新旗舰产品: iPhone X 系列手机隆重上市</a></td>
+        <td>手机</td>
+        <td><a href="">编辑</a>&nbsp;|&nbsp;<a href="">删除</a></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td><img src="./static/images/2.jpg" alt="" width="50"></td>
+        <td><a href="">华为P20手机将全面采用自主研发的麒麟系统芯片</a></td>
+        <td>手机</td>
+        <td><a href="">编辑</a>&nbsp;|&nbsp;<a href="">删除</a></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td><img src="./static/images/3.jpg" alt="" width="50"></td>
+        <td><a href="">小米9手机预计在明年8月正式上市</a></td>
+        <td>手机</td>
+        <td><a href="">编辑</a>&nbsp;|&nbsp;<a href="">删除</a></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td><img src="./static/images/4.jpg" alt="" width="50"></td>
+        <td><a href="">OPPO手机勇夺印度市销售冠军</a></td>
+        <td>手机</td>
+        <td><a href="">编辑</a>&nbsp;|&nbsp;<a href="">删除</a></td>
+    </tr>
+</table>
+
+<!--分页-->
+<p>
+    <a href="">首页</a>
+    <a href="" class="active">1</a>
+    <a href="">2</a>
+    <a href="">3</a>
+    <a href="">4</a>
+    <a href="" class="more">...</a>
+    <a href="">尾页</a>
+</p>
+</body>
+</html>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    table {
+        width: 780px;
+        margin: auto;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    td {
+        padding: 10px;
+    }
+    a {
+        text-decoration-line: none;
+        color: green;
+    }
+
+    a:hover {
+        color: brown;
+        text-decoration-line: underline;
+    }
+
+    tr:first-child {
+        margin-top: 20px;
+        background-color: lightblue;
+    }
+
+    table caption {
+        font-size: 1.5rem;
+        font-weight: bolder;
+        margin-bottom: 20px;
+    }
+
+    p {
+        text-align: center;
+    }
+    /*首页样式*/
+    p a:first-child {
+        width: 56px;
+    }
+
+    p a:last-child {
+        width: 56px;
+    }
+    p a {
+        display: inline-block;
+        width: 28px;
+        height: 24px;
+        border: 1px solid green;
+        margin-left:2px;
+        line-height: 24px;
+
+    }
+
+    /*当前页样式*/
+    .active {
+        background-color: green;
+        color: white;
+    }
+
+    .more {
+        border: none;
+    }
+
+</style>

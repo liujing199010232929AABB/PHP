@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>07.JavaScript核心篇——数组（Array）</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a=['php','html','web'];
+		document.write(a[0]+'<br>');
+
+		var b=new Array(
+              new Array(11,12),
+              new Array(13,14)
+		);
+		document.write(b[1][1]+'<br>');
+
+		b[1][1]=100;
+		document.write(b[1][1]+'<br>');
+
+		var x;
+		var week=new Array();
+		    week[0]='html';
+		    week[1]='php';
+		    week[2]='javascript';
+		    for (x in week){
+		    	document.write(week[x]+'<br>');
+		    }
+
+
+
+	</script>
+	
+</body>
+</html>

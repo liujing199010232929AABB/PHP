@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03.如何根据标签名称获取元素？</title>
+</head>
+<body>
+	<ul>
+		<li>列表项01</li>
+		<li>列表项02</li>
+		<li>列表项03</li>
+		<li>列表项04</li>
+		<li>列表项05</li>
+	</ul>
+	
+	<script>
+		let ul = document.getElementsByTagName('ul')[0];
+		ul.style.backgroundColor = 'lightgreen';
+
+
+		let ul1 = document.getElementsByTagName('ul').item(0);
+		ul1.style.backgroundColor = 'lightblue';
+		
+
+		let lists = document.getElementsByTagName('li');
+		console.log(lists.length);
+		console.log(lists);
+
+		for(let i=0;i<lists.length;i++){
+			lists[i].style.backgroundColor = 'lightpink';
+		}
+		
+		let ul2 = document.getElementsByTagName('ul').item(0);
+		let item2 = ul2.getElementsByTagName('li').item(1);
+		item2.style.backgroundColor = 'green';
+	</script>
+
+</body>
+</html>

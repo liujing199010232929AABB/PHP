@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>首页首屏</title>
+	<link rel="stylesheet" type="text/css" href="Admin/static/layui/css/layui.css">
+	<script type="text/javascript" src="Admin/static/layui/layui.js"></script>
+	<script type="text/javascript" src="Admin/static/jQuery/jquery-3.4.1.min.js"></script>
+	<style type="text/css" media="screen">
+		.header span{background:#009688;margin-left:30px;padding:10px;color:#fff;}
+		.header button{float:right;margin-top:-5px;}
+		.thumb{height:15px;border:1px solid #f0f0f0;padding:1px;}
+		.layui-table{position:relative;}
+		a{text-decoration:none;}
+	</style>
+</head>
+<body style="padding:10px;">
+	<div class="header">
+		<span>首页首屏</span>
+		<button class="layui-btn layui-btn-sm" onclick="add();">添加</button>
+	</div>
+	
+	<table class="layui-table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>排序</th>
+				<th>标签</th>
+				<th>URL</th>
+				<th>图片</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>2</td>
+				<td>0</td>
+				<td>卫斯理2：余文乐燃起科幻风云</td>
+				<td><a href="www.php.cn">www.php.cn</a></td>
+				<td><img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>0</td>
+				<td>街舞剧情升级：陈伟霆送抱抱</td>
+				<td><a href="www.php.cn">https://www.php.cn</a></td>
+				<td><img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>0</td>
+				<td>好久不见：杨子姗郑恺异国相逢</td>
+				<td><a href="www.php.cn">https://www.php.cn</a></td>
+				<td><img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>0</td>
+				<td>远大前程：陈思诚回永鑫复仇</td>
+				<td><a href="www.php.cn">https://www.php.cn</a></td>
+				<td><img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>0</td>
+				<td>魔都风云：再现乱世上海滩</td>
+				<td><a href="www.php.cn">https://www.php.cn</a></td>
+				<td><img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>0</td>
+				<td>破冰者：罗晋潘之琳为爱出击</td>
+				<td><a href="www.php.cn">https://www.php.cn</a></td>
+				<td><img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>0</td>
+				<td>护宝联盟：阿娇陈楚河相爱相杀</td>
+				<td><a href="www.php.cn">https://www.php.cn</a></td>
+				<td><img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>0</td>
+				<td>2018北影节最高分佳片预览</td>
+				<td><a href="www.php.cn">https://www.php.cn</a></td>
+				<td><img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>0</td>
+				<td>吴晓波：《十年二十人》之徐小平</td>
+				<td><a href="www.php.cn">https://www.php.cn</a></td>
+				<td><img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>0</td>
+				<td>埃及秘密：千年木乃伊离奇复活</td>
+				<td><a href="www.php.cn">https://www.php.cn</a></td>
+				<td><img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>12</td>
+				<td>0</td>
+				<td>卫斯理2：余文乐燃起科幻风云</td>
+				<td><a href="www.php.cn">https://www.php.cn</a></td>
+				<td><img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			
+			
+		</tbody>
+	</table>
+	<script>
+		//添加删除的弹出层
+        layui.use(['layer','laypage'], function(){
+		  var layer = layui.layer;
+		  var laypage = layui.laypage;
+		   $ = layui.jquery;
+		  
+		  //执行一个laypage实例
+		  laypage.render({
+		    elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+		    ,count: 6 //数据总数，从服务端得到
+		    ,limit:2
+		  });
+		});
+
+
+
+		function del(){
+			layer.confirm('确定要删除吗？', {
+			  icon:2,
+			  btn: ['确定', '取消'] //可以无限个按钮
+			}, function(index, layero){
+			  //按钮【按钮一】的回调
+			}, function(index){
+			  //按钮【按钮二】的回调
+			});
+		}
+		//添加
+
+
+		//预览图片
+
+		//1、首先获取到浏览器窗口的位置（相对于文档）
+		function getMousePos(event){
+			var e = event || window.event;
+			//计算滚动条的位移
+			var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+			var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+
+			var x = e.pageX || e.clientX + scrollX;
+			var y = e.pageY || e.clientY + scrollY;
+			return {'x':x,'y':y};
+		}
+		//显示隐藏预览图片
+		function show_img(obj){
+			var imgurl =$(obj).attr('src')
+			var res=getMousePos()
+			var html='<div style="background:#fff;width:200px;border:solid 1px  #ccc;border-radius:6px;padding:2px;position:absolute;left:'+res.x+'px;top:'+res.y+'px;z-index:4" id="preview">\
+			    <img style="width:100%;border-radius:6px;" src="'+imgurl+'">\
+			    </div>'
+			$('body').append(html)
+		}
+		function hide_img(){
+			$('#preview').remove();
+		}
+		
+
+		
+	</script>
+
+</body>
+</html>

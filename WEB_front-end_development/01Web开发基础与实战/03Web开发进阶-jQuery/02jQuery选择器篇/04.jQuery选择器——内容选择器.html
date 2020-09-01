@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04.jQuery选择器——内容选择器</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+	<style>
+		div{width:100px;height:100px;background:#ccc;margin-top:20px;}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// $('div:contains(jun)').css('background','blue');
+			// $('div:has(span)').css('color','red');
+			// $('div:empty').css('background','pink');
+			$('div:parent').css('background','red');
+		})
+	</script>
+	<div>jack</div>
+	<div>jun</div>
+	<div>Jack cheng</div>
+	<div>jion</div>
+	<div><span>PHP中文网</span></div>
+	<div></div>
+	<div><b></b></div>
+</body>
+</html>

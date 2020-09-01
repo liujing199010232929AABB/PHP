@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绝对定位实现三列布局</title>
+    <style type="text/css">
+        /*先给最简单的头部和底部设置基本的样式*/
+        .header, .footer {
+            /*宽度为窗口的宽度,自适应变化*/
+            width: 100%;
+
+            /*为了简化,头部与尾部高度统一设置为60px*/
+            height: 60px;
+
+            /*参考背景色:浅灰*/
+            background-color: lightgray;
+        }
+
+
+        /*设置头部和底部的中间内容区的基本样式*/
+        .content {
+            /*先设置总的宽度,这步很重要*/
+            width: 1000px;
+
+            /*高度直接引用父区块值*/
+            min-height: 100%;
+
+            /*设置参考色:灰色*/
+            background-color: gray;
+
+            /*使自己水平居中*/
+            margin: auto;
+
+            /*使其内部的文本水平垂直居中*/
+            text-align: center;
+            line-height: 60px;
+        }
+
+        .main {
+            /*main区块是定位父级区块,必须设置定位属性*/
+            position: relative;
+
+            /*设置宽高*/
+            width: 1000px;
+            height: 650px;
+
+            /*设置左右水平居中*/
+            margin: auto;
+
+            /*参考背景色:黄;*/
+            background-color: yellow;
+        }
+
+        /*绝对定位实现左侧布局*/
+        .left {
+            /*绝对定位到左侧起始点*/
+            position: absolute;
+            top:0;
+            left:0;
+
+            /*设置宽高*/
+            width: 200px;
+            /*高度与父级一致*/
+            min-height: 100%;
+
+            /*背景参考色:浅绿*/
+            background-color: lightskyblue;
+        }
+
+        /*绝对定位实现右侧布局*/
+        .right {
+            /*绝对定位到右侧起始点*/
+            position: absolute;
+            top:0;
+            right: 0;
+
+            /*设置宽高*/
+            width: 200px;
+            min-height: 100%;
+
+            /*参考背景色:浅绿*/
+            background-color: lightgreen;
+
+        }
+
+        /*设置中间内容区块的基本样式:重点*/
+        .center {
+            /*使用外边距的方法,将中间的内容区挤压出来,左右值要大于或等于左右区块*/
+            margin: 0 210px;
+
+            /*与前面一样,高度与父级一致*/
+            min-height: 100%;
+
+            /*参考背景色:小麦色*/
+            background-color: wheat;
+        }
+    </style>
+</head>
+<body>
+<!-- DOM结构 -->
+<!-- 头部 -->
+<div class="header">
+    <div class="content">网站头部</div>
+</div>
+
+<!-- 主体 -->
+<div class="main">
+    <div class="left">左</div>
+    <div class="center">中</div>
+    <div class="right">右</div>
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+    <div class="content">网站底部</div>
+</div>
+
+<pre>
+		绝对定位三列布局的基本思路:
+		1. 先创建一个定位父级区块:relative
+		2. 左右侧边栏,采用约定定位
+		3. 中间主体使用margin外边距进行挤压形成
+		4. 如果定位父级定宽,中间区域就是定宽,否则自适应
+	</pre>
+</body>
+</html>

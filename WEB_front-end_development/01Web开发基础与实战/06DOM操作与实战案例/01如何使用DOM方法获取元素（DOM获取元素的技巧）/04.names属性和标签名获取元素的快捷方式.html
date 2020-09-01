@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04.names属性和标签名获取元素的快捷方式</title>
+</head>
+<body>
+	<img src="../static/images/1.jpg" name="pic">
+	<form action="" name="register">
+		<input type="text" name="" placeholder="用户名">
+		<input type="password" name="" placeholder="秘密不少于8位">
+		<button type="">提交</button>
+	</form>
+	<p><a href="http://www.php.cn" name="php">PHP中文网</a></p>
+	<script>
+		document.images[0].style.width = '200px';
+		document.images['pic'].style.width = '300px';
+		document.images.pic.style.width = '400px';
+
+		document.forms[0].style.backgroundColor='lightgreen';
+		document.forms['register'].style.backgroundColor='lightpink';
+		document.forms.register.style.backgroundColor='red';
+		document.forms.item(0).style.backgroundColor='blue';
+
+		document.links[0].style.backgroundColor = 'yellow';
+		document.links['php'].style.backgroundColor = 'red';
+		document.links.php.style.backgroundColor = 'pink';
+		document.links.item(0).style.backgroundColor = 'blue';
+
+		document.body.style.backgroundColor ='wheat';
+
+		let style =document.createElement('style');
+		document.head.appendChild(style);
+
+		console.log(document.documentElement);
+
+		console.log(document.doctype);
+
+
+
+	</script>
+</body>
+</html>

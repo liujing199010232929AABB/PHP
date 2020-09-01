@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>角色管理</title>
+	<link rel="stylesheet" type="text/css" href="Admin/static/layui/css/layui.css">
+	<script type="text/javascript" src="Admin/static/layui/layui.js"></script>
+	<script type="text/javascript" src="Admin/static/jQuery/jquery-3.4.1.min.js"></script>
+	<style type="text/css" media="screen">
+		.header span{background:#009688;color:#fff;padding:10px;margin-left:30px;line-height:32px;}
+		.header{border-bottom:2px solid #009688;}
+		.layui-form button{margin:10px;float:right;}
+	</style>
+</head>
+<body style="padding:10px;">
+	<div class="header">
+		<span>菜单管理</span>
+	</div>
+	<form class="layui-form">
+		<table class="layui-table">
+		  <thead>
+		    <tr>
+		      <th>ID</th>
+		      <th>角色名称</th>
+		      <th>操作</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		      <tr>
+		      	<td>1</td>
+		      	<td>系统管理员</td>
+		        <td>
+		        	<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="edit();">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+		        </td>
+		      </tr>
+		      <tr>
+		      	<td>2</td>
+		      	<td>开发人员</td>
+		        <td>
+		        	<a class="layui-btn layui-btn-xs" lay-event="edit"  onclick="edit()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+		        </td>
+		      </tr>
+		      
+	      </tbody>
+    	</table>
+	    <button type="button" class="layui-btn">保存</button>
+	</form>
+	<script>
+		//添加删除的弹出层
+        layui.use(['layer','form'], function(){
+		  var element = layui.element;
+		  var layer = layui.layer;
+		  var layer = layui.form;
+		  $ = layui.jquery;
+		  form.render();
+		  
+		});
+
+		//添加、编辑按钮
+		function edit(){
+			layer.open({
+			  type: 2,//针对iframe
+			  title:'权限菜单',
+			  area: ['500px', '500px'],
+			  content: 'Roles/add.html' //这里content是一个普通的String
+			});
+		}
+		
+		function del(){
+			layer.confirm('确定要删除吗？', {
+			  icon:2,
+			  btn: ['确定', '取消'] //可以无限个按钮
+			}, function(index, layero){
+			  //按钮【按钮一】的回调
+			}, function(index){
+			  //按钮【按钮二】的回调
+			});
+		}
+
+		
+	</script>
+
+	
+
+    
+</body>
+</html>

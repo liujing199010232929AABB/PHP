@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03.Data（日期对象）</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var myday=new Date();
+		document.write(myday+"<br>");
+		document.write(myday.getFullYear()+"年");
+		document.write(myday.getMonth()+"月"+"<br>");
+		var month=new Array(12);
+		    month[0]="一月";
+		    month[1]="二月";
+		    month[2]="三月";
+		    month[3]="四月";
+		    month[4]="五月";
+		    month[5]="六月";
+		    month[6]="七月";
+		    month[7]="八月";
+		    month[8]="九月";
+		    month[9]="十月";
+		    month[10]="十一月";
+		    month[11]="十二月";
+		document.write("这个月是"+month[myday.getMonth()]+"<br>");
+		document.write("今天是星期"+myday.getDay()+"<br>");
+		document.write("今天是这个月的"+myday.getDate()+"天"+"<br>");
+		document.write("现在是"+myday.getHours()+"时"+"<br>");
+		document.write("现在是"+myday.getMinutes()+"分"+"<br>");
+		document.write("现在是"+myday.getSeconds()+"秒"+"<br>");
+		
+
+
+
+
+	</script>
+	
+</body>
+</html>

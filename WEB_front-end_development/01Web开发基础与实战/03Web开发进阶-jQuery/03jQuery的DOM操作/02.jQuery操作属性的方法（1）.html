@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>02.jQuery操作属性的方法（1）</title>
+		<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+		<style type="text/css" media="screen">
+			.box{color:red;}
+			.main{font-size:40px;font-weight:bold;}
+			.bb{color:blue;font-size:50px;}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				// $('p').addClass('box main');
+				// $('p').removeClass('box');
+				// alert($('p').attr('title'));
+				// $('p').attr('title','你好');
+				// alert($('p').attr('title'));
+				// $('button').click(function(){
+				// 	$('img').removeAttr('src');
+				// })
+				// $('button').click(function(){
+				// 	alert($('div').hasClass('one'));
+
+				// })
+
+				// $('button').click(function(){
+				// 	$('span,b,p').toggleClass('bb');
+				// })
+
+				// alert($('b').text());
+				$('b').text('我是小石头');
+
+				// alert($('p').html());
+				$('p').html('<h1>hello world</h1>');
+				
+				alert($('input').val());
+
+				$('input').val('我是被修改的值！');
+
+			})
+		</script>
+		<!-- <p title="content">php中文网</p>
+		<img src="../static/images/1.jpg">
+		<button>点击删除图片</button>
+		<div class="one">
+			你好！！
+		</div>
+		<button>点击</button> -->
+		<span>大家好</span><br>
+		<b>欢迎来到！！</b>
+		<p>PHP中文网</p>
+		<button>点击切换</button>
+		<button>点击切换</button><br>
+		<input type="text" name="" value="我是元素的值">
+
+	</body>
+
+</html>

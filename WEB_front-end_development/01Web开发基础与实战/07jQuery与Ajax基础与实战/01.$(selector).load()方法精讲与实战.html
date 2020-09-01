@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01.$(selector).load()方法精讲与实战</title>
+	<script type="text/javascript" src="static/jQuery/jquery.js"></script>
+</head>
+<body>
+	<h3>江湖门派的查询系统load()</h3>
+	<label for="school">请选择：</label>
+	<select name="school" id="school">
+		<!-- <option value="">丐帮</option> -->
+	</select>
+	<p id="detail"></p>
+	<script type="text/javascript">
+		jQuery.support.cors = true;
+		$('#school').load('inc/school.php',function(data){
+			console.log(data);
+		});
+	</script>
+
+</body>
+</html>

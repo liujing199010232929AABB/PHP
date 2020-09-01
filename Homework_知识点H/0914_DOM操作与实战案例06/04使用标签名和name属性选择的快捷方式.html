@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<img src="inc/1.jpg" alt="" name="pic">
+<form action="" name="register">
+    <input type="text" placeholder="用户名">
+    <inp使用标签名和name属性选择的快捷方式ut type="password" placeholder="密码不少于8位">
+    <button>提交</button>
+</form>
+<p><a href="http://www.php.cn" name="php">php中文网</a></p>
+
+
+<script>
+    //根据name标签名和name属性选择元素的快捷方式:仅适用于极少的几个,这是历史原因造成的
+    // images: 所有的<img>元素 图像,数组, 有三种访问方式
+    document.images[0].style.width = '200px';       // 1.标签索引
+    document.images['pic'].style.width = '200px';   // 2.name 属性
+    document.images.pic.style.width = '300px';      // 3.将name视为元素对象的属性进行访问
+
+    // forms: 所有的<forms>元素 表单,数组
+    document.forms[0].style.backgroundColor = 'lightgreen';
+    document.forms['register'].style.backgroundColor = 'lightblue';
+    document.forms.register.style.backgroundColor = 'red';
+    document.forms.item(0).style.backgroundColor = 'lightgreen';  // 类数组可用item()方法获取某个元素
+
+    //a 链接: 所有的<a>元素,NodeList 数组
+    document.links[0].style.backgroundColor = 'yellow';
+    document.links['php'].style.backgroundColor = 'red';
+    document.links.php.style.backgroundColor = 'green';
+
+    // body: <body>元素,总有定义,只有一个
+    document.body.style.backgroundColor = 'wheat';
+
+    // head: <head>元素,总有定义,不写会自动添加,只有一个
+    let style = document.createElement('style');
+    document.head.appendChild(style);
+
+    // documentElement: <html>元素,总有定义,同样一个页面只有一个
+    console.log(document.documentElement);
+
+    // doctype: 文档类型,同样也只有一个
+    console.log(document.doctype);
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{extends file="layout.html"}
+{block name="title"}模板继承的实例{/block}
+
+{block name="nav"}
+<a href="">首页</a>
+<a href="">公司新闻</a>
+
+{$smarty.block.parent}
+
+<a href="">联系我们</a>
+{/block}
+<hr>
+{block name="content"}
+<h3>“为祖国庆生”应是 中秋节 主旋律</h3>
+<p>
+    但，过好国庆节， 我们无论是出行、购物，还是与友欢聚、
+    捧书私叙，都不能忘记国庆是“为祖国庆生” 的内涵和意义，理
+    应找寻适当方式，为我们朝夕于是的国家庆生。
+    {$smarty.block.parent}
+
+</p>
+{/block}

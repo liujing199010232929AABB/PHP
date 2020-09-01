@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06.jQuery选择器——表单选择器</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// $(':enabled').css('background','red');
+			// $(':disabled').css('background','blue');
+			// $(':selected').css('background','pink');
+			$(':checked').parent().css('background','pink');
+
+		})
+	</script>
+	<form>
+		<label>1</label><input type="text" name=""><br>
+		<label>2</label><input type="text" name=""><br>
+		<label>3</label><input type="text" name="" disabled><br>
+		<label>4</label><input type="text" name=""><br>
+		<select>
+			<option value="">摩羯座</option>
+			<option value="" selected>双鱼座</option>
+			<option value="">射手座</option>
+			<option value="">处女座</option>
+		</select><br>
+		爱好：
+		<label><input type="checkbox" name="" >看书</label>
+		<label><input type="checkbox" name="" checked>游泳</label>
+		<label><input type="checkbox" name="" >游戏</label>
+	</form>
+</body>
+</html>

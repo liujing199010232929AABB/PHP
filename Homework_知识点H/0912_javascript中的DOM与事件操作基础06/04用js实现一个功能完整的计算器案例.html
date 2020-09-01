@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 200px;
+            background-color: #efefef;
+            border: 1px solid lightgrey;
+            text-align: center;
+            margin: 20px auto;
+            color: #636363;
+            border-radius: 15px;
+            box-shadow: 2px 2px 2px #999;
+        }
+
+        table {
+            margin: auto;
+            /*border: 1px solid red;*/
+        }
+
+        td {
+            width: 100px;
+            height: 30px;
+            padding: 5px 10px;
+        }
+
+        input, select {
+            width: 100%;
+            height: 100%;
+            border: none;
+            text-align: left;
+            padding-left: 15px;
+        }
+
+        button {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: skyblue;
+            color: white;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: coral;
+            width: 110%;
+            height: 110%;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>计算器</h2>
+    <form>
+        <table>
+            <tr>
+                <td><input type="text" name="opt1" placeholder="操作数1"></td>
+                <td>
+                    <select name="option" id="">
+                        <option value="null">请选择操作</option>
+                        <option value="add">+</option>
+                        <option value="sub">-</option>
+                        <option value="mul">*</option>
+                        <option value="div">/</option>
+                    </select>
+                </td>
+                <td><input type="text" name="opt2" placeholder="操作数2"></td>
+                <td><button type="button">计算</button></td>
+            </tr>
+
+            <tr>
+                <td align="right" colspan="2"><h3>结果:</h3></td>
+                <td align="left" colspan="2"><h3 id="result"></h3></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script>
+    //1. 获取操作数,按钮,结果占位符
+    let opt1 = document.getElementsByName('opt1')[0];
+    let opt2 = document.getElementsByName('opt2')[0];
+    let opt = document.getElementsByName('option')[0];
+    let btn = document.getElementsByTagName('button')[0];
+    let result = document.getElementById('result');
+
+    //2. 给按钮添加事件,进行计算
+    btn.onclick = function () {
+        //操作数初始化
+        let data1 = 0;
+        let data2 = 0;
+
+        if (opt1.value.length === 0) {
+            alert('第一个操作数不能为空');
+            opt1.focus();
+            return false;
+        } else if (isNaN(opt1.value)) {
+            alert('第一个操作数必须为数字');
+            opt1.focus();
+            return false;
+        } else if (opt2.value.length === 0) {
+            alert('第二个操作数不能为空');
+            opt2.focus();
+            return false;
+        } else if (isNaN(opt2.value)) {
+            alert('第二个操作数必须为数字');
+            opt2.focus();
+            return false;
+        } else {
+            data1 = parseFloat(opt1.value);
+            data2 = parseFloat(opt2.value);
+        }
+
+        //对操作符进行处理
+        let option = opt.value;  // 拿到了用户选择的操作
+        let temp = 0;
+        let flag = '';
+
+        switch (option) {
+            case 'null':
+                alert('请选择操作类型');
+                opt.focus();
+                return false;
+            case 'add':
+                flag = '+';
+                temp = data1 + data2;
+                break;
+            case 'sub':
+                flag = '-';
+                temp = data1 - data2;
+                break;
+            case 'mul':
+                flag = '*';
+                temp = data1 * data2;
+                break;
+            case 'div':
+                flag = '/';
+                //进行除数不能为零的判断和处理
+                if (data2 === 0) {
+                    alert('除数不能为零');
+                    opt2.focus();
+                    opt2.value = '';
+                    return false;
+                } else {
+                    temp = data1 / data2;
+                    // 四舍五入,仅保留二位小数
+                    temp = Math.round(temp * 100) / 100;
+                }
+
+                break;
+        }
+
+        let str = '<span style="color:coral">';
+
+        str += data1 + ' ' +flag + ' ' + data2 + ' = ' +temp;
+
+        str += '</span>';
+
+        result.innerHTML = str;
+
+
+
+    }
+</script>
+
+</body>
+</html>
+
+Ajax  JSON

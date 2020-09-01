@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作业提示:  三级联动菜单</title>
+</head>
+<body>
+省 <select name="" id="pro"></select>
+市 <select name="" id="city"></select>
+区 <select name="" id="area"></select>
+<p id="addr"></p>
+<script src="../lib/jquery.js"></script>
+<script>
+    $(function(){
+        $.getJSON('inc/1.json',function(data){
+            let option = '<option value="">选择(省)</option>';
+            $.each(data,function(i){
+                option += '<option value="'+data[i].proId+'">'+data[i].proName+'</option>';
+            });
+            $('#pro').html(option);
+
+        });
+
+        $('#pro').change(function(){
+            //查看当前选择中元素内容
+            console.log($(this).find(':selected').text());
+
+            $.getJSON('inc/2.json',function(data){
+               let option = '<option value="">选择(市)</option>';
+                $.each(data,function(i){
+                    if (data[i].proId == $('#pro').val()) {
+                        option += '<option value="'+data[i].cityId+'">'+data[i].cityName+'</option>';
+                    }
+                });
+                $('#city').html(option);
+            });
+        });
+        $('#city').change(function(){
+            //查看当前选择中元素内容
+            console.log($(this).find(':selected').text());
+            $.getJSON('inc/3.json',function(data){
+                let option = '<option value="">选择(县区)</option>';
+                $.each(data,function(i){
+                    if (data[i].cityId == $('#city').val()) {
+                        option += '<option value="'+data[i].areaId+'">'+data[i].areaName+'</option>';
+                    }
+                });
+                $('#area').html(option);
+            });
+        });
+
+        $('#area').change(function(){
+            //查看当前选择中元素内容
+            console.log($(this).find(':selected').text());
+        });
+
+        //思考: 如何将获取到的内容,及时的回显到页面中,动态的提示用户当前的选择内容,实现数据绑定
+    })
+</script>
+</body>
+</html>

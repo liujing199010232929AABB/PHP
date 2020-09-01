@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$.ajax()</title>
+</head>
+<body>
+<h3>用户登录$.ajax()</h3>
+<p><label for="email">邮箱:</label><input type="email" id="email" name="email"></p>
+<p><label for="password">邮箱:</label><input type="password" id="password" name="password"></p>
+<p><button>提交</button></p>
+
+<script src="../lib/jquery.js"></script>
+<script>
+    $('button').click(function(){
+        if ($('#email').val().length === 0) {
+            $('#email').after('<span style="color:red">邮箱不能为空</span>').next().fadeOut(2000);
+            $('#email').focus();
+            return false;
+        }
+
+        if ($('#password').val().length === 0) {
+            $('#password').after('<span style="color:red">密码不能为空</span>').next().fadeOut(2000);
+            $('#password').focus();
+            return false;
+        } else if($('#password').val().length < 6) {
+            $('#password').after('<span style="color:red">密码不能少于6位</span>').next().fadeOut(2000);
+            $('#password').focus();
+            return false;
+        }
+
+        $.ajax({
+            type: 'post',   // 请求类型
+            url: 'inc/check.php',   // 请求的处理脚本
+            data: {
+                email: $('#email').val(),
+                password: $('#password').val()
+            },
+            dataType: 'json',
+            success: function(data,status,xhr) {
+                console.log($(this));
+                // console.log(data.message);
+                if (data.status === 1) {
+                    $('button').after('<span style="color: green"></span>').next().html(data.message).fadeOut(2000);
+                } else {
+                    $('button').after('<span style="color: red"></span>').next().html(data.message).fadeOut(2000);
+                }
+            }
+        });
+
+    })
+</script>
+</body>
+</html>

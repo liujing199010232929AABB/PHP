@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>子元素浮动引起的父级区块高度塌陷的解决方案</title>
+</head>
+<body>
+<style>
+	.box1 {
+		border: 5px dashed red;
+
+		/*
+		流式布局中,子块高度撑开父块
+		子块浮动后,脱离文档流,父块失去高度限制,自动折叠,出现高度塌陷
+		解决方案有三种:
+		*/
+
+		/*方案一:给父级区块加高度,优点是简单,缺点是不能自适应子块高度变化*/
+		/*height: 400px;  !*父块加高度的方案不推荐*!*/
+
+		/*方案二:父级区块加:overflow: hidden;(溢出隐藏)*/
+		/*overflow: hidden;  !*部分浏览器可能会存在兼容性,例如IE,可能会出现滚动条*!*/
+	}
+
+	/*方案三: 给父级区块添加伪类元素解决*/
+	.box1:after {
+		content: '';  /*添加空内容元素*/
+		display: block; /*将添加的空元素转为块级元素*/
+		clear: both; /*清除该空元素前面元素的浮动属性,使之回到文档流中,以撑开父级高度*/
+	}
+
+	.box2 {
+		height: 400px;
+		width: 100%;
+		background-color: lightgreen;
+
+		float: left;
+	}
+</style>
+<div class="box1">
+	<div class="box2"></div>
+
+	<!--方案四: 添加附加空区块,仅仅用来清除前面元素的浮动属性-->
+	<!--不推荐,因为后端进行数据绑定时会遇到麻烦:例如循环输出数据,需要对它单独处理-->
+	<div style="clear: both;"></div>
+</div>
+
+</body>
+</html>

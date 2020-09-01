@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02.jQuery选择器——层级选择器</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('ul>li').css('list-style','none');
+			$('ul li').css('list-style','none');
+			$('label+input').css('height','100px');
+			$('label~input').css('background','pink');
+			
+		})
+	</script>
+	<ul>
+		<li>1</li>
+		<li>1</li>
+		<div>
+			<li>2
+				<div>
+					<li>3</li>
+				</div>
+			</li>
+		</div>
+		<li>1</li>
+		<li>1</li>
+		<li>1</li>
+		<li>1</li>
+		<li>1</li>
+	</ul>
+	<form>
+		<label>姓名：</label>
+		<input type="" name="">
+		<button>按钮</button>
+		<input type="" name="">
+		<input type="" name="">
+	</form>
+</body>
+</html>

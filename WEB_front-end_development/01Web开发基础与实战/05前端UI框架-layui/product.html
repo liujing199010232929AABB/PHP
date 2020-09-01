@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>产品列表</title>
+	<link rel="stylesheet" type="text/css" href="Admin/static/layui/css/layui.css">
+	<script type="text/javascript" src="Admin/static/layui/layui.js"></script>
+	<script type="text/javascript" src="Admin/static/jQuery/jquery-3.4.1.min.js"></script>
+	<style type="text/css" media="screen">
+		.header span{background:#009688;margin-left:30px;padding:10px;color:#fff;}
+		.header button{float:right;margin-top:-5px;}
+		.thumb{height:28px;float:right;border:1px solid #f0f0f0;padding:1px;}
+		
+	</style>
+</head>
+<body style="padding:10px;">
+	<div class="header">
+		<span>商品列表</span>
+		<button class="layui-btn layui-btn-sm"  onclick="child(1);return false;">添加</button>
+	</div>
+	<!-- 搜索框 -->
+	<div class="layui-form-item">
+	  <div class="layui-input-inline">
+	    <input type="text" name="title" required lay-verify="required" placeholder="请输入商品名称" class="layui-input">
+	  </div>
+	  <button type="button" class="layui-btn layui-btn-primary"><i class="layui-icon">&#xe615;</i>搜索</button>
+	</div>
+
+	<table class="layui-table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>分类</th>
+				<th>名称</th>
+				<th>最低价格</th>
+				<th>成本</th>
+				<th>PV</th>
+				<th>状态</th>
+				<th>添加时间</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>14</td>
+				<td>iphone</td>
+				<td>Apple iphone 8 plus 64GB 红色特别版 移动联通电信4G手机<img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>5000.00</td>
+				<td>3000.00</td>
+				<td>3</td>
+				<td>正常</td>
+				<td>2018-05-24 14:31:04</td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>14</td>
+				<td>iphone</td>
+				<td>Apple iphone 8 plus 64GB 红色特别版 移动联通电信4G手机<img src="Admin/static/images/pms (1).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>5000.00</td>
+				<td>3000.00</td>
+				<td>3</td>
+				<td>正常</td>
+				<td>2018-05-24 14:31:04</td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>14</td>
+				<td>iphone</td>
+				<td>Apple iphone 8 plus 64GB 红色特别版 移动联通电信4G手机<img src="Admin/static/images/pms (2).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>5000.00</td>
+				<td>3000.00</td>
+				<td>3</td>
+				<td>正常</td>
+				<td>2018-05-24 14:31:04</td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>14</td>
+				<td>iphone</td>
+				<td>Apple iphone 8 plus 64GB 红色特别版 移动联通电信4G手机<img src="Admin/static/images/pms (2).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>5000.00</td>
+				<td>3000.00</td>
+				<td>3</td>
+				<td>正常</td>
+				<td>2018-05-24 14:31:04</td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>14</td>
+				<td>iphone</td>
+				<td>Apple iphone 8 plus 64GB 红色特别版 移动联通电信4G手机<img src="Admin/static/images/pms (2).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>5000.00</td>
+				<td>3000.00</td>
+				<td>3</td>
+				<td>正常</td>
+				<td>2018-05-24 14:31:04</td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>14</td>
+				<td>iphone</td>
+				<td>Apple iphone 8 plus 64GB 红色特别版 移动联通电信4G手机<img src="Admin/static/images/pms (2).jpg" class="thumb" onmouseover='show_img(this);' onmouseleave='hide_img(this);'></td>
+				<td>5000.00</td>
+				<td>3000.00</td>
+				<td>3</td>
+				<td>正常</td>
+				<td>2018-05-24 14:31:04</td>
+				<td>
+					<a class="layui-btn layui-btn-xs" lay-event="edit" onclick="add()">编辑</a>
+	  				<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del" onclick="del();">删除</a>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+	<div id="test1"></div>
+	<script>
+		//添加删除的弹出层
+        layui.use(['layer','laypage'], function(){
+		  var layer = layui.layer;
+		  var laypage = layui.laypage;
+		   $ = layui.jquery;
+		  
+		  //执行一个laypage实例
+		  laypage.render({
+		    elem: 'test1' //注意，这里的 test1 是 ID，不用加 # 号
+		    ,count: 6 //数据总数，从服务端得到
+		    ,limit:2
+		  });
+		});
+
+
+
+		function del(){
+			layer.confirm('确定要删除吗？', {
+			  icon:2,
+			  btn: ['确定', '取消'] //可以无限个按钮
+			}, function(index, layero){
+			  //按钮【按钮一】的回调
+			}, function(index){
+			  //按钮【按钮二】的回调
+			});
+		}
+		//添加
+		//子菜单跳转
+		function child(pid){
+			window.location.href="product/add.html?pid="+pid;
+		}
+		
+		function back(pid){
+			window.location.href="../menu.html?pid="+pid;
+		}
+
+
+
+		//预览图片
+
+		//1、首先获取到浏览器窗口的位置（相对于文档）
+		function getMousePos(event){
+			var e = event || window.event;
+			//计算滚动条的位移
+			var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+			var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+
+			var x = e.pageX || e.clientX + scrollX;
+			var y = e.pageY || e.clientY + scrollY;
+			return {'x':x,'y':y};
+		}
+		//显示隐藏预览图片
+		function show_img(obj){
+			var imgurl =$(obj).attr('src')
+			var res=getMousePos()
+			var html='<div style="background:#fff;width:200px;border:solid 1px  #ccc;border-radius:6px;padding:2px;position:absolute;left:'+res.x+'px;top:'+res.y+'px;z-index:4" id="preview">\
+			    <img style="width:100%;border-radius:6px;" src="'+imgurl+'">\
+			    </div>'
+			$('body').append(html)
+		}
+		function hide_img(){
+			$('#preview').remove();
+		}
+		
+
+		
+	</script>
+
+</body>
+</html>

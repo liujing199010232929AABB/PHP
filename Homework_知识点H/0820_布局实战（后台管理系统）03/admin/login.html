@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+
+<form action="" method="post">
+    <table>
+        <caption>用户登录</caption>
+        <tr>
+            <td><label for="email">邮箱:</label></td>
+            <td><input type="email" id="email" placeholder="example@mail.com" required></td>
+        </tr>
+        <tr>
+            <td><label for="password">密码:</label></td>
+            <td><input type="password" id="password" placeholder="******" required></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" name="submit" value="提交" onclick="alert('提交成功');location.href='index.html'"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+
+<style>
+    body {
+        background-color: #efefef;
+    }
+    table,td {
+        border: none;
+        padding: 15px;
+    }
+
+    table {
+        width: 400px;
+        margin: auto;
+        background-color: lightgray;
+        border-radius: 8px;
+        box-shadow: 3px 3px 3px #888;
+
+    }
+    table td:first-child {
+        text-align: right;
+    }
+
+    input[type] {
+        width: 150px;
+        height: 30px;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding-left: 15px;
+    }
+
+    caption {
+        font-size: 1.5rem;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    /*选择最后一行中的最后一个单元格*/
+    table tr:last-child td:last-child {
+        text-align: center;
+    }
+    input[type="submit"] {
+        width: 100px;
+        height: 36px;
+        background-color: #fff;
+        border:2px solid #000;
+        border-radius: 8px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+</style>
+

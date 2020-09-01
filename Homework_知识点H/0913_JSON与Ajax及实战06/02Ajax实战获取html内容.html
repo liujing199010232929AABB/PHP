@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax实战:获取html内容</title>
+</head>
+<body>
+<button>我最喜欢的电影</button>
+
+<script>
+    let btn = document.getElementsByTagName('button')[0];
+    btn.onclick = function () {
+        //1.创建xhr对象
+        let xhr = new XMLHttpRequest();
+
+        //2.监听响应状态
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState === 4) { // 准备就绪
+                // 判断响应结果:
+                if (xhr.status === 200) {
+                    // 响应成功,通过xhr对象的responseText属性可以获取响应的文本,此时是html文档内容
+                    let div = document.createElement('div');  //创建新元素放返回的内容
+                    div.style.width = '600px';  // 设置内容区的宽和高
+                    div.style.height = '600px';
+                    div.innerHTML = xhr.responseText;   // 将响应文本添加到新元素上
+                    document.body.appendChild(div); // 将新元素插入到当前页面中
+                } else {
+                    // 响应失败,并根据响应码判断失败原因
+                    alert('响应失败'+xhr.status);
+                }
+            } else {
+                // http请求仍在继续,这里可以显示一个一直转来转去的图片
+            }
+
+        }
+
+        //3.设置请求参数
+        xhr.open('get','inc/index.html',true);
+
+        //4.发送请求
+        xhr.send(null);
+
+        //将点击按钮禁用,防止重复点击
+        btn.disabled = true;
+        // btn.setAttribute('disabled',true);  //等价语法
+    }
+</script>
+</body>
+</html>

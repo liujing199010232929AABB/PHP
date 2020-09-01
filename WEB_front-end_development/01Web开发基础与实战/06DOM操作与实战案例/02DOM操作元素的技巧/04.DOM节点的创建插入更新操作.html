@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>04.DOM节点的创建/插入/更新操作？</title>
+</head>
+<body>
+	<script>
+		let ul=document.createElement('ul');
+		ul.innerHTML='<li>我是列表项1</li>';
+		document.body.appendChild(ul);
+		let li1=document.createElement('li');
+		li1.innerHTML='我是列表项2';
+		ul.appendChild(li1);
+
+		let li2=document.createElement('li');
+		li2.innerHTML='<span style="color:red;">我是新插入的列表项</span>';
+		ul.insertBefore(li2,li1);
+
+		let li3=document.createElement('li');
+		li3.innerHTML='<span style="color:blue;">我是新插入的列表项</span>';
+		ul.insertBefore(li3,null);
+
+		ul.removeChild(li3);
+		let li4=document.createElement('li');
+		li4.innerHTML='<span style="color:pink;">我要替换掉别人</span>';
+		ul.replaceChild(li4,li2);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03.如何处理HTML元素中的内容？</title>
+</head>
+<body>
+	<p>我正在学习JAVA编程技术</p>
+	<p>我正在学习<strong style="color:red;">JAVA</strong>编程技术</p>
+	<script>
+		let p1=document.getElementsByTagName('p')[0];
+		let p2=document.getElementsByTagName('p')[1];
+		console.log(p1.innerHTML);
+		console.log(p2.innerHTML);
+		console.log(p1.textContent);
+		console.log(p2.textContent);
+		if(p1.childNodes[0].nodeType ===3){
+			console.log(p1.childNodes[0].nodeValue);
+		}
+		if(p2.childNodes[0].nodeType ===3){
+			console.log(p2.childNodes[0].nodeValue);
+		}
+
+	</script>
+	
+</body>
+</html>

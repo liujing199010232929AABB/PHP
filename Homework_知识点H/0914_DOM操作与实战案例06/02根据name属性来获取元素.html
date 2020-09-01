@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>根据name属性来获取元素</title>
+</head>
+<body>
+<!--拥有name属性的元素并不多,最常见的就是表单,以及表单中的元素,另外还有图像和内联框架-->
+<!--form,input..., img, iframe-->
+<form action="" name="login">
+    <input type="text" name="username">
+    <input type="password" name="password">
+    <button name="button">提交</button>
+</form>
+
+<script>
+    // getElementsByName()返回是一个NodeList节点列表,不只一个元素
+    let login = document.getElementsByName('login')[0];
+    // console.log(login);  //控制台查看
+    login.style.backgroundColor = 'yellow';
+    //还可以将name属性的值,当作docuemtn对象的属性来用,返回唯一元素
+    let login1 = document.login;
+    // console.log(login1);  //控制台查看
+    login1.style.backgroundColor = 'green';
+
+    //这个name属性更多的用于表单数据提交到服务器时,用来识别提交的内容
+</script>
+</body>
+</html>

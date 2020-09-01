@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery基本动画</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+<button class="btn">点击查看</button>
+<div class="box"></div>
+<script src="../lib/jquery.js"></script>
+<script>
+    // 1.显示,隐藏,切换: show(),hide(),tiggle();
+    // 2.滑动: slideDown()向下,slideUp()向下,slideToggle()切换;
+    // 3.淡入淡出: fadeIn()淡入,fadeOut()淡出,fadeTo(),fadeToggle()切换;
+    // $('.box').hide();
+    $('.btn').on('click', function () {
+        //1显示和隐藏
+        // $('.box').hide();
+        // $('.box').hide(2000);
+
+        // $('.box').show();
+        // $('.box').show(2000);
+        // $('.box').toggle();
+        // $('.box').toggle(2000);
+
+        // 2淡入淡出
+        // $('.box').fadeIn();
+        // $('.box').fadeIn('slow');
+        // $('.box').fadeIn(4000);
+
+        // $('.box').fadeOut('slow');
+        // $('.box').fadeOut(3000);
+        // $('.box').fadeTo(3000, 0.3);
+
+        //3.滑动
+        // $('.box').slideDown('slow');
+        // $('.box').slideDown(3000);
+        // $('.box').slideUp(3000);
+        // $('.box').slideUp('fast');
+        $('.box').slideToggle('slow');
+    })
+</script>
+</body>
+</html>

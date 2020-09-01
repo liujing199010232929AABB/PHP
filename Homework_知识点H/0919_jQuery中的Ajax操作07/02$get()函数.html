@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$.get()函数</title>
+</head>
+<body>
+<h3>江湖门派查询系统$.get()</h3>
+<label for="school">请选择:</label>
+<select name="school" id="school"></select>
+<p id="detail"></p>
+<script src="../lib/jquery.js"></script>
+<script>
+    // 1.$.get(),用于从服务器上读取内容
+    // 2.语法:$.get(url[,data][,callback][,dataType])
+    // 3.url: 服务器上的url地址,为空表示当前地址;
+    // 4.data:
+    //     (1).查询字符串格式: name=peter&age=88;
+    // (2).对象字面量: {name:'peter',age:88},自动序列化为上面的查询字符串;
+    // 5.callback: 请求成功的回调函数,function(响应文本,状态字符串,xhr对象),如果不需要回调,可设为null;
+    // 6.dataType: 响应内容类型/应答消息体, html/text/xml/json/script/jsonp;
+    // 7.返回值: 返回xhr对象
+
+    $.get('inc/school.php',function (data, status, xhr) {
+        // console.log(data);
+        // console.log(status);
+        // console.log(xhr);
+        if (status === 'success') {
+            // $('#school').html(data);
+            $(data).appendTo('#school');
+        }
+
+    });
+
+    $('#school').change(function (event) {
+        // console.log($(this).serialize());
+        $.get(
+            //请求的Url地址
+            'inc/detail.php',
+            //请求数据
+            {key: $(event.target).val()},
+            //请求成功的回调
+            function (data, status) {
+                if (status === 'success') {
+                    $('#detail').html(data);
+                    $('[value=""]').remove();
+                } else {
+                    $('#detail').html('<span style="color:red">请求失败</span>');
+                }
+            }
+        );
+    })
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../lib/dist/css/bootstrap.css">
+    <title>标签页/选项卡</title>
+    <style>
+        .no-border {border:none;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <!--选项卡有二个必须设置的属性-->
+            <!--a标签中的href设置锚点:#和标签页对应的内容区的id对应-->
+            <!--data-toggle="tab"-->
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#article" data-toggle="tab">技术文章</a></li>
+                <li><a href="#code" data-toggle="tab">网站源码</a></li>
+                <li><a href="#manual" data-toggle="tab">原生手册</a></li>
+                <li><a href="#blog" data-toggle="tab">推荐博文</a></li>
+            </ul>
+            <!--标签页对应的内容区-->
+            <div class="tab-content">
+                <div id="article" class="tab-pane active">
+                    <div class="list-group">
+                        <a href="" class="list-group-item no-border">了解最新技术文章</a>
+                        <a href="" class="list-group-item no-border">了解最新技术文章</a>
+                        <a href="" class="list-group-item no-border">了解最新技术文章</a>
+                        <a href="" class="list-group-item no-border">了解最新技术文章</a>
+                    </div>
+                </div>
+
+                <div id="code" class="tab-pane">
+                    <div class="list-group">
+                        <a href="" class="list-group-item no-border">了解最新网站源码</a>
+                        <a href="" class="list-group-item no-border">了解最新网站源码</a>
+                        <a href="" class="list-group-item no-border">了解最新网站源码</a>
+                        <a href="" class="list-group-item no-border">了解最新网站源码</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="../lib/jquery.js"></script>
+<script src="../lib/dist/js/bootstrap.js"></script>
+</body>
+</html>

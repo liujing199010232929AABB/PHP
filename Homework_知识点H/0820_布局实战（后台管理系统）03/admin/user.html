@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+</head>
+<body>
+<table>
+    <caption>用户管理</caption>
+    <tr>
+        <td>ID</td>
+        <td>用户名</td>
+        <td>邮箱</td>
+        <td>角色</td>
+        <td>操作</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>admin</td>
+        <td>admin@php.cn</td>
+        <td>超级管理员</td>
+        <td><a href="">编辑</a>&nbsp;|&nbsp;<a href="">删除</a></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>peter</td>
+        <td>peter@php.cn</td>
+        <td>讲师</td>
+        <td><a href="">编辑</a>&nbsp;|&nbsp;<a href="">删除</a></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>zhu</td>
+        <td>zhu@php.cn</td>
+        <td>会员</td>
+        <td><a href="">编辑</a>&nbsp;|&nbsp;<a href="">删除</a></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>猪哥</td>
+        <td>zhuge@php.cn</td>
+        <td>版主</td>
+        <td><a href="">编辑</a>&nbsp;|&nbsp;<a href="">删除</a></td>
+    </tr>
+</table>
+
+<!--分页-->
+<p>
+    <a href="">首页</a>
+    <a href="" class="active">1</a>
+    <a href="">2</a>
+    <a href="">3</a>
+    <a href="">4</a>
+    <a href="" class="more">...</a>
+    <a href="">尾页</a>
+</p>
+</body>
+</html>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+    table {
+        width: 650px;
+        margin: auto;
+        border-collapse: collapse;
+        text-align: center;
+    }
+
+    td {
+        padding: 10px;
+    }
+    a {
+        text-decoration-line: none;
+        color: green;
+    }
+
+    a:hover {
+        color: brown;
+        text-decoration-line: underline;
+    }
+
+    tr:first-child {
+        margin-top: 20px;
+        background-color: lightblue;
+    }
+
+    table caption {
+        font-size: 1.5rem;
+        font-weight: bolder;
+        margin-bottom: 20px;
+    }
+
+    p {
+        text-align: center;
+    }
+    /*首页样式*/
+    p a:first-child {
+        width: 56px;
+    }
+
+    p a:last-child {
+        width: 56px;
+    }
+    p a {
+        display: inline-block;
+        width: 28px;
+        height: 24px;
+        border: 1px solid green;
+        margin-left:2px;
+        line-height: 24px;
+
+    }
+
+    /*当前页样式*/
+    .active {
+        background-color: green;
+        color: white;
+    }
+
+    .more {
+        border: none;
+    }
+
+</style>

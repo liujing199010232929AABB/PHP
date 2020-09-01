@@ -1,0 +1,22 @@
+[
+  {
+    "cityId": 1,
+    "cityName": "合肥",
+    "proId":1
+  },
+  {
+    "cityId": 2,
+    "cityName": "芜湖",
+    "proId":1
+  },
+  {
+    "cityId": 3,
+    "cityName": "南京",
+    "proId":2
+  },
+  {
+    "cityId": 4,
+    "cityName": "苏州",
+    "proId":2
+  }
+]

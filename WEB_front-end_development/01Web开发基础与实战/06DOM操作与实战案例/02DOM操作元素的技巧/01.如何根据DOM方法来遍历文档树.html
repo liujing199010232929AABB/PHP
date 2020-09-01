@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01.如何根据DOM方法来遍历文档树？</title>
+</head>
+<body>
+	<ul>
+		<li>列表项01</li>
+		<li>列表项02</li>
+		<li>列表项03</li>
+		<li>列表项04</li>
+		<li>列表项05</li>
+	</ul>
+	<script>
+		//console.log(document.nodeType);
+		//console.log(document.nodeName);
+		//console.log(document.nodeValue);
+		//console.log(document.childNodes[1].childNodes[2]);
+
+		//console.log(document.children[0].children[1]);
+
+		let ul = document.children[0].children.item(1).children[0];//ul
+		console.log(ul);
+		ul.firstElementChild.style.backgroundColor = 'lightblue';
+		ul.lastElementChild.style.backgroundColor = 'lightblue';
+		console.log(ul.childElementCount);
+		console.log(ul.children.length);
+
+		let li1 = ul.children.item(2);
+		console.log(li1);
+
+		li1.nextElementSibling.style.backgroundColor = 'yellow';
+		li1.previousElementSibling.style.backgroundColor = 'cyan';
+
+		li1.parentElement.style.backgroundColor = 'wheat';
+
+		li1.parentNode.style.backgroundColor ='red';
+
+
+
+	</script>
+</body>
+</html>

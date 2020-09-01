@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>05.jQuery事件切换</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+	<style type="text/css" media="screen">
+		div,p{width:100px;height:100px;border:1px solid #ccc;}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('div').hover(
+				function(){
+					$(this).css('background','red');
+				},
+				function(){
+					$(this).css('color','blue');
+				}
+			)
+			$('button').click(function(){
+					$('p').toggle().css('background','red');
+			})
+		})
+	</script>
+	<div>我是内容</div>
+	<p style="display:none;"></p>
+	<button type="">点击</button>
+</body>
+</html>

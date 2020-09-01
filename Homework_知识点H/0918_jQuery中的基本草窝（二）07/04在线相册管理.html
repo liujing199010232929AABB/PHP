@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线相册管理</title>
+    <style>
+        .warp {
+            width: 360px;
+            height: auto;
+            background-color: #efefef;
+            border: 3px double grey;
+            color: #363636;
+            border-radius: 2%;
+        }
+        .warp .header {
+            padding: 15px;
+        }
+        .warp .header h2 {
+            text-align: center;
+        }
+        .add {
+            width: 100px;
+            height: 30px;
+            border: none;
+            cursor: pointer;
+            background-color: skyblue;
+            color: white;
+        }
+        .add:hover {
+            background-color: orange;
+            font-size: 1.1rem;
+        }
+        .main {
+            overflow: hidden;
+        }
+
+        .main ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .main ul li {
+            list-style-type: none;
+            float: left;
+            margin-left: 20px;
+            margin-bottom: 10px;
+            width: 150px;
+            height: 200px;
+            text-align: center;
+        }
+
+        .main ul li button {
+            margin: 3px;
+            border: none;
+            border-radius: 5%;
+            background-color: lightgreen;
+        }
+        .main ul li button:hover {
+            background-color: orange;
+            color: white;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <div class="header">
+            <h2>江湖女侠排行榜</h2>
+            <p>
+                <lable for="img_url">输入图片地址</lable>
+                <input type="file" name="img_url" id="img_url" placeholder="图片地址">
+            </p>
+            <p>
+               图片类型:
+                <input type="radio" id="rect" name="border" value="0"><label for="rect">直角</label>
+                <input type="radio" id="radius" name="border" value="10%"><label for="radius">圆角</label>
+                <input type="radio" id="circle" name="border" value="50%"><label for="circle">圆形</label>
+            </p>
+            <p>是否添加阴影:
+                <select name="shadow">
+                    <option value="0">不添加</option>
+                    <option value="1">添加</option>
+                </select>
+            </p>
+            <p><button class="add">添加图片</button></p>
+        </div>
+        <div class="main">
+            <ul>
+                <!--<li>-->
+                    <!--<img src="" alt="">-->
+                    <!--<button>前</button>-->
+                    <!--<button>后</button>-->
+                    <!--<button>删</button>-->
+                <!--</li>-->
+            </ul>
+        </div>
+    </div>
+
+    <script src="../lib/jquery.js"></script>
+    <script>
+        //分三步完成:
+
+        $(function(){
+
+            $('button.add').on('click',function(){
+                //1. 获取图片的相关信息
+                // 判断用户是否选择了图片?
+               let img_url = $('#img_url').val();
+               if (img_url.length === 0) {
+                   alert('请选择一张图片');
+                   $('#img_url').focus();
+                   return false;
+               }
+
+               //获取图片的基本特征
+                //获取到图片的外观
+                let img_type = $(':radio:checked').val();
+               //是否添加阴影?
+                let shadow = 'none';
+                if ($(':selected').val() === '1') {
+                    shadow = '3px 3px 3px #666';
+                }
+
+                //2. 创建图片并添加到页面中
+                console.log('http://jq.io/0918/images/'+img_url.split('\\')[2]);
+                img_url = 'http://jq.io/0918/images/'+img_url.split('\\')[2];
+
+
+                //创建一个图片
+                let img = $('<img>')
+                    .prop('src',img_url)
+                    .width(150)
+                    .height(150)
+                    .css({  // 给标签设置 style= ""
+                        'border-radius': img_type,
+                        'box-shadow': shadow
+                    });
+
+                let before = $('<button></button>').text('前移');
+                let after = $('<button></button>').text('后移');
+                let remove = $('<button></button>').text('删除');
+
+                // 创建一个<li>用来放所有的内容
+                let contaier = $('<li>');
+                //将图片和三个按钮打包到<li>中
+                contaier.append(img,before,after,remove);
+                //将<li>添加到页面中的<ul>中
+                contaier.appendTo('ul');
+             //3. 为三个操作添加功能
+                //前移功能:
+                before.click(function(){
+                    //第一步获取到要移动的图片
+                    let current = $(this).parent();
+                    let prev = current.prev(); // 前一个元素
+                    // 在前一个元素之前将当前元素插入,实际上就是交换一下位置
+                    prev.before(current);
+                });
+
+                //后移功能:
+                after.click(function(){
+                    //第一步获取到要移动的图片
+                    let current = $(this).parent();
+                    let next = current.next(); // 后一个元素
+                    // 在后一个元素之后将当前元素插入,实际上就是交换一下位置
+                    next.after(current);
+                });
+
+                //删除
+                remove.click(function () {
+                    if (confirm('确认删除吗?')) {
+                        $(this).parent().remove();
+                    }
+                    return false;
+                })
+            })
+
+        });
+
+    </script>
+</body>
+</html>

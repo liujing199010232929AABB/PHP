@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$.ajax()</title>
+</head>
+<body>
+<h3>用户登录$.ajax()</h3>
+<p>
+    <label for="email">邮箱:</label>
+    <input type="email" id="email" name="email">
+
+</p>
+<p>
+    <label for="password">密码:</label>
+    <input type="password" id="password" name="password">
+</p>
+
+<p><button>提交</button></p>
+<script src="../lib/jquery.js"></script>
+<script>
+    $('button').click(function () {
+        //邮箱的非空验证
+        if ($('#email').val().length === 0) {
+            $('#email').after('<span style="color:red">邮箱不能为空</span>')
+                .next().fadeOut(3000);
+            $('#email').focus(); // 设置焦点
+            return false;
+        }
+
+        //密码的非空验证
+        if ($('#password').val().length === 0) {
+            $('#password').after('<span style="color:red">密码不能为空</span>')
+                .next().fadeOut(3000);
+            $('#password').focus(); // 设置焦点
+            return false;
+        } else  if ($('#password').val().length < 6) {
+            $('#password').after('<span style="color:red">密码长度不能少于6位</span>')
+                .next().fadeOut(3000);
+            $('#password').focus(); // 设置焦点
+            return false;
+        }
+
+        $.ajax({  // 参数必须是对象
+            type: 'post', // 请求类型
+            url: 'inc/check.php', // 请求的脚本
+            data: 'email='+$('#email').val()+'&password='+$('#password').val(),
+            // data: {             // 请求数据
+            //     email: $('#email').val(),
+            //     password: $('#password').val()
+            // },
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                if (data.status == 1) {  // 验证通过
+                    $('button')
+                        .after('<span style="color:green"></span>')
+                        .next()  // 切换到span
+                        .html(data.message)  // 填充span内容
+                        .fadeOut(2000);
+                } else {
+                    $('button')
+                        .after('<span style="color:red"></span>')
+                        .next()  // 切换到span
+                        .html(data.message)  // 填充span内容
+                        .fadeOut(2000);
+                }
+
+            }
+        });
+    });
+</script>
+</body>
+</html>

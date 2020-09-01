@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05.jQuery选择器——属性选择器</title>
+	<script type="text/javascript" src="../static/jQuery/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// $('input[type]').css('background','pink');
+			// $('input[type=button]').css('background','blue');
+			// $('input[type!=text]').css('height','50px');
+			// $('input[type^=t]').css('background','red');
+			// $('input[type$=n]').css('background','blue');
+			// $('input[type*=o]').css('background','blue');
+			$('input[id][name*=n]').css('background','pink');
+
+		})
+		
+	</script>
+	<form>
+		<label>1</label><input type="text" name="new" id="woman"><br>
+		<label>2</label><input type="password" name="new1" id="man"><br>
+		<label>3</label><input name=""><br>
+		<label>4</label><input type="button" name="" value="按钮"><br>
+	</form>
+</body>
+</html>

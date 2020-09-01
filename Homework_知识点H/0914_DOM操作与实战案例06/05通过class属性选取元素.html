@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过class属性选取元素</title>
+</head>
+<body>
+<ul class="ul">
+    <li class="red">列表项01</li>
+    <li>列表项02</li>
+    <li class="green">列表项03</li>
+    <li>列表项04</li>
+    <li class="coral large">列表项05</li>
+</ul>
+
+<script>
+    //根据元素的class属性值获取元素
+    let red = document.getElementsByClassName('red');
+    console.log(red);   //返回一个html元素集合,与根据标签名获取的返回数据类型完全一样
+    red[0].style.backgroundColor = 'red';
+
+    //该方法也支持在父元素上调用
+    document.getElementsByClassName('ul').item(0)
+            .getElementsByClassName('green').item(0)
+            .style.backgroundColor = 'green';
+
+    //支持多个class 属性值
+    let large = document.getElementsByClassName('coral large')[0];
+    large.style.backgroundColor = 'coral';
+    large.style.fontSize = '1.5rem';
+
+</script>
+</body>
+</html>

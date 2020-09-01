@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用选择器</title>
+    <style>
+        /*标签选择器*/
+        ul {
+            padding: 0;
+            margin: 0;
+            width: 500px;
+            border: 1px dashed #666;
+            padding: 10px 5px;
+        }
+
+        ul:after {  /*子块撑开父块*/
+            content:'';  /*在子元素尾部添加空内容元素*/
+            display: block;  /*并设置为块级显示*/
+            clear:both;   /*清除二边的浮动*/
+        }
+
+        ul li {
+            list-style: none; /*去掉默认列表项样式*/
+            float: left;  /*左浮动*/
+            width: 40px;  /*设置宽度*/
+            height: 40px; /*设置高度*/
+            line-height: 40px; /*文本垂直居中*/
+            text-align: center; /*文本水平居中*/
+            border-radius: 50%; /*设置边框圆角*/
+            box-shadow: 2px 2px 2px #888;
+            background: skyblue; /*背景色天蓝*/
+            margin-right: 5px; /*每个球之间的右外边距*/
+        }
+        /*id选择器*/
+        #item1 {
+            background-color: coral;
+        }
+        /*类选择器*/
+        .item2 {
+            background-color: gold;
+        }
+        /*属性选择器: 属性名*/
+        ul li[class] {
+            background-color: blueviolet;
+        }
+        /*属性选择器: 属性值*/
+        ul li[class="item2"] {
+            background-color: grey;
+        }
+        /*属性选择器: 以指定属性值开头*/
+        ul li[class^="cat"] {
+            background-color: brown;
+        }
+        /*属性选择器: 以指定属性值结束*/
+        ul li[class$="pig"] {
+            background-color: red;
+        }
+        /*属性选择器: 属性值中包含指定子串*/
+        ul li[class*="te"] {
+            /*第1,2小球会变色,思考为什么1球没变色?*/
+            /*第1个小球是id,它的优先级大于标签属性选择器,改成class就会有效果*/
+            background-color: green;
+        }
+
+        /*后代选择器*/
+        body ul li {
+            border: 1px solid black;
+        }
+
+        /*子选择器*/
+        ul > li[class$="pig"] {
+            background-color: greenyellow;
+        }
+
+        /*相邻选择器*/
+        ul li[class$="pig"] ~ * {
+            /*选择当前元素之后的所有同级元素(不含当前)*/
+            background-color: black;
+            color: white;
+        }
+
+        /*相邻兄弟选择器*/
+        ul li[class$="pig"] + li {
+            background-color: pink;
+            color: black;
+        }
+
+        /*群组选择器*/
+        h1, p {
+            font-size: 2rem;
+            font-weight: lighter;
+            margin: 0;
+        }
+
+        /*伪类选择器: 链接*/
+        a {
+            font-size: 2rem;
+        }
+        /*访问前*/
+        a:link {
+            color:red;
+        }
+        /*访问后*/
+        a:visited {
+            color: orange;
+        }
+        /*获取焦点时*/
+        a:focus {
+            color: purple;
+        }
+        /*鼠标悬停时*/
+        a:hover {
+            color: green;
+        }
+        /*鼠标点击时*/
+        a:active {
+            color: blue;
+        }
+
+        /*伪类选择器: 位置*/
+        /*选择集合中的第一个元素*/
+        ul li:first-child {
+            background-color: #efefef;
+            background-color: #efefef!important;
+        }
+
+        /*选择集合中的最后一个子元素*/
+        ul li:last-child {
+            background-color: red;
+        }
+
+        /*按索引选择指定的元素,注意从1开始计数*/
+        ul li:nth-child(5) {
+            background-color: red;
+        }
+        /* 选择所有的偶数小球变色 */
+        /* 2n偶数, even偶数, 2n+1奇数, odd奇数*/
+        ul li:nth-child(even) {
+            background-color: purple!important;
+        }
+
+        /*伪类选择器: 根据子元素数量*/
+        /*选择具有唯一子元素的元素*/
+        ol:only-child {
+            background-color: lawngreen;
+        }
+
+        /* 选择指定类型的唯一子元素 */
+        ol li:only-of-type {
+            background-color: lawngreen;
+        }
+
+        /* 倒数选择指定位置的元素 */
+        ul li:nth-last-child(3) {
+            /*将倒数第3个小球变色,实际上第8号球*/
+            background-color: wheat!important;
+        }
+
+        /*选择指定父级的第二个<li>子元素*/
+        ol li:nth-of-type(2) {
+            background-color: wheat;
+        }
+
+        /*选择页面中内容为空的元素*/
+        :empty {
+            width: 220px;
+            height: 271px;
+            background-color: coral;
+
+        }
+
+        :empty:after {
+            content: '看到我了吗?亲';
+        }
+
+        :empty:before {
+            /*默认插入的元素为行内元素,不支持宽度设定,如果一定要设置可以通过背景图片实现*/
+            content: url("monkey.png");
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li id="item1">1</li>
+    <li class="item2">2</li>
+    <li class="cat dog pig">3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+</ul>
+
+<h1>css选择器大法</h1>
+<p>css选择器非常重要,对于后面的jquery学习至关重要</p>
+
+<a href="http://php.cn">PHP中文网</a>
+
+<ol>
+    <li>列表项1</li>
+    <!--
+    现在给ol再添加一个子元素<p>,有二个子元素了,所以子元素不再唯一,
+    如何才能选中唯一的li元素呢？only-of-type
+    -->
+    <p>我是一个段落</p>
+</ol>
+
+<ol>
+    <li>列表项1</li>
+    <li>列表项2</li>
+    <li>列表项3</li>
+</ol>
+
+<ol>
+    <li>列表项1</li>
+    <li>列表项2</li>
+    <li>列表项3</li>
+    <li>列表项4</li>
+</ol>
+
+<!--空区块-->
+<div></div>
+
+
+</body>
+</html>

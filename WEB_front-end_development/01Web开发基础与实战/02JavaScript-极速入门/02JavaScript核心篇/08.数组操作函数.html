@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>08.数组操作函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a,b,c,d;
+		a=Array(1,2,3,4);
+		b="php中文网";
+		c=Array("小狗","小猫");
+		d=a.concat(b,c);
+		document.write(d+'<br>');
+		document.write(typeof(d)+'<br>');
+
+		var e,f;
+		e=Array(1,2,3,4);
+		f=e.join("_");
+		document.write(f+'<br>');
+		console.log(f);
+		document.write(typeof(f)+'<br>');
+
+
+		var x,l;
+		x=Array(1,2,3,4);
+		console.log(x.reverse());
+		l=Array(1,100,3,4,1000);
+		console.log(l.sort);
+
+
+
+		var h,i,j;
+		h=Array('jack','bill','jun','jing','lili');
+		// i=h.splice(1,2,"jing");
+		// console.log(i);
+		// console.log(h);
+		i=h.slice(1,3);
+		console.log(i);
+
+		j=h.push("合肥")
+		console.log(j);
+		// console.log(h);
+
+		console.log(h.pop());
+		console.log(h);
+
+		console.log(h.pop());
+		console.log(h);
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

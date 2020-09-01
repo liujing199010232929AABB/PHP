@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03.后台管理系统的HOME页面（layui后台模板）</title>
+	<link rel="stylesheet" type="text/css" href="Admin/static/layui/css/layui.css">
+	<script type="text/javascript" src="Admin/static/layui/layui.js"></script>
+	<style type="text/css" media="screen">
+		.userinfo a{color:#fff;}
+		.header{width:100%;height:50px;line-height:50px;background:#1A65AF;color:#fff;}
+		.title{margin-left:20px;font-size:20px;}
+		.userinfo{float:right;margin-right:10px;}
+
+		.menu{width:200px;background:#333744;position:absolute;}
+		.layui-collapse{border:none;}
+		.layui-colla-item{border-top:none;}
+		.layui-colla-content{border-top:none;padding:0px;}
+		.layui-colla-title{background:#42485b;color:#fff;}
+
+		.main{position:absolute;left:200px;right:0px;}
+
+	</style>
+</head>
+<body>
+	<!-- header -->
+	<div class="header">
+		<span class="title">京东商城--后台管理系统</span>
+		<span class="userinfo">admin [系统管理员]&nbsp;&nbsp;<span class=""><a onclick="logoout()"> 退出 </a></span></span>
+
+	</div>
+
+	<!-- 菜单 -->
+	<div class="menu" id="menu">
+		<div class="layui-collapse" lay-accordion>
+		  <div class="layui-colla-item">
+		    <h2 class="layui-colla-title">管理员管理</h2>
+		    <div class="layui-colla-content layui-show">
+		    	<ul class="layui-nav layui-nav-tree" lay-filter="test">
+				  <li class="layui-nav-item">
+				    <a href="javascript:;" onclick="menuFire(this);return false;" src="admin.html">管理员列表</a>
+				  </li>
+				</ul>
+		    </div>
+		  </div>
+		  <div class="layui-colla-item">
+		    <h2 class="layui-colla-title">权限管理</h2>
+		    <div class="layui-colla-content">
+		    	<ul class="layui-nav layui-nav-tree" lay-filter="test">
+				  <li class="layui-nav-item">
+				    <a href="javascript:;" src="menu.html" onclick="menuFire(this);return false;">菜单管理</a>
+				  </li>
+				  <li class="layui-nav-item">
+				    <a href="javascript:;" src="roles.html"onclick="menuFire(this);return false;">角色管理</a>
+				  </li>
+				</ul>
+		    </div>
+		  </div>
+		  <div class="layui-colla-item">
+		    <h2 class="layui-colla-title">系统设置</h2>
+		    <div class="layui-colla-content">
+		    	<ul class="layui-nav layui-nav-tree" lay-filter="test">
+				  <li class="layui-nav-item">
+				    <a href="javascript:;" src="site.html" onclick="menuFire(this);return false;">网站设置</a>
+				  </li>
+				</ul>
+		    </div>
+		  </div>
+		  <div class="layui-colla-item">
+		    <h2 class="layui-colla-title">商品分类</h2>
+		    <div class="layui-colla-content">
+		    	<ul class="layui-nav layui-nav-tree" lay-filter="test">
+				  <li class="layui-nav-item">
+				    <a href="javascript:;" src="cates.html" onclick="menuFire(this);return false;">分类列表</a>
+				  </li>
+				</ul>
+		    </div>
+		  </div>
+		  <div class="layui-colla-item">
+		    <h2 class="layui-colla-title">产品管理</h2>
+		    <div class="layui-colla-content">
+		    	<ul class="layui-nav layui-nav-tree" lay-filter="test">
+				  <li class="layui-nav-item layui-nav-itemed">
+				    <a href="javascript:;" src="product.html"  onclick="menuFire(this);return false;">产品列表</a>
+				  </li>
+				</ul>
+		    </div>
+		  </div>
+		  <div class="layui-colla-item">
+		    <h2 class="layui-colla-title">幻灯片管理</h2>
+		    <div class="layui-colla-content">
+		    	<ul class="layui-nav layui-nav-tree" lay-filter="test">
+				  <li class="layui-nav-item layui-nav-itemed">
+				    <a href="javascript:;" src="slide.html" onclick="menuFire(this);return false;">首页首屏</a>
+				  </li>
+				</ul>
+		    </div>
+		  </div>
+		</div>
+	</div>
+
+	<!-- 主操作页面 -->
+	<div class="main">
+		<iframe src="welcome.html" onload="resetMainHeight(this);" style="width:100%;height:100%;" frameborder="0" scrolling="0"></iframe>
+	</div>
+	
+	<script>
+		layui.use(['element', 'layer'], function(){
+		  var element = layui.element;
+		  var layer = layui.layer;
+
+		  //layui中调用jquery初始化
+		  $=layui.jquery;
+		  resetMenuHeight();
+		});
+
+		//点击退出按钮
+		function logoout(){
+			layer.confirm('确定要退出吗？', {
+			  icon:3,
+			  btn: ['确定', '取消'] //可以无限个按钮
+			}, function(index, layero){
+			  //按钮【按钮一】的回调
+			}, function(index){
+			  //按钮【按钮二】的回调
+			});
+		}
+		//重新设置菜单容器的高度
+		function resetMenuHeight(){
+			var height=document.documentElement.clientHeight-50;
+			$('#menu').height(height);
+		}
+		
+		//菜单点击
+		function menuFire(obj){
+			//获取url地址
+			var src=$(obj).attr('src')
+			//改变iframe内页面地址
+			$('iframe').attr('src',src)
+		}
+		//设置操作主页面的高度
+		function resetMainHeight(obj){
+			var height=parent.document.documentElement.clientHeight-50
+			$(obj).parent('div').height(height)
+		}
+		
+	</script>
+
+</body>
+</html>

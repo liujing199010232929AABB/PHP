@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>经典的三列双飞翼布局</title>
+    <style type="text/css">
+        /*先给最简单的头部和底部设置基本的样式*/
+        .header, .footer {
+            /*宽度为窗口的宽度,自适应变化*/
+            width: 100%;
+
+            /*为了简化,头部与尾部高度统一设置为60px*/
+            height: 60px;
+
+            /*参考背景色:浅灰*/
+            background-color: lightgray;
+        }
+
+        .footer {
+            /*底部二边不能有浮动元素*/
+            clear: both;
+        }
+
+        /*设置头部和底部的中间内容区的基本样式*/
+        .content {
+            /*先设置总的宽度,这步很重要*/
+            width: 1000px;
+
+            /*高度直接引用父区块值*/
+            min-height: 100%;
+
+            /*设置参考色:灰色*/
+            background-color: gray;
+
+            /*使自己水平居中*/
+            margin: auto;
+
+            /*使其内部的文本水平垂直居中*/
+            text-align: center;
+            line-height: 60px;
+        }
+
+        /*设置主体的基本样式*/
+        .container {
+            /*设置主体的总宽度:非常关键*/
+            width: 1000px;
+
+            /*设置主体内部所有区块水平居中*/
+            margin:auto;
+
+            /*使当前区块能够包住内部的浮动区块*/
+            overflow: hidden;
+
+            /*设置背景参考色*/
+            background-color: yellow;
+        }
+
+        /*设置主体区域中的中间区块的基本样式*/
+        .wrap {
+            /*宽度与父区块相同,独占整行,这很重要,可确保后面的浮动元素换行显示*/
+            width: 100%;
+
+            /*参考背景色: 青色*/
+            background-color: cyan;
+
+            /*左浮动,脱离文档流*/
+            float: left;
+        }
+
+        /*设置中间区块的样式*/
+        .main {
+            /*注意:它的宽度是在父区块wrap中设置了,这里不需要重复设置*/
+
+            /*给中间内容区设置一个最小高度,这个最终会被真实内容替换*/
+            min-height:600px;
+
+            /*设置左右外边距为left和right的宽度,使他们显示到正确位置*/
+            margin: 0 200px;  /*这是最后一步*/
+
+
+            /*参考背景色:小麦色*/
+            background-color: wheat;
+
+        }
+        .left {
+            /*宽度是必须设置的*/
+            width: 200px;
+
+            /*同理,也设置一个最小高度*/
+            min-height:600px;
+
+            /*设置左浮动:与前面元素一起排列*/
+            float:left;
+
+            /*将左区块拉回到中间区块的起始位置处*/
+            margin-left:-100%;
+
+            /*设置背景参考色:天蓝色*/
+            background-color: lightskyblue;
+        }
+
+        /*设置右边区块的基本样式*/
+        .right {
+            /*同样也要先设置一个宽度*/
+            width: 200px;
+
+            /*高度与先给一个最小高度做为参考,最终会被实际内容替换*/
+            min-height:600px;
+
+            /*同样也要设置左浮动,依次排到left区块的后面*/
+            float:left;
+
+            /*将右区块拉回到上一行的最右侧*/
+            margin-left:-200px;
+
+            /*背景参考色:浅绿*/
+            background-color: lightgreen;
+
+        }
+
+    </style>
+</head>
+<body>
+
+
+<!-- DOM结构 -->
+
+<!-- 头部 -->
+<div class="header">
+    <div class="content">网站头部</div>
+</div>
+
+<!-- 主体 -->
+<div class="container">
+
+    <div class="wrap">
+        <div class="main">主体内容区</div>
+    </div>
+
+    <div class="left">左侧</div>
+
+    <div class="right">右侧</div>
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+    <div class="content">网站底部</div>
+</div>
+
+<pre>
+	三列经典的双飞翼布局的创建步骤与原理分析:
+	第1步: 创建一个大容器container,设置页面总宽度并左右居中
+		.container {
+		min-width: 1000px;
+		margin: auto;
+		background-color: yellow;
+	}
+
+	第2步:创建三列DOM结构,顺序非常重要,
+		2.1主体content在前,其次是left和right
+		2.2主体content必须套一个父级块main,将样式加给它才可以
+		2.3其中main宽度100%,left,right宽度固定
+		2.4main,left,right的高度暂时先设置为固定值,有了内容填充时再设置为100%,随内容自适应变化
+
+	第3步:main,left,right全部左浮动,因为前面的wrap块宽度为100%,必须导致left,right全部被挤到了下面
+
+	第4步: left设置,margin:-1000px;或者 margin-left:-100%;
+	 (100%就是父级块的宽度1000px,负数表示方向相反,即向左缩进,最终到达父块起始点:0,0)
+
+	第5步: right设置,参考left,只需要margin-left: -200px;
+	  (注意,只要移动一个绝对值,把自己移上去到最后就可以了)
+
+	第6步: content内容块,添加左右外边距,将内容区挤压出来: margin: 0 200px;
+		并给一个宽度100%,直接引用父级块宽度
+	</pre>
+</body>
+</html>

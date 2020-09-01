@@ -1,0 +1,113 @@
+/*********** 声明公共元素样式 ***********/
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #efefef;
+}
+li {
+    list-style-type: none;
+}
+
+a {
+    color: green;
+    text-decoration-line: none;
+}
+
+
+a:hover {
+    color: brown;
+    text-decoration-line: underline;
+}
+
+/*********** 声明顶部样式 ***********/
+
+header {
+    background: linear-gradient(to top, lightgrey, #efefef);
+    width: 100%;
+    overflow: hidden;
+    height: 60px;
+    border-bottom: 1px solid gray;
+}
+header div {
+    width: 1200px;
+    margin: auto;
+}
+header h1 {
+    float: left;
+    margin-left: 20px;
+    font-weight: normal;
+    line-height: 60px;
+}
+
+header nav {
+    float: right;
+    margin-right: 20px;
+}
+
+header nav ul li {
+    float: left;
+    padding-left: 30px;
+    line-height: 80px;
+}
+
+/*********** 声明主体区样式 ***********/
+
+/*侧边导航栏*/
+main {
+    width: 1000px;  /*内容区宽度*/
+    height: 800px;
+    margin: 0 auto;
+    padding-left: 200px;
+    overflow: hidden;
+
+    /*布局参考线*/
+    /*border: 1px solid red;*/
+}
+
+main article {
+    float: left;
+
+    /*布局参考色块*/
+    /*background-color: #FD6FCF;*/
+    width: 100%;
+    min-height: 100%;
+
+}
+
+
+
+main aside {
+    float: left;
+    background: linear-gradient(to left, lightgrey, #efefef);
+    border-right: 1px solid gray;
+    width: 200px;
+    min-height: 100%;
+    margin-left: -100%;
+    position: relative;
+    left: -200px;
+}
+
+main aside nav {
+    padding: 20px 30px;
+}
+
+main aside nav li {
+    line-height: 2rem;
+}
+
+
+main article iframe {
+    min-width: 100%;
+    min-height: 650px;
+    margin: auto;
+    border: none;
+}
+
+main article footer p {
+    text-align: center;
+}
+
+
+

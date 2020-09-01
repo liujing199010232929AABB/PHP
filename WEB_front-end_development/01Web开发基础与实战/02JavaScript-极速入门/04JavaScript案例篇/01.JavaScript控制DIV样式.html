@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01.JavaScript控制DIV样式</title>
+	<style type="text/css" media="screen">
+		#box{width:100px;height:100px;background:red;margin:20px 80px;}
+	</style>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+	<input type="button" value="变高" onclick="aa(this)">
+	<input type="button" value="变宽" onclick="bb(this)">
+	<input type="button" value="变色" onclick="cc(this)">
+	<input type="button" value="重置" onclick="dd(this)">
+	<input type="button" value="隐藏" onclick="ee(this)">
+	<input type="button" value="显示" onclick="ff(this)">
+
+	<script type="text/javascript">
+		var box;
+		window.onload=function(){
+			box=document.getElementById('box')
+		}
+		function aa(){
+			box.style.height="400px";
+
+		}
+		function bb(){
+			box.style.width="400px";
+		}
+		function cc(){
+			box.style.background="blue";
+		}
+		function dd(){
+			box.style.height="100px";
+			box.style.width="100px";
+			box.style.background="red";
+		}
+		function ee(){
+			box.style.display="none";
+		}
+		function ff(){
+			box.style.display="block";
+		}
+
+
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05.字符串（string）操作函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var txt="hello world";
+		document.write(txt.length+'<br>');
+		var b=txt.charAt(2);
+		document.write(b+'<br>');
+		// indexOf();
+		// lastIndexOf();
+		var str="how do you do"
+		var v1=str.indexOf("do");
+		document.write(v1+'<br>');
+		var v2=str.lastIndexOf("hello");
+		document.write(v2+'<br>');
+
+		// substring();
+		var a=txt.substring(2,6);
+		document.write(a+'<br>');
+
+		var x=txt.replace("world","PHP中文网");
+		document.write(x+'<br>');
+
+		var text="PHP中文网";
+		var y=txt.concat(text,text);
+		document.write(y+'<br>');
+
+
+		document.write(txt.substr(2,6));
+
+
+
+	</script>
+
+
+</body>
+</html>

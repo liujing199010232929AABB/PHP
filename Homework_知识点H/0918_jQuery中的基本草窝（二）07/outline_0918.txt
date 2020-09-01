@@ -1,0 +1,24 @@
+一、jQuery中常用的筛选方式
+    1. 直接从集合中获取元素:eq(),first(),last();
+    2. 根据元素在集合中的关系:
+        [1].next(),nextAll(),nextUntil(): 向后查询
+        [2].prev(),prevAll(),prevUntil(); 向前查询
+        [3].siblings(): 向前和向后进行双向查询
+        [4].parent(): 获取父级元素
+        [5].children(),find(),filter(),not():多级查询
+        [6].is(),has(): 判断查询
+    3. 集合区间查询与元素添加: slice(), add()
+
+-------------------------------------------------------------------------
+
+二、jQuery基本动画
+    1.显示,隐藏,切换: show(),hide(),tiggle();
+    2.滑动: slideDown()向下,slideUp()向下,slideToggle()切换;
+    3.淡入淡出: fadeIn()淡入,fadeOut()淡出,fadeTo(),fadeToggle()切换;
+
+-------------------------------------------------------------------------
+
+三、jQuery中的基本事件
+    1.鼠标事件: click点击, mouseenter移入,mouseleave移出;
+    2.表单事件: submit提交, change内容改变,focus获取焦点, blur失去焦点
+

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$.getScript()动态加载脚本</title>
+</head>
+<body>
+<script src="../lib/jquery.js"></script>
+<script>
+    //在页面中使用js动态创建一个按钮,再成功回调中设置它的淡出效果并消失
+    $.getScript('inc/demo.js',function(){
+        //js加载成功的回调
+       $('button').fadeTo(4000,0.3);
+    });
+</script>
+</body>
+</html>

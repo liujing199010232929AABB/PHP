@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>根据id选择元素</title>
+</head>
+<body>
+<ul id="lists">
+    <li id="item1">列表项01</li>
+    <li>列表项02</li>
+    <li id="item2">列表项03</li>
+    <li>列表项04</li>
+    <li id="item3">列表项05</li>
+</ul>
+
+<script>
+    //使用id属性获取元素
+    let item1 = document.getElementById('item1');
+    let item2 = document.getElementById('item2');
+    let item3 = document.getElementById('item3');
+
+    //设置元素的样式
+    item1.style.backgroundColor = 'yellow';
+    item2.style.backgroundColor = 'yellow';
+    item3.style.backgroundColor = 'yellow';
+
+    //如果需要使用多个id来获取元素,可以通过函数来简化操作
+    function getElements () {   //参数是多个id字符串
+        let elements = {};  // 创建一个空的map映射对象用来保存结果
+        for (let i = 0; i < arguments.length; i++) {
+            let id = arguments[i];  // 获取到要查询的每个id
+            let elt = document.getElementById(id); // 根据id查找元素
+            if (elt === null) {
+                throw new Error("No element with id: " + id);  //抛出异常
+            }
+            elements[id] = elt; // 将获取到的元素存入到映射数据中
+        }
+        return elements;  // 返回查询到的元素(以对象字面量方式)
+    }
+
+    //获取页面上指定的id属性的元素,返回一个关联数组类型的对象,键名就是id的值
+    let elements =  getElements('item1','item2','item3');
+    for (let key in elements) {
+        elements[key].style.backgroundColor = 'coral';
+    }
+
+</script>
+</body>
+</html>

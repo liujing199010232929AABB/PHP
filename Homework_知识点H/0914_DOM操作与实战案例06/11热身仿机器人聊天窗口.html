@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>热身:仿机器人聊天窗口</title>
+</head>
+<body>
+	<input type="text" name="info">
+	<button>提交</button>
+	<ul>
+		
+	</ul>
+	<script type="text/javascript">
+		//获取元素
+		let input = document.getElementsByName('info')[0];
+		let button = document.getElementsByTagName('button')[0];
+		let ul = document.getElementsByTagName('ul')[0];
+
+		button.onclick = function() {
+		 let li = document.createElement('li');	// 创建列表项li
+		 li.innerHTML = input.value;	// 填充内容
+		 ul.appendChild(li);	//将内容添加到列表中
+         input.value = '';	//清空文本框
+		};
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用css选择器来获取元素</title>
+</head>
+<body>
+<ul id="ul">
+    <li class="red">列表项01</li>
+    <li>列表项02</li>
+    <li class="green">列表项03</li>
+    <li class="green">列表项04</li>
+    <li class="coral large">列表项05</li>
+</ul>
+
+<script>
+    //我们选择页面元素的时候,大多使用css选择器来获取元素,例如
+    // .red 获取 class="red"的元素,其实js也支持使用css选择器获取元素
+    let lists = document.querySelectorAll('li');
+    console.log(lists);     //返回节点列表数组,里面每个元素对应一个元素
+    //可以使用
+    lists[0].style.backgroundColor = 'coral';
+    lists.item(1).style.backgroundColor = 'lightblue';
+
+    //该方法还可以在元素上调用,这也根据标签和class类名获取元素是一样的
+    let ul = document.querySelector('#ul'); // 获取满足条件的第一个元素
+    console.log(ul);    // 只返回ul列表元素以及内部子元素
+    let li = ul.querySelectorAll('.green');
+    for (let i = 0; i < li.length; i++) {
+        li[i].style.backgroundColor = 'green';
+    }
+
+</script>
+</body>
+</html>

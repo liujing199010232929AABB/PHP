@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../lib/dist/css/bootstrap.css">
+    <title>列表组</title>
+</head>
+<body>
+<!--1.基本样式,支持添加徽章-->
+<ul class="list-group">
+    <li class="list-group-item active">前端学习的经验分享1 <span class="badge">450</span></li>
+    <li class="list-group-item">前端学习的经验分享2 <span class="badge">567</span></li>
+    <li class="list-group-item">前端学习的经验分享3 <span class="badge">850</span></li>
+    <li class="list-group-item">前端学习的经验分享4 <span class="badge">123</span></li>
+    <li class="list-group-item">前端学习的经验分享5 <span class="badge">400</span></li>
+</ul>
+<hr>
+<!--2.带有链接的列表项,注意不要用ul,应该用div+a这种组合 -->
+<div class="list-group">
+    <a href="" class="list-group-item active">了解最新动态</a>
+    <a href="" class="list-group-item">了解最新动态</a>
+    <a href="" class="list-group-item">了解最新动态</a>
+    <a href="" class="list-group-item">了解最新动态</a>
+    <a href="" class="list-group-item">了解最新动态</a>
+</div>
+<hr>
+<!--3.列表项全部由按钮组成, div+button-->
+<div class="list-group">
+    <button type="button" class="list-group-item active">用户管理</button>
+    <button type="button" class="list-group-item">查看用户</button>
+    <button type="button" class="list-group-item">编辑用户</button>
+    <button type="button" class="list-group-item">查询积分</button>
+    <button type="button" class="list-group-item">其它操作</button>
+</div>
+
+<!--4.为每个列表项创建情景类-->
+<div class="list-group">
+    <a href="" class="list-group-item list-group-item-info">了解最新动态</a>
+    <a href="" class="list-group-item list-group-item-success">了解最新动态</a>
+    <a href="" class="list-group-item list-group-item-warning">了解最新动态</a>
+    <a href="" class="list-group-item list-group-item-danger">了解最新动态</a>
+</div>
+<hr>
+<!--5.定制列表项的内容-->
+<div class="list-group">
+    <a href="" class="list-group-item active">
+        <h4 class="list-group-item-heading">2018最新的web前端开发框架排行总结</h4>
+        <p class="list-group-item-text">如果你是一个前端开发人员，当你在开发新项目时，想必一定被人问过“你用的是什么框架？”进而开展各种前端技术话题。</p>
+    </a>
+    <a href="" class="list-group-item">
+        <h4 class="list-group-item-heading">2018最新的web前端开发框架排行总结</h4>
+        <p class="list-group-item-text">如果你是一个前端开发人员，当你在开发新项目时，想必一定被人问过“你用的是什么框架？”进而开展各种前端技术话题。</p>
+    </a>
+    <a href="" class="list-group-item">
+        <h4 class="list-group-item-heading">2018最新的web前端开发框架排行总结</h4>
+        <p class="list-group-item-text">如果你是一个前端开发人员，当你在开发新项目时，想必一定被人问过“你用的是什么框架？”进而开展各种前端技术话题。</p>
+    </a>
+
+</div>
+
+
+<script src="../lib/jquery.js"></script>
+<script src="../lib/dist/js/bootstrap.js"></script>
+</body>
+</html>

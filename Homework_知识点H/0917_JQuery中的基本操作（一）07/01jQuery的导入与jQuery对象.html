@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery的导入与jQuery对象</title>
+</head>
+<body>
+<ul>
+    <li>我是列表项01</li>
+    <li>我是列表项02</li>
+    <li>我是列表项03</li>
+    <li>我是列表项04</li>
+    <li>我是列表项05</li>
+</ul>
+
+
+<!--导入jQuery函数库-->
+<script src="../lib/jquery.js"></script>
+<script>
+    //DOM树创建完成就立即执行,不必等待外部资源(图片等)加载完成
+    // $(document)将整个document文档对象包装成jQuery对象
+    // 再调用jQuery的ready(),此时就可以用jQuery就可以访问全部文档内容了
+    $(document).ready(function(){
+        console.log($);     //  f(selector, context) {...}
+        console.log(typeof $);  // "funciton"
+        console.log($());   // 返回:jquery的对象
+        console.log(typeof $());   // "object"
+        console.log($('li'));   //将所有的li元素包装成一个jquery对象
+        // jquery对象是由由原始的dom的元素组成的一个数组,类似于dom元素集合
+        // 只有将dom元素通过$()函数包装(转换)成jquery对象后,才可以使用jquery提供的功能
+        // jquery对象数组中的每一个元素,都是一个dom元素对象,所以jquery与dom他们之间可以相互转换
+
+        //将第二个li转为dom对象
+        let li = $('li')[1];
+        //转为原生dom对象后,就可以使用原生的js语法来处理dom元素,例如,更新内容:
+        li.innerHTML = '<span style="color:red">我是新内容</span>';
+
+        //同样,还可以将转换后的li再转回jquery对象,这时又可以使用jquery中的方法来操作dom元素了
+        $('li').eq(1).html('<span style="color:lightgreen">我又回来了</span>');
+    });
+
+    //简写:直接传递一个匿名函数给$()
+    $(function(){
+        //暂时还没学习jquery方法,我们先用原生dom方法来操作元素
+        let li = $('li').get(3);  // 从jquey对象中获取到第四个dom元素
+        li.innerHTML = '<span style="color:red">双来一波新内容</span>';
+    });
+
+    // 注意: $()可以执行多次,所以 $(function())也可以调用多次
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+[
+  {
+    "areaId": 1,
+    "areaName": "包河区",
+    "cityId": 1
+  },
+  {
+    "areaId": 2,
+    "areaName": "蜀山区",
+    "cityId": 1
+  },
+  {
+    "areaId": 3,
+    "areaName": "玄武区",
+    "cityId": 2
+  },
+  {
+    "areaId": 4,
+    "areaName": "昆山市",
+    "cityId": 2
+  }
+]

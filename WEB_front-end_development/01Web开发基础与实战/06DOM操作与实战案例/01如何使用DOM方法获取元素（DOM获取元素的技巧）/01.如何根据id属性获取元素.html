@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>01.如何根据id属性获取元素？</title>
+</head>
+<body>
+	<ul id="lists">
+		<li id="item1">列表项01</li>
+		<li>列表项02</li>
+		<li id="item2">列表项03</li>
+		<li>列表项04</li>
+		<li id="item3">列表项05</li>
+	</ul>
+	<script>
+		let item1 = document.getElementById('item1');
+		let item2 = document.getElementById('item2');
+		let item3 = document.getElementById('item3');
+
+		item1.style.backgroundColor = 'yellow';
+		item2.style.backgroundColor = 'yellow';
+		item3.style.backgroundColor = 'yellow';
+
+		function getElements(){
+			let elements ={};
+			for(let i=0;i<arguments.length;i++){
+				// console.log(arguments.length);
+				let id=arguments[i];
+				let elt = document.getElementById(id);
+				if(elt === null){
+					throw new Error("没有这个元素"+id);
+				}
+				elements[id] =elt;
+			}
+			return elements;
+		}
+		let elements = getElements('item1','item2','item3');
+
+		console.log(elements);
+		for(let key in elements){
+			elements[key].style.backgroundColor = 'coral';
+		}
+	</script>
+</body>
+</html>

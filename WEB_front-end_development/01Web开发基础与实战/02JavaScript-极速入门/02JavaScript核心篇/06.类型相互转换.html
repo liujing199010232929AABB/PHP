@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06.类型相互转换</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a="123";
+		var b=123;
+        // string-0
+        document.write(a-0+'<br>');
+        var c=a-0;
+        document.write(typeof(a-0)+'<br>');
+        
+        var x="456";
+        var y=Number(x);
+        document.write(x+'<br>');
+        document.write(typeof(y)+'<br>');
+
+        var txt="123php中文网123456";
+        document.write(parseInt(txt)+'<br>');
+        document.write(Number(txt)+'<br>');
+
+        var str="123.123php中文网123456";
+        document.write(parseFloat(str)+'<br>');
+
+        var num=12345;
+        var num_str=num+'';
+        document.write(num+""+'<br>');
+        document.write(typeof(num+"")+'<br>');
+
+
+        var text=String(num);
+        document.write(typeof(text)+'<br>');
+
+        var d=num.toString();
+        document.write(typeof(d)+'<br>');
+
+
+
+
+
+	</script>
+
+</body>
+</html>
